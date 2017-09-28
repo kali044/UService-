@@ -5,19 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
         <title>Add a Request - UService</title>
-        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/add.css">
     </head>
 
     <body>
         <div class='container'>
 
-        <div class='navbar nav-bar-expand-md navbar-dark fixed-top bg-dark'>
+        <div id='navbar' class='navbar nav-bar-expand-md navbar-dark fixed-top bg-dark'>
             <a href="#" class='navbar-brand'>UService</a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a href="#" class="nav-link">
-                        "Testing"
+                        Requests
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">
+                        Offers
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">
+                        About
                     </a>
                 </li>
             </ul>
@@ -29,7 +39,7 @@
                 </div>
         
                 <div class='row'>
-                    <div class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
+                    <div id=type class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
                         <h4>Type</h4>
                         <button type='button' class='btn btn-default'>Tutor</button>
                         <button type='button' class='btn btn-default'> Book Selling</button>
@@ -37,7 +47,7 @@
                         <button type='button' class='btn btn-default'> Activities & Sports</button>
                     </div>
         
-                    <div class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
+                    <div id=name class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
                         <h4>Request Name</h4>
                         <form>
                             <label for="name"></label>
@@ -45,7 +55,7 @@
                         </form>
                     </div>
         
-                    <div class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
+                    <div id=details class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
                         <h4>Details</h4>
                         <form>
                                 <label for="Date"></label>
@@ -67,8 +77,11 @@
                         
                     </div>
                 </div>
-
-            <button type='button' class='btn btn-lg btn-primary'> Create</button>
+        
+            <div class=wrapper>
+                    <button id='button' type='button' class='btn btn-lg btn-primary'> Create</button>
+                </div>    
+            
 
         </div>
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
