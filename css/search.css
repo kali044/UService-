@@ -1,0 +1,18 @@
+      nav{
+        background-color: #FF5A5F;
+      }
+      nav a,li{
+        color: #FFFFFF;
+      }
+
+      .nav-tabs > li >a{
+        color: black;
+        font-weight: bold;
+      }
+
+
+      .tab-content{
+        color: black;
+        overflow-x: auto;
+
+      }
