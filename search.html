@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+      nav{
+        background-color: #FF5A5F;
+      }
+      nav a,li{
+        color: #FFFFFF;
+      }
+      a,table{
+        color: black;
+      }
+
+    </style>
+  </head>
+  <body>
+ 
+     
+     
+
+     <div class="container">
+        <nav class="navbar">
+         <div class="container-fluid">
+          <div class="navbar-header">
+           <a class="navbar-brand" href="#">WebSiteName</a>
+          </div>
+           <ul class="nav navbar-nav">
+             <li class="active"><a href="#">Home</a></li>
+             <li><a href="#">request</a></li>
+             <li><a href="#">offer</a></li>
+             <li><a href="#">about</a></li>
+           </ul>
+         </div>
+        </nav>
+     
+
+
+       <div class="col-sm-2 well">
+            
+            <div class="checkbox">
+              <label><input type="checkbox" value="">Option 1</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="">Option 2</label>
+            </div>
+            <div class="checkbox disabled">
+              <label><input type="checkbox" value="" disabled>Option 3</label>
+            </div>
+       </div>
+       <div id='search' class='col-sm-10'>
+         <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home">book</a></li>
+          <li><a data-toggle="tab" href="#menu1">carpool</a></li>
+          <li><a data-toggle="tab" href="#menu2">tutorial</a></li>
+          <li><a data-toggle="tab" href="#menu1">activity</li>
+        </ul>
+        <form>
+           <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+           <div class="input-group-btn">
+           <button class="btn btn-default" type="submit">
+             <i class="glyphicon glyphicon-search"></i>
+           </button>
+           </div>
+          </div>
+       </form>
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+          <h3>result</h3>
+            <table class="table table-hover">
+               <thead>
+                 <tr>
+                 <th>Firstname</th>
+                 <th>Lastname</th>
+                 <th>Email</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <tr>
+                  <td>John</td>
+                   <td>Doe</td>
+                  <td>john@example.com</td>
+                </tr>
+                <tr>
+                  <td>Mary</td>
+                  <td>Moe</td>
+                  <td>mary@example.com</td>
+                </tr>
+                <tr>
+                  <td>July</td>
+                  <td>Dooley</td>
+                  <td>july@example.com</td>
+                </tr>
+              </tbody>
+            </table>
+           </div>
+          <div id="menu1" class="tab-pane fade">
+          <h3>result</h3>
+            <table class="table table-hover">
+               <thead>
+                 <tr>
+                 <th>Firstname</th>
+                 <th>Lastname</th>
+                 <th>Email</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <tr>
+                  <td>John</td>
+                   <td>Doe</td>
+                  <td>john@example.com</td>
+                </tr>
+                <tr>
+                  <td>Mary</td>
+                  <td>Moe</td>
+                  <td>mary@example.com</td>
+                </tr>
+                <tr>
+                  <td>July</td>
+                  <td>Dooley</td>
+                  <td>july@example.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="menu2" class="tab-pane fade">
+          <h3>result</h3>
+            <table class="table table-hover">
+               <thead>
+                 <tr>
+                 <th>Firstname</th>
+                 <th>Lastname</th>
+                 <th>Email</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <tr>
+                  <td>John</td>
+                   <td>Doe</td>
+                  <td>john@example.com</td>
+                </tr>
+                <tr>
+                  <td>Mary</td>
+                  <td>Moe</td>
+                  <td>mary@example.com</td>
+                </tr>
+                <tr>
+                  <td>July</td>
+                  <td>Dooley</td>
+                  <td>july@example.com</td>
+                </tr>
+              </tbody>
+            </table>
+           </div>
+
+          <div id="menu3" class="tab-pane fade">
+         <h3>result</h3>
+            <table class="table table-hover">
+               <thead>
+                 <tr>
+                 <th>Firstname</th>
+                 <th>Lastname</th>
+                 <th>Email</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <tr>
+                  <td>John</td>
+                   <td>Doe</td>
+                  <td>john@example.com</td>
+                </tr>
+                <tr>
+                  <td>Mary</td>
+                  <td>Moe</td>
+                  <td>mary@example.com</td>
+                </tr>
+                <tr>
+                  <td>July</td>
+                  <td>Dooley</td>
+                  <td>july@example.com</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+
+       </div>
+       </div>
+        
+      
+    </div>
+
+
+     
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>
