@@ -2,172 +2,197 @@
 <html lang="en">
   <head>
      <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    <link rel="stylesheet"  href="css/search.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/search.css">
   </head>
-  <div class='container'>
-  <div id='navbar' class='navbar nav-bar-expand-md navbar-dark fixed-top bg-dark'>
-    <a href="home.html" class='navbar-brand'>UService</a>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a href="searchRequest.html" class="nav-link">
-                      Requests
-        </a>
-      </li>
 
-      <li class="nav-item active">
-        <a href="searchOffer.html" class="nav-link">
-                      Offers
-        </a>
-      </li>
-      <li class="nav-item active">
-        <a href="about.html" class="nav-link">
-                      About
-        </a>
-      </li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right">
-      <button type="button" class="btn btn-info btn-lg" id="myBtn">Sign Up</button>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right">
-      <button type="button" class="btn btn-info btn-lg" id="myBtn2">Log In</button>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right">
-      <li class="nav-item active">
-        <a href="profile.html" class="navbar-right"><img src="image/blankprofile.png" style="width:40px;height:40px;"></a>
-      </li>
-    </ul>
-    </div>
-  </div>
   <body>
 
-        <div class="col-sm-2 well">
-            <h1>Filter</h1>
-            <div class="checkbox">
-              <label><input type="checkbox" value="">Date</label>
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" value="">Pay</label>
-            </div>
+      <div id='navbar' class='navbar nav-bar-expand-md navbar-dark fixed-top bg-dark'>
+            <a href="home.html" class='navbar-brand'>UService</a>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a href="searchRequest.html" class="nav-link">
+                              Requests
+                </a>
+              </li>
 
-        </div>
-       <div id='search' class='col-sm-8'>
-          <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#book">book</a></li>
-            <li><a data-toggle="tab" href="#carpool">carpool</a></li>
-            <li><a data-toggle="tab" href="#tutorial">tutorial</a></li>
-            <li><a data-toggle="tab" href="#activity">activity</a></li>
-         </ul>
-            <form>
-               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
-               <div class="input-group-btn">
-               <button class="btn btn-default" type="submit">
-                 <i class="glyphicon glyphicon-search"></i>
-               </button>
-               </div>
+              <li class="nav-item active">
+                <a href="searchOffer.html" class="nav-link">
+                              Offers
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a href="about.html" class="nav-link">
+                              About
+                </a>
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <button type="button" class="btn btn-info btn-lg" id="myBtn">Sign Up</button>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <button type="button" class="btn btn-info btn-lg" id="myBtn2">Log In</button>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item active">
+                <a href="profile.html" class="navbar-right"><img src="image/blankprofile.png" style="width:40px;height:40px;"></a>
+              </li>
+            </ul>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-3">
+              <h4>Filter</h4>
+              <h5>Price</h5>
+              <div class="btn-group btn-group-sm" role="group" aria-label="price">
+                <button type="button" class="btn btn-outline-danger"><50</button>
+                <button type="button" class="btn btn-outline-danger">50-100</button>
+                <button type="button" class="btn btn-outline-danger">>100</button>
               </div>
-           </form>
-        <div class="tab-content">
-          <div id="book" class="tab-pane fade in active">
-            <h3>result</h3>
-            <table class="table table-hover">
-               <thead>
-                 <tr>
-                 <th>Name</th>
-                 <th>Subject</th>
-                 <th>Date</th>
-                 </tr>
-               </thead>
-               <tbody>
-               <tr>
-                  <td> book</td>
-                   <td>Math</td>
-                  <td>2017/10/1</td>
-                </tr>
 
-              </tbody>
-            </table>
-           </div>
-          <div id="carpool" class="tab-pane">
-           <h3>result</h3>
-            <table class="table table-hover">
-               <thead>
-                 <tr>
-                 <th>From</th>
-                 <th>To</th>
-                 <th>Date</th>
-                 </tr>
-               </thead>
-               <tbody>
-                <tr>
-                  <td>Amherst</td>
-                   <td>Boston</td>
-                  <td>2017/10/1</td>
-                </tr>
-
-              </tbody>
-            </table>
           </div>
+          <div class="col-lg-8 col-md-6">
+            <nav class="nav nav-tabs" id="myTab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-book-tab" data-toggle="tab" href="#nav-book" role="tab" aria-controls="nav-home" aria-expanded="true">Book</a>
+              <a class="nav-item nav-link" id="nav-carpool-tab" data-toggle="tab" href="#nav-carpool" role="tab" aria-controls="nav-carpool">Carpool</a>
+              <a class="nav-item nav-link" id="nav-tutorial-tab" data-toggle="tab" href="#nav-tutorial" role="tab" aria-controls="nav-tutorial">Tutorial</a>
+              <a class="nav-item nav-link" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity">Activity</a>
 
-          <div id="tutorial" class="tab-pane">
-          <h3>result</h3>
-            <table class="table table-hover">
-               <thead>
-                 <tr>
-                 <th>Subject</th>
-                 <th>Degree</th>
-                 <th>Date</th>
-                 </tr>
-               </thead>
-               <tbody>
-                <tr>
-                  <td>Math</td>
-                   <td>Freshman</td>
-                  <td>2017/10/1</td>
-                </tr>
+           </nav>
 
-              </tbody>
-            </table>
-           </div>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-book" role="tabpanel" aria-labelledby="nav-book-tab">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Enter the name of book" aria-describedby="book">
+                  <span class="input-group-addon" id="book">Search</span>
+                </div>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Condition</th>
+                        <th>Cost</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Web programming</td>
+                        <td>Computer Science</td>
+                        <td>new</td>
+                        <td>100</td>
+                        <td>2017/10/1</td>
+                      </tr>
 
-            <div id="activity" class="tab-pane">
-             <h3>result</h3>
-              <table class="table table-hover">
-                 <thead>
-                   <tr>
-                   <th>Name</th>
-                   <th>Place</th>
-                   <th>Date</th>
-                   </tr>
-                 </thead>
-                 <tbody>
-                  <tr>
-                    <td>Basketball</td>
-                     <td>Gym</td>
-                    <td>2017/10/1</td>
-                  </tr>
+                    </tbody>
+                </table>
+              </div>
+              <div class="tab-pane fade" id="nav-carpool" role="tabpanel" aria-labelledby="nav-carpool-tab">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Enter the departure/destination" aria-describedby="carpool">
+                  <span class="input-group-addon" id="carpool">Search</span>
+                </div>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Car Type</th>
+                        <th>Cost</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Amherst</td>
+                        <td>Boston</td>
+                        <td>Sedan</td>
+                        <td>100</td>
+                        <td>2017/10/1</td>
+                      </tr>
 
-                </tbody>
+                    </tbody>
+                </table>
+              </div>
+              <div class="tab-pane fade" id="nav-tutorial" role="tabpanel" aria-labelledby="nav-tutorial-tab">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Enter the name of subject" aria-describedby="tutorial">
+                  <span class="input-group-addon" id="tutorial">Search</span>
+                </div>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Subject</th>
+                      <th>degree</th>
+                      <th>cost</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Computer Science</td>
+                      <td>Freshman</td>
+                      <td>100/h</td>
+                      <td>2017/10/1</td>
+                    </tr>
+
+                  </tbody>
               </table>
+                </div>
+              <div class="tab-pane fade" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Enter the name of activity" aria-describedby="activity">
+                  <span class="input-group-addon" id="activity">Search</span>
+                </div>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Place</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>basketball</td>
+                      <td>gym</td>
+                      <td>2017/10/1</td>
+                    </tr>
+
+                  </tbody>
+              </table>
+                </div>
+
+            </div>
           </div>
-
-       </div>
-       </div>
-
-       <div class="col-sm-2">
-         <div class="alert alert-danger">
-            Can't find what you want?
+          <div class="col-lg-2 col-md-3">
+            <div class="alert alert-secondary" role="alert">
+              Can't find what you want?
+            </div>
+            <button  type="button" class="btn btn-secondary" name="button">Create your offer</button>
+          </div>
         </div>
-        <button type="button" class="btn btn-default" name="button">Create your offer</button>
-       </div>
+
+      </div>
+      <footer class="footer">
+        <p>© TeamRichar 2017</p>
+      </footer>
+
 
 
 
