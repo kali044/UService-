@@ -6,27 +6,6 @@
   background-color: white !important;
 }
 
-.navbar-nav>button {
-	font-size: 15px;
-	margin-right: 2px;
-	margin-left: 2px;
-	background-color: #FF5A5F!important;
-	border-color: #FF5A5F!important;
-}
-
-.navbar-nav>li {
-	padding-left: 10px;
-}
-
-.navbar-nav>button:active, .navbar-nav>button:focus{
-	background-color: #FF5A5F!important;
-	border-color: #FF5A5F!important;
-}
-
-.navbar-nav{
-    flex-direction: row;
-}
-
 .about p {
   text-align: center;
   padding: 20px;
