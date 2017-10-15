@@ -21,17 +21,17 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
 
-# Use include() to add URLS from the catalog application 
+# Use include() to add URLS from the catalog application
 from django.conf.urls import include
 
 urlpatterns += [
-    url(r'^TEAMRICHARDS/', include('TEAMRICHARDS.urls')),
+    url(r'^USERVICE/', include('USERVICE.urls')),
 ]
 
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    url(r'^$', RedirectView.as_view(url='/TEAMRICHARDS/', permanent=True)),
+    url(r'^$', RedirectView.as_view(url='/USERVICE/', permanent=True)),
 ]
 
 # Use static() to add url mapping to serve static files during development (only)
