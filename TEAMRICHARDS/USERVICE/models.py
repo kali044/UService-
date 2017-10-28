@@ -44,6 +44,7 @@ class Profile(models.Model):
         lastname.save()
         email.save()
         return
+        
 
 class Activity(models.Model):
     """
@@ -115,6 +116,7 @@ class Carpool(models.Model):
         """
         self.cost = new_cost
 
+
 class Tutor(models.Model):
     """
     Model representing a tutor service
@@ -154,7 +156,6 @@ class Tutor(models.Model):
     def get_absolute_url(self):
         return reverse('tutor', args=[str(self.id)])
 
-# Create your models here.
 
 class Textbook_Trading(models.Model):
     # Fields
