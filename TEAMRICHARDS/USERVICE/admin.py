@@ -18,7 +18,7 @@ admin.site.register(Profile, ProfileAdmin)
 @admin.register(Carpool) 
 class CarpoolAdmin(admin.ModelAdmin):
 	list_display = ('creator', 'title', 'destination', 'date', 'cost')
-	fields = ['creator', 'title', 'destination', 'date', 'cost']
+	fields = ['creator', 'title', 'destination', 'description', 'date', 'cost']
 
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
