@@ -4,6 +4,23 @@ from django.urls import reverse #Used to generate URLs by reversing the URL patt
 
 # Create your models here.
 
+class User(models.Model):
+    name = models.CharField(max_length=100, help_text="Name")
+    email = models.CharField(max_length=100, help_text="Email")
+    password = models.CharField(max_length=10, help_text="Password")
+
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular author instance.
+        """
+        return reverse('user-detail', args=[str(self.id)])
+
+    def __str__(self):
+        """
+        String for representing the Model object.
+        """
+        return '%s, %s' % (self.name, self.email)
+
 class Profile(models.Model):
     """
     Model representing a profile.
@@ -45,6 +62,7 @@ class Profile(models.Model):
         email.save()
         return
 
+
 class Activity(models.Model):
     """
     Model representing a book (but not a specific copy of a book).
@@ -58,10 +76,10 @@ class Activity(models.Model):
     offer = models.BooleanField(default=False)
 
     def modifyTitle(self, title2):
-    	self.title = title2
+        self.title = title2
 
     def modifyDescription(self,desc2):
-    	self.description = desc2
+        self.description = desc2
 
 
     def modifyDate(self,date2):
@@ -115,6 +133,7 @@ class Carpool(models.Model):
         """
         self.cost = new_cost
 
+
 class Tutor(models.Model):
     """
     Model representing a tutor service
@@ -154,7 +173,6 @@ class Tutor(models.Model):
     def get_absolute_url(self):
         return reverse('tutor', args=[str(self.id)])
 
-# Create your models here.
 
 class Textbook_Trading(models.Model):
     # Fields
@@ -179,7 +197,7 @@ class Textbook_Trading(models.Model):
         self.date=newDate
     def edit_cost(self,newCost):
         self.cost=newCost
-        
+
     # Methods
     def get_absolute_url(self):
          """
@@ -191,4 +209,5 @@ class Textbook_Trading(models.Model):
         """
         String for representing the Model object.
         """
+
         return self.title
