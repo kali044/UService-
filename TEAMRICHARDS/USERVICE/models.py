@@ -122,11 +122,11 @@ class Tutor(models.Model):
     title = models.CharField(max_length=200, help_text="Enter a tutor service title" )
     creator = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
     description = models.TextField(max_length=1000, help_text = "Enter a brief description of the tutor")
-    date = model.DateField(null=True, blank=True)
-    cost = model.DecmialField(max_digits=6, decimal_places=2, help_text="Enter the of each tutor session")
-    subject = model.TextField(max_length=100, help_text="Enter the subject")
-    request = model.BooleanField(default=False)
-    offer = model.BooleanField(default=False)
+    date = models.DateField(null=True, blank=True)
+    cost = models.DecmialField(max_digits=6, decimal_places=2, help_text="Enter the of each tutor session")
+    subject = models.TextField(max_length=100, help_text="Enter the subject")
+    request = models.BooleanField(default=False)
+    offer = models.BooleanField(default=False)
 
     def editTitle(newTitle, self):
         if (newTitle!=NULL):
