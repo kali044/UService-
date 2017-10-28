@@ -16,13 +16,19 @@ class Activity(models.Model):
     
     def modifyTitle(self, title2):
     	self.title = title2
-    	title.save()
-    	return 
+    	 
 
     def modifyDescription(self,desc2):
     	self.description = desc2
-    	description.save()
-    	return
+    	
+
+    def modifyDate(self,date2):
+        self.date = date2
+        
+
+    def modifyActivity(self,act2):
+        self.activity = act2
+        
 
 class Carpool(models.Model):
     """
@@ -67,15 +73,7 @@ class Carpool(models.Model):
         """
         self.cost = new_cost
         
-    def modifyDate(self,date2):
-    	self.date = date2
-    	date.save()
-    	return
 
-    def modifyActivity(self,act2):
-    	self.activity = act2
-    	activity.save()
-    	return
     	    
 class Tutor(models.Model):
     """
