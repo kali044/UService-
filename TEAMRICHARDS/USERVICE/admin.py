@@ -1,9 +1,7 @@
 from django.contrib import admin
-
 #Register your models here.
 
-from .models import Profile, Activity, Carpool, Tutor, Textbook_Trading
-
+from .models import Profile,Textbook_Trading,Carpool,Activity
 
 # admin.site.register(Profile)
 
@@ -15,7 +13,13 @@ class ProfileAdmin(admin.ModelAdmin):
 # Register the admin class with the associated model
 admin.site.register(Profile, ProfileAdmin)
 
-@admin.register(Carpool) 
+
+@admin.register(Textbook_Trading)
+class TextbookAdmin(admin.ModelAdmin):
+    list_display=('title','author','cost','creator')
+    fields=['title','author','cost','creator']
+
+@admin.register(Carpool)
 class CarpoolAdmin(admin.ModelAdmin):
 	list_display = ('creator', 'title', 'destination', 'date', 'cost')
 	fields = ['creator', 'title', 'destination', 'description', 'date', 'cost']
@@ -23,4 +27,9 @@ class CarpoolAdmin(admin.ModelAdmin):
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
 	list_display = ('title','creator','date', 'activity')
-	fields = ['title','creator','date', 'description', 'activity']
+	fields = ['title','creator','date', 'activity']
+
+@admin.register(Tutor)
+class Tutor (admin.ModelAdmin):
+    list_display = ('title', 'creator', 'date', 'cost', 'subject')
+    fields = ['title', 'creator', 'date', 'cost', 'subject', 'description']
