@@ -28,3 +28,43 @@ class MyModelName(models.Model):
         """
         return self.field_name
 
+
+class Tutor(models.Model):
+    """
+    Model representing a tutor service 
+    """
+
+    title = models.CharField(max_length=200, help_text="Enter a tutor service title" )
+    description = models.TextField(max_length=1000, help_text = "Enter a brief description of the tutor")
+    date = model.DateField(null=True, blank=True)
+    cost = model.DecmialField(max_digits=6, decimal_places=2, help_text="Enter the of each tutor session")
+    subject = model.TextField(max_length=100, help_text="Enter the subject")
+    request = model.BooleanField(default=False)
+    offer = model.BooleanField(default=False)
+
+    def editTitle(newTitle):
+        if (newTitle!=NULL)
+            title = newTitle
+
+    def editDescription(newDesc):
+        if (newDesc != NULL)
+            description = newDesc
+
+    def editDate(newDate):
+        if (newDate != NULL)
+            date = newDate
+
+    def editCost(newCost):
+        if (newCost != NULL)
+            cost = newCost
+
+    def editSubject(newSubject):
+        if (newSubject != NULL)
+            subject = newSubject
+
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('tutor', args=[str(self.id)])
