@@ -1,7 +1,7 @@
 from django.contrib import admin
 #Register your models here.
 
-from .models import Profile,Textbook_Trading,Carpool,Activity
+from .models import Profile,Textbook_Trading,Carpool,Activity, Tutor
 
 # admin.site.register(Profile)
 
@@ -30,6 +30,6 @@ class ActivityAdmin(admin.ModelAdmin):
 	fields = ['title','creator','date', 'activity']
 
 @admin.register(Tutor)
-class Tutor (admin.ModelAdmin):
+class TutorAdmin (admin.ModelAdmin):
     list_display = ('title', 'creator', 'date', 'cost', 'subject')
     fields = ['title', 'creator', 'date', 'cost', 'subject', 'description']
