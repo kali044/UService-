@@ -59,10 +59,10 @@ class Activity(models.Model):
     offer = models.BooleanField(default=False)
 
     def modifyTitle(self, title2):
-    	self.title = title2
+        self.title = title2
 
     def modifyDescription(self,desc2):
-    	self.description = desc2
+        self.description = desc2
 
 
     def modifyDate(self,date2):
@@ -193,5 +193,3 @@ class Textbook_Trading(models.Model):
         String for representing the Model object.
         """
         return self.title
-
-
