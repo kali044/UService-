@@ -209,8 +209,4 @@ class Textbook_Trading(models.Model):
         """
         String for representing the Model object.
         """
-<<<<<<< HEAD
         return self.title
-=======
-        return self.title
->>>>>>> 90f33146bb6e2f0da34ae5e8ff52ecc5c95a28d0
