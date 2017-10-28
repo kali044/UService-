@@ -148,23 +148,23 @@ class Tutor(models.Model):
     offer = models.BooleanField(default=False)
 
     def editTitle(newTitle, self):
-        if (newTitle!=NULL):
+        if (newTitle!=None):
             self.title = newTitle
 
     def editDescription(newDesc, self):
-        if (newDesc != NULL):
+        if (newDesc != None):
             self.description = newDesc
 
     def editDate(newDate, self):
-        if (newDate != NULL):
+        if (newDate != None):
             self.date = newDate
 
     def editCost(newCost, self):
-        if (newCost != NULL):
+        if (newCost != None):
             self.cost = newCost
 
     def editSubject(newSubject, self):
-        if (newSubject != NULL):
+        if (newSubject != None):
             self.subject = newSubject
 
     def __str__(self):
@@ -209,4 +209,5 @@ class Textbook_Trading(models.Model):
         """
         String for representing the Model object.
         """
+
         return self.title
