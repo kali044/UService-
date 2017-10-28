@@ -15,7 +15,7 @@ class ProfileAdmin(admin.ModelAdmin):
 # Register the admin class with the associated model
 admin.site.register(Profile, ProfileAdmin)
 
-@admin.register(Carpool)
+@admin.register(Carpool) 
 class CarpoolAdmin(admin.ModelAdmin):
 	list_display = ('creator', 'title', 'destination', 'date', 'cost')
 	fields = ['creator', 'title', 'destination', 'description', 'date', 'cost']
@@ -23,4 +23,4 @@ class CarpoolAdmin(admin.ModelAdmin):
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
 	list_display = ('title','creator','date', 'activity')
-	fields = ['title','creator','date', 'activity']
+	fields = ['title','creator','date', 'description', 'activity']
