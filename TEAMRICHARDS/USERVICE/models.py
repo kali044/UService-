@@ -42,29 +42,28 @@ class Tutor(models.Model):
     request = model.BooleanField(default=False)
     offer = model.BooleanField(default=False)
 
-    def editTitle(newTitle):
+    def editTitle(newTitle, self):
         if (newTitle!=NULL)
-            title = newTitle
+            self.title = newTitle
 
-    def editDescription(newDesc):
+    def editDescription(newDesc, self):
         if (newDesc != NULL)
-            description = newDesc
+            self.description = newDesc
 
-    def editDate(newDate):
+    def editDate(newDate, self):
         if (newDate != NULL)
-            date = newDate
+            self.date = newDate
 
-    def editCost(newCost):
+    def editCost(newCost, self):
         if (newCost != NULL)
-            cost = newCost
+            self.cost = newCost
 
-    def editSubject(newSubject):
+    def editSubject(newSubject, self):
         if (newSubject != NULL)
-            subject = newSubject
-
+            self.subject = newSubject
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_absolute_url(self):
         return reverse('tutor', args=[str(self.id)])
