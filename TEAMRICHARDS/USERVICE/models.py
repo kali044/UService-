@@ -4,6 +4,23 @@ from django.urls import reverse #Used to generate URLs by reversing the URL patt
 
 # Create your models here.
 
+class User(models.Model):
+    name = models.CharField(max_length=100, help_text="Name")
+    email = models.CharField(max_length=100, help_text="Email")
+    password = models.CharField(max_length=10, help_text="Password")
+
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular author instance.
+        """
+        return reverse('user-detail', args=[str(self.id)])
+
+    def __str__(self):
+        """
+        String for representing the Model object.
+        """
+        return '%s, %s' % (self.name, self.email)
+
 class Profile(models.Model):
     """
     Model representing a profile.
