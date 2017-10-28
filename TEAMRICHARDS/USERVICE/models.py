@@ -45,6 +45,7 @@ class Profile(models.Model):
         email.save()
         return
 
+
 class Activity(models.Model):
     """
     Model representing a book (but not a specific copy of a book).
@@ -58,10 +59,10 @@ class Activity(models.Model):
     offer = models.BooleanField(default=False)
 
     def modifyTitle(self, title2):
-    	self.title = title2
+        self.title = title2
 
     def modifyDescription(self,desc2):
-    	self.description = desc2
+        self.description = desc2
 
 
     def modifyDate(self,date2):
@@ -115,6 +116,7 @@ class Carpool(models.Model):
         """
         self.cost = new_cost
 
+
 class Tutor(models.Model):
     """
     Model representing a tutor service
@@ -154,7 +156,6 @@ class Tutor(models.Model):
     def get_absolute_url(self):
         return reverse('tutor', args=[str(self.id)])
 
-# Create your models here.
 
 class Textbook_Trading(models.Model):
     # Fields
