@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from .models import Textbook_Trading
 #Register your models here.
 
 from .models import Profile
@@ -13,3 +13,11 @@ class ProfileAdmin(admin.ModelAdmin):
 
 # Register the admin class with the associated model
 admin.site.register(Profile, ProfileAdmin)
+
+@admin.register(Textbook_Trading)
+class TextbookAdmin(admin.ModelAdmin):
+    list_display=('title','author','cost','creator')
+    fields=['title','author','cost','creator']
+    inlines=[TextbookInLine]
+class TextbookInLine(admin.TabularInline):
+    model = Textbook_Trading

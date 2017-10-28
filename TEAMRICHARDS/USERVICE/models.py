@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 from django.db import models
 from decimal import Decimal
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
@@ -181,7 +179,7 @@ class Textbook_Trading(models.Model):
         self.date=newDate
     def edit_cost(self,newCost):
         self.cost=newCost
-        
+
     # Methods
     def get_absolute_url(self):
          """
@@ -194,6 +192,3 @@ class Textbook_Trading(models.Model):
         String for representing the Model object.
         """
         return self.title
-
-
->>>>>>> 4d059eb1839d3d23be9b6ddc8f64db59132719f4
