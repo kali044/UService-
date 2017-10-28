@@ -25,9 +25,10 @@ class Profile(models.Model):
     """
     Model representing a profile.
     """
-    first_name = models.CharField(max_length=100, help_text="First Name")
-    last_name = models.CharField(max_length=100, help_text="Last Name")
-    email = models.CharField(max_length=100, help_text="johnorjane_doe@email.com")
+    # first_name = models.CharField(max_length=100, help_text="First Name")
+    # last_name = models.CharField(max_length=100, help_text="Last Name")
+    # email = models.CharField(max_length=100, help_text="johnorjane_doe@email.com")
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     review = models.CharField(max_length=500, help_text="Review")
     RATING = (
         ('vb', 'Very Bad'),
@@ -48,18 +49,14 @@ class Profile(models.Model):
         """
         String for representing the Model object.
         """
-        return '%s, %s' % (self.last_name, self.first_name)
+        return '%s' % (self.user)
 
     #not sure if this works
-    def edit_profile(newfirstname, newlastname, newemail):
+    def edit_profile(self, new_user):
         # Create a new record using the model's constructor.
-        firstname = Profile(first_name = newfirstname)
-        lastname = Profile(last_name = newlastname)
-        email = Profile(first_name = newemail)
+        self.user = new_user
         # Save the object into the database.
-        firstname.save()
-        lastname.save()
-        email.save()
+        self.user.save()
         return
 
 
