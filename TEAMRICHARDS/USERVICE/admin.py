@@ -11,10 +11,10 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name', 'email', 'rating', 'review')
     fields = ['last_name', 'first_name', 'email', 'rating', 'review']
 
+# Register the admin class with the associated model
+admin.site.register(Profile, ProfileAdmin)
+
 @admin.register(Carpool) 
 class CarpoolAdmin(admin.ModelAdmin):
 	list_display = ('creator', 'title', 'destination', 'date', 'cost')
 	fields = ['creator', 'title', 'destination', 'date', 'cost']
-
-# Register the admin class with the associated model
-admin.site.register(Profile, ProfileAdmin)
