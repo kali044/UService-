@@ -1,19 +1,15 @@
 from django.contrib import admin
 
-# Register your models here.
+#Register your models here.
 
-from .models import Service, Profile
+from .models import Profile
 
+# admin.site.register(Profile)
 
 # Define the admin class
-@admin.register(Profile)
-class ProfileAdmin(admin.ModelProfile):
+class ProfileAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name', 'email', 'rating', 'review')
-    fields = ['first_name', 'last_name', 'email', 'rating', 'review']
+    fields = ['last_name', 'first_name', 'email', 'rating', 'review']
 
+# Register the admin class with the associated model
 admin.site.register(Profile, ProfileAdmin)
-
-# Register the Admin classes for Book using the decorator
-@admin.register(Service)
-class Service(admin.ModelService):
-    list_display = ('title')
