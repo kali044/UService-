@@ -4,6 +4,11 @@ from django.urls import reverse #Used to generate URLs by reversing the URL patt
 
 # Create your models here.
 
+class User(models.Model):
+    name = models.CharField(max_length=100, help_text="Name")
+    email = models.CharField(max_length=100, help_text="Email")
+    password = models.CharField(max_length=10, help_text="Password")
+
 class Profile(models.Model):
     """
     Model representing a profile.
@@ -159,11 +164,11 @@ class Tutor(models.Model):
 class Textbook_Trading(models.Model):
     # Fields
     title = models.CharField(max_length=200)
-    author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
+    author = models.CharField(max_length=200)
     description = models.TextField(max_length=1000, help_text="Enter a brief description of the book")
     creator=models.ForeignKey(Profile,on_delete=models.SET_NULL,null=True)
     date=models.DateField(null=True,blank=True)
-    cost=models.DecimalField(max_digits=4,decimal_places=2,default=Decimal('0,00'))
+    cost=models.DecimalField(max_digits=4,decimal_places=2,default=Decimal('0.00'))
     request=models.BooleanField(default=False)
     offer=models.BooleanField(default=False)
     # Metadata
