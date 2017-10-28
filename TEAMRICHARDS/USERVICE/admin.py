@@ -2,7 +2,8 @@ from django.contrib import admin
 
 #Register your models here.
 
-from .models import Profile
+from .models import Profile, Activity, Carpool, Tutor, Textbook_Trading
+
 
 # admin.site.register(Profile)
 
@@ -13,3 +14,18 @@ class ProfileAdmin(admin.ModelAdmin):
 
 # Register the admin class with the associated model
 admin.site.register(Profile, ProfileAdmin)
+
+@admin.register(Carpool) 
+class CarpoolAdmin(admin.ModelAdmin):
+	list_display = ('creator', 'title', 'destination', 'date', 'cost')
+	fields = ['creator', 'title', 'destination', 'date', 'cost']
+
+@admin.register(Activity)
+class ActivityAdmin(admin.ModelAdmin):
+	list_display = ('title','creator','date', 'activity')
+	fields = ['title','creator','date', 'activity']
+
+@admin.register(Tutor)
+class Tutor (admin.ModelAdmin):
+    list_display = ('title', 'creator', 'date', 'cost', 'subject')
+    fields = ['title', 'creator', 'date', 'cost', 'subject', 'description']
