@@ -86,23 +86,23 @@ class Tutor(models.Model):
     offer = model.BooleanField(default=False)
 
     def editTitle(newTitle, self):
-        if (newTitle!=NULL)
+        if (newTitle!=NULL):
             self.title = newTitle
 
     def editDescription(newDesc, self):
-        if (newDesc != NULL)
+        if (newDesc != NULL):
             self.description = newDesc
 
     def editDate(newDate, self):
-        if (newDate != NULL)
+        if (newDate != NULL):
             self.date = newDate
 
     def editCost(newCost, self):
-        if (newCost != NULL)
+        if (newCost != NULL):
             self.cost = newCost
 
     def editSubject(newSubject, self):
-        if (newSubject != NULL)
+        if (newSubject != NULL):
             self.subject = newSubject
 
     def __str__(self):
@@ -136,7 +136,7 @@ class Textbook_Trading(models.Model):
         self.date=newDate
     def edit_cost(self,newCost):
         self.cost=newCost
-        
+
     # Methods
     def get_absolute_url(self):
          """
