@@ -34,9 +34,10 @@ class CarpoolAdmin(admin.ModelAdmin):
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
 	list_display = ('title','creator','date', 'activity')
-	fields = ['title','creator', 'description', 'date', 'activity']
+	fields = ['title','creator','date','activity', 'description']
+
 
 @admin.register(Tutor)
-class Tutor (admin.ModelAdmin):
+class TutorAdmin (admin.ModelAdmin):
     list_display = ('title', 'creator', 'date', 'cost', 'subject')
     fields = ['title', 'creator', 'date', 'cost', 'subject', 'description']
