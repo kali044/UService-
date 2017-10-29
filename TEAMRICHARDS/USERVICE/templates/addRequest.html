@@ -1,16 +1,6 @@
-<!DOCTYPE HTML>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <title>Add a Request - UService</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/add.css">
-        <link rel="stylesheet" href="css/navbar.css">
-    </head>
-
-    <body>
+{% extends "base_generic.html" %}
+{% block title %}<title>Add a Request - UService</title>{% endblock %}
+{% block content %}
         <div class='container'>
 
 
@@ -71,6 +61,4 @@
 
 
         </div>
-
-    </body>
-</html>
+{% endblock %}
