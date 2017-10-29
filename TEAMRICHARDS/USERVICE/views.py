@@ -38,13 +38,13 @@ def about(request):
 def addoffer(request):
 	return render(
         request,
-        'addoffer.html',
+        'addOffer.html',
     )
 
 def addrequest(request):
 	return render(
         request,
-        'addrequest.html',
+        'addRequest.html',
     )
 
 def edit(request):
@@ -53,4 +53,32 @@ def edit(request):
         'edit.html',
     )
 
-def offerservicedetail
+def offerservicedetail(request):
+	return render(
+        request,
+        'OfferServiceDetail.html',
+    )
+
+def requestservicedetail(request):
+	return render(
+        request,
+        'RequestServiceDetail.html',
+    )
+
+def profile(request):
+	return render(
+        request,
+        'profile.html',
+    )
+
+def searchoffer(request):
+	return render(
+        request,
+        'searchOffer.html',
+    )
+
+def searchrequest(request):
+	return render(
+        request,
+        'searchRequest.html',
+    )
