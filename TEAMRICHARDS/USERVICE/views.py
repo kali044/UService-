@@ -18,7 +18,39 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(
         request,
-        'home.html',
+        'index.html',
         context={'num_users':num_users,'num_profile':num_profile,
         'num_activities':num_activities,'num_tutor':num_tutor, 'num_textbook_trade':num_textbook_trade},
     )
+
+def home(request):
+	return render(
+        request,
+        'home.html',
+    )
+
+def about(request):
+	return render(
+        request,
+        'about.html',
+    )
+
+def addoffer(request):
+	return render(
+        request,
+        'addoffer.html',
+    )
+
+def addrequest(request):
+	return render(
+        request,
+        'addrequest.html',
+    )
+
+def edit(request):
+	return render(
+        request,
+        'edit.html',
+    )
+
+def offerservicedetail
