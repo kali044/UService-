@@ -22,3 +22,63 @@ def index(request):
         context={'num_users':num_users,'num_profile':num_profile,
         'num_activities':num_activities,'num_tutor':num_tutor, 'num_textbook_trade':num_textbook_trade},
     )
+
+def home(request):
+	return render(
+        request,
+        'home.html',
+    )
+
+def about(request):
+	return render(
+        request,
+        'about.html',
+    )
+
+def addoffer(request):
+	return render(
+        request,
+        'addoffer.html',
+    )
+
+def addrequest(request):
+	return render(
+        request,
+        'addrequest.html',
+    )
+
+def edit(request):
+	return render(
+        request,
+        'edit.html',
+    )
+
+def offerservicedetail(request):
+	return render(
+        request,
+        'OfferServiceDetail.html',
+    )
+
+def requestservicedetail(request):
+	return render(
+        request,
+        'RequestServiceDetail.html',
+    )
+
+def profile(request):
+	return render(
+        request,
+        'profile.html',
+    )
+
+def searchoffer(request):
+	return render(
+        request,
+        'searchOffer.html',
+    )
+
+def searchrequest(request):
+	return render(
+        request,
+        'searchRequest.html',
+    )
