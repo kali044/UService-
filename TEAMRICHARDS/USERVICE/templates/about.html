@@ -1,8 +1,9 @@
 {% extends "base_generic.html" %}
 {% block title %}<title>UService - About</title>{% endblock %}
 {% load static %}
-{% block style%}<link rel="stylesheet" href="{% static 'css/about.css' %}">{% endblock %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/home.css' %}">{% endblock %}
 {% block content %}
+    <body>
         <div class='jumbotron'>
             <div class='about'>
                 <h2>About</h2>
@@ -41,4 +42,5 @@
 
               </div>
         </div>
+    </body>
 {% endblock %}
