@@ -18,7 +18,7 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(
         request,
-        'home.html',
+        'index.html',
         context={'num_users':num_users,'num_profile':num_profile,
         'num_activities':num_activities,'num_tutor':num_tutor, 'num_textbook_trade':num_textbook_trade},
     )
@@ -38,13 +38,21 @@ def about(request):
 def addoffer(request):
 	return render(
         request,
+<<<<<<< HEAD
         'addoffer.html',
+=======
+        'addOffer.html',
+>>>>>>> a813b39803ec30f2230b67edb7005358d2323b27
     )
 
 def addrequest(request):
 	return render(
         request,
+<<<<<<< HEAD
         'addrequest.html',
+=======
+        'addRequest.html',
+>>>>>>> a813b39803ec30f2230b67edb7005358d2323b27
     )
 
 def edit(request):
@@ -81,4 +89,8 @@ def searchrequest(request):
 	return render(
         request,
         'searchRequest.html',
+<<<<<<< HEAD
     )
+=======
+    )
+>>>>>>> a813b39803ec30f2230b67edb7005358d2323b27
