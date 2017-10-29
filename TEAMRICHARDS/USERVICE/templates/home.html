@@ -5,8 +5,8 @@
 {% block content %}
   	<h1>Summary</h1>
   	<div class="wrapper">
-  		<button type="button" class="btn btn-info btn-lg" id="myBtn"><a id="offerBtn" href="searchRequest.html">I want to offer</a></button>
-  		<button type="button" class="btn btn-info btn-lg" id="myBtn"><a id="requestBtn" href="searchOffer.html">I want to request</a></button>
+  		<button type="button" class="btn btn-info btn-lg" id="myBtn"><a id="offerBtn" href="{% url 'searchrequest' %}">I want to offer</a></button>
+  		<button type="button" class="btn btn-info btn-lg" id="myBtn"><a id="requestBtn" href="{% url 'searchoffer' %}">I want to request</a></button>
   	</div>
   	<h1 class="table-heading">Ending Soon</h1>
     <table class='table table-borderless'>

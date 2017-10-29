@@ -38,13 +38,13 @@ def about(request):
 def addoffer(request):
 	return render(
         request,
-        'addoffer.html',
+        'addOffer.html',
     )
 
 def addrequest(request):
 	return render(
         request,
-        'addrequest.html',
+        'addRequest.html',
     )
 
 def edit(request):
