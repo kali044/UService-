@@ -38,11 +38,7 @@ def about(request):
 def addoffer(request):
 	return render(
         request,
-<<<<<<< HEAD
         'addoffer.html',
-=======
-        'addOffer.html',
->>>>>>> 65cc92c979f5ff4fc236ecc516b6423249bacdae
     )
 
 def addrequest(request):
