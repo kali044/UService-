@@ -38,7 +38,7 @@ def about(request):
 def addoffer(request):
 	return render(
         request,
-        'addOffer.html',
+        'addoffer.html',
     )
 
 def addrequest(request):
