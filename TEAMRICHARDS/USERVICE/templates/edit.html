@@ -1,7 +1,10 @@
 {% extends "base_generic.html" %}
 {% block title %}<title>UService - Edit</title>{% endblock %}
-{% block content %}
 {% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+{% endblock %}
+{% block content %}
       <body>
       <div class="jumbotron">
         <img class="img" src="{% static 'image/logo.png' %}">

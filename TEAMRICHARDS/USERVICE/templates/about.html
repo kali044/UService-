@@ -2,7 +2,9 @@
 {% block title %}<title>UService - About</title>{% endblock %}
 {% block content %}
 {% load static %}
-    <body>
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
         <div class='jumbotron'>
             <div class='about'>
                 <h2>About</h2>
@@ -41,5 +43,4 @@
 
               </div>
         </div>
-    </body>
 {% endblock %}

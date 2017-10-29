@@ -1,7 +1,10 @@
 {% extends "base_generic.html" %}
 {% block title %}<title>UService - AddOffer</title>{% endblock %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/add.css' %}">
+{% endblock %}
 {% block content %}
-    <body>
         <div class='container'>
 
 
@@ -57,5 +60,4 @@
 
 
         </div>
-    </body>
 {% endblock %}
