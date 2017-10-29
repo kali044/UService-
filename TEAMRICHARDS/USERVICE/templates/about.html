@@ -1,6 +1,8 @@
 {% extends "base_generic.html" %}
 {% block title %}<title>UService - About</title>{% endblock %}
 {% block content %}
+{% load static %}
+    <body>
         <div class='jumbotron'>
             <div class='about'>
                 <h2>About</h2>
@@ -20,7 +22,7 @@
 													<h3>Jeff Zhao</h3>
                         </div>
                         <div class="col-4">
-                          <img src="i{% static 'image/blankprofile.png' %}" >
+                          <img src="{% static 'image/blankprofile.png' %}" >
 													<h3>Brandon Lam</h3>
                         </div>
                         <div class="col-4">
@@ -39,4 +41,5 @@
 
               </div>
         </div>
+    </body>
 {% endblock %}
