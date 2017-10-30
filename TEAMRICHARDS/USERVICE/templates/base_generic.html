@@ -12,19 +12,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/add.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/details.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/search.css' %}"> -->
   </head>
 
   <div id='navbar' class='navbar nav-bar-expand-md navbar-dark fixed-top bg-dark'>
       <a href="{% url 'home' %}" class='navbar-brand'>UService</a>
       <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-    <a href="{% url 'addrequest' %}" class="nav-link">
+    <a href="{% url 'searchrequest' %}" class="nav-link">
                   Requests
     </a>
           </li>
 
   <li class="nav-item active">
-    <a href="{% url 'addoffer' %}" class="nav-link">
+    <a href="{% url 'searchoffer' %}" class="nav-link">
                   Offers
     </a>
   </li>
@@ -121,9 +126,6 @@
              </div>
       </div>
     </div>
-
-
-  </div>
 
   <script src="js/home.js"></script>
   <body>
