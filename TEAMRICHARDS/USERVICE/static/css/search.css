@@ -28,16 +28,6 @@ html,body{
 
 
 
-footer{
-  text-align: center;
-  height: 40px;
-  box-sizing: border-box;
-
-  position: absolute;
-  bottom: 0;
-
-  width: 100%;
-}
 
 #clickable{
   color: black;
