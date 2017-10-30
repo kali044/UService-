@@ -1,17 +1,10 @@
-
-<head>
-    <title>Request Details</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/details.css">
-  </head>
 {% extends "base_generic.html" %}
-
+{% block title %}<title>Request Details</title>{% endblock %}
+{% load static %}
+<!-- {% block style %}<link rel="stylesheet" href="{% static 'css/details.css' %}">{% endblock %} -->
 {% block content %}
-{% block style%}
-<link rel="stylesheet" href="static 'css/details.css' ">
-{% endblock %}
     <div class="row">
-      <div class="jumbotron">
+      <div class="offerRequestDetails">
 
         <div class="container">
           <h1 class="text-left">Service Requested:</h1>

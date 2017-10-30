@@ -2,7 +2,7 @@
     background-color: #FF5A5F!important;
 }
 
-.h1, h1{
+.addOfferRequest h1{
     clear:both;
     text-align: center;
 }
@@ -27,7 +27,7 @@
     padding: 20px
 }
 
-.jumbotron{
+.addOfferRequest {
     background-color: rgba(203, 203, 203, 0.49)!important;
     margin-top: 6rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

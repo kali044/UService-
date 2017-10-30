@@ -1,9 +1,8 @@
 {% extends "base_generic.html" %}
 {% block title %}<title>UService - Search Offer</title>{% endblock %}
-{% block content %}
 {% load static %}
-
-
+{% block style %}<link rel="stylesheet" href="{% static 'css/search.css' %}">{% endblock %}
+{% block content %}
   <body>
 
       <div class="container">
@@ -47,11 +46,11 @@
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td><a id='clickable' href = 'OfferServiceDetail.html'>Web programming</a></td>
-                        <td><a id='clickable' href = 'OfferServiceDetail.html'>Computer Science</a></td>
-                        <td><a id='clickable' href = 'OfferServiceDetail.html'>new</a></td>
-                        <td><a id='clickable' href = 'OfferServiceDetail.html'>100</a></td>
-                        <td><a id='clickable' href = 'OfferServiceDetail.html'>2017/10/1</a></td>
+                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">Web programming</a></td>
+                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">Computer Science</a></td>
+                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">new</a></td>
+                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">100</a></td>
+                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">2017/10/1</a></td>
                       </tr>
 
                     </tbody>
@@ -76,11 +75,11 @@
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td><a id='clickable' href = 'OfferServiceDetail.html'>Amherst</a></td>
-                        <td><a id='clickable' href = 'OfferServiceDetail.html'>Boston</a></td>
-                        <td><a id='clickable' href = 'OfferServiceDetail.html'>Sedan</a></td>
-                        <td><a id='clickable' href = 'OfferServiceDetail.html'>100</a></td>
-                        <td><a id='clickable' href = 'OfferServiceDetail.html'>2017/10/1</a></td>
+                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">Amherst</a></td>
+                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">Boston</a></td>
+                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">Sedan</a></td>
+                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">100</a></td>
+                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">2017/10/1</a></td>
                       </tr>
 
                     </tbody>
@@ -104,10 +103,10 @@
                   <tbody>
                     <tr>
                       <th scope="row">1</th>
-                      <td><a id='clickable' href = 'OfferServiceDetail.html'>Computer Science</a></td>
-                      <td><a id='clickable' href = 'OfferServiceDetail.html'>Freshman</a></td>
-                      <td><a id='clickable' href = 'OfferServiceDetail.html'>100/h</a></td>
-                      <td><a id='clickable' href = 'OfferServiceDetail.html'>2017/10/1</a></td>
+                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">Computer Science</a></td>
+                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">Freshman</a></td>
+                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">100/h</a></td>
+                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">2017/10/1</a></td>
                     </tr>
 
                   </tbody>
@@ -130,9 +129,9 @@
                   <tbody>
                     <tr>
                       <th scope="row">1</th>
-                      <td><a id='clickable' href = 'OfferServiceDetail.html'>basketball</a></td>
-                      <td><a id='clickable' href = 'OfferServiceDetail.html'>gym</a></td>
-                      <td><a id='clickable' href = 'OfferServiceDetail.html'>2017/10/1</a></td>
+                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">basketball</a></td>
+                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">gym</a></td>
+                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">2017/10/1</a></td>
                     </tr>
 
                   </tbody>
@@ -145,7 +144,7 @@
             <div class="alert alert-secondary" role="alert">
               Can't find what you want?
             </div>
-            <button  type="button" class="btn btn-secondary" name="button"><a href="addRequest.html">Create your request</a></button>
+            <button  type="button" class="btn btn-secondary" name="button"><a href="{% url 'addrequest' %}">Create your request</a></button>
           </div>
         </div>
 
