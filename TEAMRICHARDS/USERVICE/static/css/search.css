@@ -1,6 +1,4 @@
-html,body{
-  height: 100%;
-}
+
 
 .container{
   padding-top: 80px;
@@ -25,9 +23,6 @@ html,body{
 .table-hover{
   margin-top: 0.5rem;
 }
-
-
-
 
 #clickable{
   color: black;

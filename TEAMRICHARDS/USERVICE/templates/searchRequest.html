@@ -1,7 +1,9 @@
 {% extends "base_generic.html" %}
 {% block title %}<title>Search Request</title>{% endblock %}
+{% block extra_head %}
 {% load static %}
-{% block style %}<link rel="stylesheet" href="{% static 'css/search.css' %}">{% endblock %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+{% endblock %}
 {% block content %}
   <!-- <body> -->
 
