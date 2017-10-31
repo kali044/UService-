@@ -86,7 +86,17 @@ class Activity(models.Model):
     def modifyActivity(self,act2):
         self.activity = act2
 
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular author instance.
+        """
+        return reverse('profile-detail', args=[str(self.id)])
 
+    def __str__(self):
+        """
+        String for representing the Model object.
+        """
+        return '%s' % (self.user)    
 class Carpool(models.Model):
     """
     Model representing a carpool.
