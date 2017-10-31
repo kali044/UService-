@@ -1,6 +1,4 @@
-html,body{
-  height: 100%;
-}
+
 
 .container{
   padding-top: 80px;
@@ -24,19 +22,6 @@ html,body{
 
 .table-hover{
   margin-top: 0.5rem;
-}
-
-
-
-footer{
-  text-align: center;
-  height: 40px;
-  box-sizing: border-box;
-
-  position: absolute;
-  bottom: 0;
-
-  width: 100%;
 }
 
 #clickable{

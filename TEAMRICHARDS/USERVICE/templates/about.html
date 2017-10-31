@@ -1,7 +1,9 @@
 {% extends "base_generic.html" %}
 {% block title %}<title>UService - About</title>{% endblock %}
+{% block extra_head %}
 {% load static %}
-{% block styles %}<link rel="stylesheet" href="{% static 'css/about.css' %}">{% endblock %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
 {% block content %}
   <body>
       <div class="container">

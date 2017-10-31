@@ -1,9 +1,13 @@
 {% extends "base_generic.html" %}
 {% block title %}<title>UService - Search Offer</title>{% endblock %}
+
+{% block extra_head %}
 {% load static %}
-{% block style %}<link rel="stylesheet" href="{% static 'css/search.css' %}">{% endblock %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+{% endblock %}
+
 {% block content %}
-  <body>
+
 
       <div class="container">
         <div class="row">
@@ -149,15 +153,13 @@
         </div>
 
       </div>
-      <footer class="footer">
-        <p>© UService 2017</p>
-      </footer>
 
 
 
 
 
-  </body>
-</html>
+
+
+
 
 {% endblock %}

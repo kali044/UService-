@@ -1,11 +1,13 @@
 {% extends "base_generic.html" %}
 {% block title %}<title>Offer Details</title>{% endblock %}
+{% block extra_head %}
 {% load static %}
-<!-- {% block style %}<link rel="stylesheet" href="{% static 'css/details.css' %}">{% endblock %} -->
+<link rel="stylesheet" href="{% static 'css/details.css' %}">
+{% endblock %}
 {% block content %}
 
     <div class="row">
-      <div class="offerRequestDetails">
+      <div class="jumbotron">
         <div class="container">
           <h1 class="text-left">Service Offered:</h1>
           <div class="btn-group btn-group-lg" role="group">
