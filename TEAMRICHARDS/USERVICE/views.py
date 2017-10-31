@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 
 # Create your views here.
 
@@ -35,7 +36,7 @@ def home(request):
     tName = Textbook_Trading.objects.all()[:1].get().creator
     tType = "Textbook Trading"
     tTitle = Textbook_Trading.objects.all()[:1].get().title
-    tAuthor = Textbook_Trading.objects.all()[:1].get().author 
+    tAuthor = Textbook_Trading.objects.all()[:1].get().author
     tCost = Textbook_Trading.objects.all()[:1].get().cost
     tDate = Textbook_Trading.objects.all()[:1].get().date
 
@@ -70,11 +71,10 @@ def edit(request):
         'edit.html',
     )
 
-def offerservicedetail(request):
-	return render(
-        request,
-        'OfferServiceDetail.html',
-    )
+class offerservicedetailView(generic.DetailView):
+    model=Carpool
+    context_object_name='carpoolDetail'
+    template_nam='OfferServiceDetail.html'
 
 def requestservicedetail(request):
 	return render(
