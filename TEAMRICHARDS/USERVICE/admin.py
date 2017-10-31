@@ -23,8 +23,8 @@ admin.site.register(Profile, ProfileAdmin)
 
 @admin.register(Textbook_Trading)
 class TextbookAdmin(admin.ModelAdmin):
-    list_display=('title','author','cost','creator')
-    fields=['title','author','description','cost','creator']
+    list_display=('title','author','cost', 'date','creator')
+    fields=['title','author','description','date','cost','creator']
 
 @admin.register(Carpool)
 class CarpoolAdmin(admin.ModelAdmin):

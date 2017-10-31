@@ -96,7 +96,7 @@ class Activity(models.Model):
         """
         String for representing the Model object.
         """
-        return '%s' % (self.user)    
+        return  self.title    
 class Carpool(models.Model):
     """
     Model representing a carpool.

@@ -39,11 +39,24 @@ def home(request):
     tCost = Textbook_Trading.objects.all()[:1].get().cost
     tDate = Textbook_Trading.objects.all()[:1].get().date
 
+    tuName = Tutor.objects.all()[:1].get().creator
+    tuType = "Tutor"
+    tuSubject = Tutor.objects.all()[:1].get().subject
+    tuCost = Tutor.objects.all()[:1].get().cost
+    tuDate = Tutor.objects.all()[:1].get().date
+
+    aName = Activity.objects.all()[:1].get().creator
+    aType = "Activity"
+    aAct = Activity.objects.all()[:1].get().activity
+    aDate = Activity.objects.all()[:1].get().date
+
     return render(
         request,
         'home.html',
         context={'cName': cName, 'cType': cType, "cDestin": cDestin, "cCost": cCost, "cDate": cDate,
-        'tName': tName, 'tType':tType, 'tTitle':tTitle, 'tAuthor':tAuthor, 'tCost':tCost, 'tDate':tDate},
+        'tName': tName, 'tType':tType, 'tTitle':tTitle, 'tAuthor':tAuthor, 'tCost':tCost, 'tDate':tDate,
+        'tuName': tuName, 'tuType': tuType, 'tuSubject': tuSubject, 'tuCost':tuCost,'tuDate':tuDate,
+        'aName': aName, 'aType': aType, 'aAct': aAct, 'aDate': aDate},
     )
 
 def about(request):
