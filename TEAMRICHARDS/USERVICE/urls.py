@@ -11,11 +11,11 @@ urlpatterns = [
     url(r'^addoffer/', views.addoffer, name='addoffer'),
     url(r'^addrequest/', views.addrequest, name='addrequest'),
     url(r'^edit/', views.edit, name='edit'),
-    url(r'^offerservicedetail/(?P<pk>\d+)$', views.offerservicedetailView.as_view(), name='offerservicedetail'),
+    url(r'^offerservicedetail/', views.offerservicedetail, name='offerservicedetail'),
     url(r'^requestservicedetail/', views.requestservicedetail, name='requestservicedetail'),
     url(r'^profile/', views.profile, name='profile'),
-    url(r'^searchoffer/$', views.CarpoolListView.as_view(), name='searchoffer'),
+    url(r'^searchoffer/$', views.OfferListView.as_view(), name='searchoffer'),
     url(r'^searchrequest/', views.searchrequest, name='searchrequest'),
-    
+
 
 ]

@@ -39,24 +39,25 @@
                   <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Subject</th>
-                        <th>Condition</th>
+
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Creator</th>
                         <th>Cost</th>
                         <th>Date</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">Web programming</a></td>
-                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">Computer Science</a></td>
-                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">new</a></td>
-                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">100</a></td>
-                        <td><a id='clickable' href = "{% url 'offerservicedetail' %}">2017/10/1</a></td>
-                      </tr>
+                      {% for book in books %}
+                        <tr>
 
+                          <td><a>{{ book.title }}</a></td>
+                          <td><a>{{ book.author }}</a></td>
+                          <td><a>{{ book.creator}}</a></td>
+                          <td><a>{{ book.cost }}</a></td>
+                          <td><a>{{ book.date}}</a></td>
+                        </tr>
+                      {% endfor %}
                     </tbody>
                 </table>
               </div>
@@ -78,13 +79,13 @@
                     <tbody>
                       {% for carpool in carpools %}
                         <tr>
-                          <td><a> {{ carpool.title }}</a> </td>
-                        <td><a> {{ carpool.creator }}</a> </td>
-                        <td><a> {{ carpool.destination }}</a> </td>
-                        <td><a> {{ carpool.cost }}</a> </td>
-                        <td><a> {{ carpool.date }}</a> </td>
+                          <td><a>{{ carpool.title }}</a> </td>
+                        <td><a>{{ carpool.creator }}</a> </td>
+                        <td><a>{{ carpool.destination }}</a> </td>
+                        <td><a>{{ carpool.cost }}</a> </td>
+                        <td><a>{{ carpool.date }}</a> </td>
                         </tr>
-                        
+
 
                       {% endfor %}
 
@@ -99,22 +100,23 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      <th>Title</th>
                       <th>Subject</th>
-                      <th>degree</th>
-                      <th>cost</th>
+                      <th>Creator</th>
+                      <th>Cost</th>
                       <th>Date</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">Computer Science</a></td>
-                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">Freshman</a></td>
-                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">100/h</a></td>
-                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">2017/10/1</a></td>
-                    </tr>
-
+                    {% for tutor in tutors %}
+                      <tr>
+                        <td><a>{{ tutor.title }}</a></td>
+                        <td><a>{{ tutor.subject }}</a></td>
+                        <td><a>{{ tutor.creator }}</a></td>
+                        <td><a>{{ tutor.cost }}</a></td>
+                        <td><a>{{ tutor.date }}</a></td>
+                      </tr>
+                  {% endfor %}
                   </tbody>
               </table>
                 </div>
@@ -126,20 +128,22 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>Name</th>
-                      <th>Place</th>
+                      <th>Title</th>
+                      <th>Creator</th>
+                      <th>Activity</th>
                       <th>Date</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">basketball</a></td>
-                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">gym</a></td>
-                      <td><a id='clickable' href = "{% url 'offerservicedetail' %}">2017/10/1</a></td>
-                    </tr>
+                    {% for activity in activitys %}
+                      <tr>
+                        <td><a>{{ activity.title }}</a></td>
+                        <td><a>{{ activity.creator}}</a></td>
+                        <td><a>{{ activity.activity }}</a></td>
+                        <td><a>{{ activity.date }}</a></td>
 
+                      </tr>
+                  {% endfor %}
                   </tbody>
               </table>
                 </div>

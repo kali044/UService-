@@ -84,10 +84,11 @@ def edit(request):
         'edit.html',
     )
 
-class offerservicedetailView(generic.DetailView):
-    model=Carpool
-    context_object_name='carpoolDetail'
-    template_nam='OfferServiceDetail.html'
+def offerservicedetail(request):
+	return render(
+        request,
+        'offerservicedetail.html',
+    )
 
 def requestservicedetail(request):
 	return render(
@@ -109,9 +110,15 @@ def searchrequest(request):
         'searchRequest.html',
     )
 
-class CarpoolListView(generic.ListView):
-    model = Carpool
-    context_object_name = 'carpools'
+class OfferListView(generic.ListView):
+    context_object_name = "offerlist"
     template_name = 'searchOffer.html'
-    
-
+    queryset = Textbook_Trading.objects.all()
+    def get_context_data(self, **kwargs):
+        context = super(OfferListView, self).get_context_data(**kwargs)
+        context['books'] = Textbook_Trading.objects.all()
+        context['carpools'] = Carpool.objects.all()
+        context['tutors'] = Tutor.objects.all()
+        context['activitys'] = Activity.objects.all()
+        # And so on for more models
+        return context
