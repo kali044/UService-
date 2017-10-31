@@ -4,6 +4,7 @@ from django.shortcuts import render
 
 from .models import User, Profile, Textbook_Trading, Carpool, Activity, Tutor
 
+
 def index(request):
     """
     View function for home page of site.
@@ -24,9 +25,13 @@ def index(request):
     )
 
 def home(request):
-	return render(
+
+    name = Carpool.objects.all()[:1].get().creator
+    typeS = "Carpool"
+    return render(
         request,
         'home.html',
+        context={'name': name, 'typeS': typeS},
     )
 
 def about(request):
