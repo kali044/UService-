@@ -79,9 +79,11 @@ def addrequest(request):
     )
 
 def edit(request):
-	return render(
+    date = Carpool.objects.all().get().date
+    return render(
         request,
         'edit.html',
+        context={'date': date}
     )
 
 def offerservicedetail(request):
