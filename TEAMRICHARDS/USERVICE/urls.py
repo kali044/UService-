@@ -14,6 +14,8 @@ urlpatterns = [
     url(r'^offerservicedetail/(?P<pk>\d+)$', views.offerservicedetailView.as_view(), name='offerservicedetail'),
     url(r'^requestservicedetail/', views.requestservicedetail, name='requestservicedetail'),
     url(r'^profile/', views.profile, name='profile'),
-    url(r'^searchoffer/', views.searchoffer, name='searchoffer'),
+    url(r'^searchoffer/$', views.CarpoolListView.as_view(), name='searchoffer'),
     url(r'^searchrequest/', views.searchrequest, name='searchrequest'),
+    
+
 ]

@@ -101,14 +101,17 @@ def profile(request):
         'profile.html',
     )
 
-def searchoffer(request):
-	return render(
-        request,
-        'searchOffer.html',
-    )
+
 
 def searchrequest(request):
 	return render(
         request,
         'searchRequest.html',
     )
+
+class CarpoolListView(generic.ListView):
+    model = Carpool
+    context_object_name = 'carpools'
+    template_name = 'searchOffer.html'
+    
+
