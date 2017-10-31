@@ -26,12 +26,24 @@ def index(request):
 
 def home(request):
 
-    name = Carpool.objects.all()[:1].get().creator
-    typeS = "Carpool"
+    cName = Carpool.objects.all()[:1].get().creator
+    cType = "Carpool"
+    cDestin = Carpool.objects.all()[:1].get().destination
+    cCost = Carpool.objects.all()[:1].get().cost
+    cDate = Carpool.objects.all()[:1].get().date
+
+    tName = Textbook_Trading.objects.all()[:1].get().creator
+    tType = "Textbook Trading"
+    tTitle = Textbook_Trading.objects.all()[:1].get().title
+    tAuthor = Textbook_Trading.objects.all()[:1].get().author 
+    tCost = Textbook_Trading.objects.all()[:1].get().cost
+    tDate = Textbook_Trading.objects.all()[:1].get().date
+
     return render(
         request,
         'home.html',
-        context={'name': name, 'typeS': typeS},
+        context={'cName': cName, 'cType': cType, "cDestin": cDestin, "cCost": cCost, "cDate": cDate,
+        'tName': tName, 'tType':tType, 'tTitle':tTitle, 'tAuthor':tAuthor, 'tCost':tCost, 'tDate':tDate},
     )
 
 def about(request):
