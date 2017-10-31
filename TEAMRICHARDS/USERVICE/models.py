@@ -25,8 +25,8 @@ class Profile(models.Model):
     """
     Model representing a profile.
     """
-    # first_name = models.CharField(max_length=100, help_text="First Name")
-    # last_name = models.CharField(max_length=100, help_text="Last Name")
+    #first_name = models.CharField(max_length=100, help_text="First Name")
+    #last_name = models.CharField(max_length=100, help_text="Last Name")
     # email = models.CharField(max_length=100, help_text="johnorjane_doe@email.com")
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     review = models.CharField(max_length=500, help_text="Review")
