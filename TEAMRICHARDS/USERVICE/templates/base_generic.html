@@ -124,7 +124,9 @@
       </div>
     </div>
 
-  <script src="js/home.js"></script>
+  {% block js %}
+      <script src="{% static 'js/home.js' %}"></script>
+  {% endblock %}
   <body>
     {% block content %}{% endblock %}
   </body>
