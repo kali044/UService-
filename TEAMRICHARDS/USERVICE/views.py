@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 
 # Create your views here.
 
@@ -35,15 +36,28 @@ def home(request):
     tName = Textbook_Trading.objects.all()[:1].get().creator
     tType = "Textbook Trading"
     tTitle = Textbook_Trading.objects.all()[:1].get().title
-    tAuthor = Textbook_Trading.objects.all()[:1].get().author 
+    tAuthor = Textbook_Trading.objects.all()[:1].get().author
     tCost = Textbook_Trading.objects.all()[:1].get().cost
     tDate = Textbook_Trading.objects.all()[:1].get().date
+
+    tuName = Tutor.objects.all()[:1].get().creator
+    tuType = "Tutor"
+    tuSubject = Tutor.objects.all()[:1].get().subject
+    tuCost = Tutor.objects.all()[:1].get().cost
+    tuDate = Tutor.objects.all()[:1].get().date
+
+    aName = Activity.objects.all()[:1].get().creator
+    aType = "Activity"
+    aAct = Activity.objects.all()[:1].get().activity
+    aDate = Activity.objects.all()[:1].get().date
 
     return render(
         request,
         'home.html',
         context={'cName': cName, 'cType': cType, "cDestin": cDestin, "cCost": cCost, "cDate": cDate,
-        'tName': tName, 'tType':tType, 'tTitle':tTitle, 'tAuthor':tAuthor, 'tCost':tCost, 'tDate':tDate},
+        'tName': tName, 'tType':tType, 'tTitle':tTitle, 'tAuthor':tAuthor, 'tCost':tCost, 'tDate':tDate,
+        'tuName': tuName, 'tuType': tuType, 'tuSubject': tuSubject, 'tuCost':tuCost,'tuDate':tuDate,
+        'aName': aName, 'aType': aType, 'aAct': aAct, 'aDate': aDate},
     )
 
 def about(request):
@@ -72,11 +86,10 @@ def edit(request):
         context={'date': date}
     )
 
-def offerservicedetail(request):
-	return render(
-        request,
-        'OfferServiceDetail.html',
-    )
+class offerservicedetailView(generic.DetailView):
+    model=Carpool
+    context_object_name='carpoolDetail'
+    template_nam='OfferServiceDetail.html'
 
 def requestservicedetail(request):
 	return render(
@@ -90,14 +103,17 @@ def profile(request):
         'profile.html',
     )
 
-def searchoffer(request):
-	return render(
-        request,
-        'searchOffer.html',
-    )
+
 
 def searchrequest(request):
 	return render(
         request,
         'searchRequest.html',
     )
+
+class CarpoolListView(generic.ListView):
+    model = Carpool
+    context_object_name = 'carpools'
+    template_name = 'searchOffer.html'
+    
+
