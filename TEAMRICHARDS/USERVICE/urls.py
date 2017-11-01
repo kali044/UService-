@@ -15,7 +15,6 @@ urlpatterns = [
     url(r'^tutorDetail/(?P<pk>\d+)$', views.tutorDetailView.as_view(), name='tutor-Detail'),
     url(r'^textbookDetail/(?P<pk>\d+)$', views.textbookDetailView.as_view(), name='textbook-Detail'),
     url(r'^activityDetail/(?P<pk>\d+)$', views.activityDetailView.as_view(), name='activity-Detail'),
-    url(r'^requestservicedetail/', views.requestservicedetail, name='requestservicedetail'),
     url(r'^profile/', views.profile, name='profile'),
     url(r'^searchoffer/$', views.offerListView.as_view(), name='searchoffer'),
     url(r'^searchrequest/$', views.requestListView.as_view(), name='searchrequest'),

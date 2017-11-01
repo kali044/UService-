@@ -44,17 +44,19 @@
                           <th>Creator</th>
                           <th>Cost</th>
                           <th>Date</th>
+                          <th>Detail</th>
                         </tr>
                       </thead>
                       <tbody>
                         {% for book in books %}
                           <tr>
 
-                            <td><a id='clickable' href="{{ book.get_absolute_url }}">{{ book.title }}</a></td>
+                            <td><a>{{ book.title }}</a></td>
                             <td><a>{{ book.author }}</a></td>
                             <td><a>{{ book.creator}}</a></td>
                             <td><a>{{ book.cost }}</a></td>
                             <td><a>{{ book.date}}</a></td>
+                            <td><a class="badge badge-primary" href="{{ book.get_absolute_url }}">click</a></td>
                           </tr>
                         {% endfor %}
                       </tbody>
@@ -73,16 +75,18 @@
                           <th>Destination</th>
                           <th>Cost</th>
                           <th>Date</th>
+                          <th>Detail</th>
                         </tr>
                       </thead>
                       <tbody>
                         {% for carpool in carpools %}
                           <tr>
-                            <td><a id='clickable' href="{{ carpool.get_absolute_url }}">{{ carpool.title }}</a> </td>
+                            <td><a>{{ carpool.title }}</a> </td>
                           <td><a>{{ carpool.creator }}</a> </td>
                           <td><a>{{ carpool.destination }}</a> </td>
                           <td><a>{{ carpool.cost }}</a> </td>
                           <td><a>{{ carpool.date }}</a> </td>
+                          <td><a class="badge badge-primary"  href="{{ carpool.get_absolute_url }}">click</a></td>
                           </tr>
 
 
@@ -104,16 +108,18 @@
                         <th>Creator</th>
                         <th>Cost</th>
                         <th>Date</th>
+                        <th>Detail</th>
                       </tr>
                     </thead>
                     <tbody>
                       {% for tutor in tutors %}
                         <tr>
-                          <td><a id='clickable' href="{{ tutor.get_absolute_url }}">{{ tutor.title }}</a></td>
+                          <td><a>{{ tutor.title }}</a></td>
                           <td><a>{{ tutor.subject }}</a></td>
                           <td><a>{{ tutor.creator }}</a></td>
                           <td><a>{{ tutor.cost }}</a></td>
                           <td><a>{{ tutor.date }}</a></td>
+                          <td><a class="badge badge-primary"  href="{{ tutor.get_absolute_url }}">click</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -131,15 +137,17 @@
                         <th>Creator</th>
                         <th>Activity</th>
                         <th>Date</th>
+                        <th>Detail</th>
                       </tr>
                     </thead>
                     <tbody>
                       {% for activity in activitys %}
                         <tr>
-                          <td><a  id='clickable' href="{{ activity.get_absolute_url }}">{{ activity.title }}</a></td>
+                          <td><a>{{ activity.title }}</a></td>
                           <td><a>{{ activity.creator}}</a></td>
                           <td><a>{{ activity.activity }}</a></td>
                           <td><a>{{ activity.date }}</a></td>
+                          <td><a class="badge badge-primary"  href="{{ activity.get_absolute_url }}">click</a></td>
 
                         </tr>
                     {% endfor %}

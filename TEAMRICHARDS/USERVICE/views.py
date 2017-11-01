@@ -106,11 +106,6 @@ class activityDetailView(generic.DetailView):
     context_object_name="activity"
     template_name='displayTemplate/activityDetail.html'
 
-def requestservicedetail(request):
-	return render(
-        request,
-        'RequestServiceDetail.html',
-    )
 
 def profile(request):
 	return render(
@@ -119,12 +114,6 @@ def profile(request):
     )
 
 
-
-def searchrequest(request):
-	return render(
-        request,
-        'searchRequest.html',
-    )
 
 class offerListView(generic.ListView):
     context_object_name = "offerlist"
