@@ -51,7 +51,7 @@
                       {% for book in books %}
                         <tr>
 
-                          <td><a>{{ book.title }}</a></td>
+                          <td><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></td>
                           <td><a>{{ book.author }}</a></td>
                           <td><a>{{ book.creator}}</a></td>
                           <td><a>{{ book.cost }}</a></td>
@@ -79,7 +79,7 @@
                     <tbody>
                       {% for carpool in carpools %}
                         <tr>
-                          <td><a>{{ carpool.title }}</a> </td>
+                          <td><a  href="{{ carpool.get_absolute_url }}">{{ carpool.title }}</a> </td>
                         <td><a>{{ carpool.creator }}</a> </td>
                         <td><a>{{ carpool.destination }}</a> </td>
                         <td><a>{{ carpool.cost }}</a> </td>
@@ -110,7 +110,7 @@
                   <tbody>
                     {% for tutor in tutors %}
                       <tr>
-                        <td><a>{{ tutor.title }}</a></td>
+                        <td><a href="{{ tutor.get_absolute_url }}">{{ tutor.title }}</a></td>
                         <td><a>{{ tutor.subject }}</a></td>
                         <td><a>{{ tutor.creator }}</a></td>
                         <td><a>{{ tutor.cost }}</a></td>
@@ -137,7 +137,7 @@
                   <tbody>
                     {% for activity in activitys %}
                       <tr>
-                        <td><a>{{ activity.title }}</a></td>
+                        <td><a href="{{ activity.get_absolute_url }}">{{ activity.title }}</a></td>
                         <td><a>{{ activity.creator}}</a></td>
                         <td><a>{{ activity.activity }}</a></td>
                         <td><a>{{ activity.date }}</a></td>

@@ -86,11 +86,25 @@ def edit(request):
         context={'date': date}
     )
 
-def offerservicedetail(request):
-	return render(
-        request,
-        'offerservicedetail.html',
-    )
+class carpoolDetailView(generic.DetailView):
+    model=Carpool
+    context_object_name="carpoolDetail"
+    template_name='displayTemplate/carpoolDetail.html'
+
+class tutorDetailView(generic.DetailView):
+    model=Tutor
+    context_object_name="tutorDetail"
+    template_name='displayTemplate/tutorDetail.html'
+
+class textbookDetailView(generic.DetailView):
+    model=Textbook_Trading
+    context_object_name="textbookDetail"
+    template_name='displayTemplate/textbookDetail.html'
+
+class activityDetailView(generic.DetailView):
+    model=Activity
+    context_object_name="activityDetail"
+    template_name='displayTemplate/activityDetail.html'
 
 def requestservicedetail(request):
 	return render(

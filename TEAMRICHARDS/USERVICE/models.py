@@ -90,13 +90,13 @@ class Activity(models.Model):
         """
         Returns the url to access a particular author instance.
         """
-        return reverse('profile-detail', args=[str(self.id)])
+        return reverse('activity-Detail', args=[str(self.id)])
 
     def __str__(self):
         """
         String for representing the Model object.
         """
-        return  self.title    
+        return  self.title
 class Carpool(models.Model):
     """
     Model representing a carpool.
@@ -140,6 +140,17 @@ class Carpool(models.Model):
         """
         self.cost = new_cost
 
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular author instance.
+        """
+        return reverse('carpool-Detail', args=[str(self.id)])
+
+    def __str__(self):
+        """
+        String for representing the Model object.
+        """
+        return  self.title
 
 class Tutor(models.Model):
     """
@@ -178,7 +189,7 @@ class Tutor(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('tutor', args=[str(self.id)])
+        return reverse('tutor-Detail', args=[str(self.id)])
 
 
 class Textbook_Trading(models.Model):
@@ -210,7 +221,7 @@ class Textbook_Trading(models.Model):
          """
          Returns the url to access a particular instance of MyModelName.
          """
-         return reverse('Textbook details', args=[str(self.id)])
+         return reverse('textbook-Detail', args=[str(self.id)])
 
     def __str__(self):
         """
