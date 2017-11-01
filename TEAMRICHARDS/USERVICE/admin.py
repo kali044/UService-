@@ -23,21 +23,21 @@ admin.site.register(Profile, ProfileAdmin)
 
 @admin.register(Textbook_Trading)
 class TextbookAdmin(admin.ModelAdmin):
-    list_display=('title','author','cost', 'date','creator')
-    fields=['title','author','description','date','cost','creator']
+    list_display=('title','author','cost', 'date','creator','request','offer')
+    fields=['title','author','description','date','cost','creator','request','offer']
 
 @admin.register(Carpool)
 class CarpoolAdmin(admin.ModelAdmin):
-	list_display = ('creator', 'title', 'destination', 'date', 'cost')
-	fields = ['creator', 'title', 'destination', 'description', 'date', 'cost']
+	list_display = ('creator', 'title', 'destination', 'date', 'cost','request','offer')
+	fields = ['creator', 'title', 'destination', 'description', 'date', 'cost','request','offer']
 
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
-	list_display = ('title','creator','date', 'activity')
-	fields = ['title','creator','date','activity', 'description']
+	list_display = ('title','creator','date', 'activity','request','offer')
+	fields = ['title','creator','date','activity', 'description','request','offer']
 
 
 @admin.register(Tutor)
 class TutorAdmin (admin.ModelAdmin):
-    list_display = ('title', 'creator', 'date', 'cost', 'subject')
-    fields = ['title', 'creator', 'date', 'cost', 'subject', 'description']
+    list_display = ('title', 'creator', 'date', 'cost', 'subject','request','offer')
+    fields = ['title', 'creator', 'date', 'cost', 'subject', 'description','request','offer']

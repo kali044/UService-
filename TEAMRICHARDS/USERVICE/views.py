@@ -126,15 +126,28 @@ def searchrequest(request):
         'searchRequest.html',
     )
 
-class OfferListView(generic.ListView):
+class offerListView(generic.ListView):
     context_object_name = "offerlist"
     template_name = 'searchOffer.html'
     queryset = Textbook_Trading.objects.all()
     def get_context_data(self, **kwargs):
-        context = super(OfferListView, self).get_context_data(**kwargs)
-        context['books'] = Textbook_Trading.objects.all()
-        context['carpools'] = Carpool.objects.all()
-        context['tutors'] = Tutor.objects.all()
-        context['activitys'] = Activity.objects.all()
+        context = super(offerListView, self).get_context_data(**kwargs)
+        context['books'] = Textbook_Trading.objects.filter(offer=True)
+        context['carpools'] = Carpool.objects.filter(offer=True)
+        context['tutors'] = Tutor.objects.filter(offer=True)
+        context['activitys'] = Activity.objects.filter(offer=True)
+        # And so on for more models
+        return context
+
+class requestListView(generic.ListView):
+    context_object_name = "requestlist"
+    template_name = 'searchRequest.html'
+    queryset = Textbook_Trading.objects.all()
+    def get_context_data(self, **kwargs):
+        context = super(requestListView, self).get_context_data(**kwargs)
+        context['books'] = Textbook_Trading.objects.filter(request=True)
+        context['carpools'] = Carpool.objects.filter(request=True)
+        context['tutors'] = Tutor.objects.filter(request=True)
+        context['activitys'] = Activity.objects.filter(request=True)
         # And so on for more models
         return context
