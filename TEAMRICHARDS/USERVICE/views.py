@@ -79,7 +79,7 @@ def addrequest(request):
     )
 
 def edit(request):
-    date = Carpool.objects.all().get().date
+    date = Carpool.objects.all()[:1].get().date
     return render(
         request,
         'edit.html',
