@@ -88,22 +88,22 @@ def edit(request):
 
 class carpoolDetailView(generic.DetailView):
     model=Carpool
-    context_object_name="carpoolDetail"
+    context_object_name="carpool"
     template_name='displayTemplate/carpoolDetail.html'
 
 class tutorDetailView(generic.DetailView):
     model=Tutor
-    context_object_name="tutorDetail"
+    context_object_name="tutor"
     template_name='displayTemplate/tutorDetail.html'
 
 class textbookDetailView(generic.DetailView):
     model=Textbook_Trading
-    context_object_name="textbookDetail"
+    context_object_name="book"
     template_name='displayTemplate/textbookDetail.html'
 
 class activityDetailView(generic.DetailView):
     model=Activity
-    context_object_name="activityDetail"
+    context_object_name="activity"
     template_name='displayTemplate/activityDetail.html'
 
 def requestservicedetail(request):
