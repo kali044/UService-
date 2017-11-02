@@ -15,11 +15,14 @@ class User(models.Model):
         """
         return reverse('user-detail', args=[str(self.id)])
 
+
     def __str__(self):
         """
         String for representing the Model object.
         """
         return '%s, %s' % (self.name, self.email)
+
+    
 
 class Profile(models.Model):
     """
@@ -27,7 +30,7 @@ class Profile(models.Model):
     """
     #first_name = models.CharField(max_length=100, help_text="First Name")
     #last_name = models.CharField(max_length=100, help_text="Last Name")
-    # email = models.CharField(max_length=100, help_text="johnorjane_doe@email.com")
+    #email = models.CharField(max_length=100, help_text="johnorjane_doe@email.com")
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     review = models.CharField(max_length=500, help_text="Review")
     RATING = (

@@ -6,6 +6,7 @@ from django.views import generic
 from .models import User, Profile, Textbook_Trading, Carpool, Activity, Tutor
 
 
+
 def index(request):
     """
     View function for home page of site.
@@ -108,9 +109,18 @@ class activityDetailView(generic.DetailView):
 
 
 def profile(request):
-	return render(
+
+    name = User.objects.all()[:1].get().name
+    email = User.objects.all()[:1].get().email
+    rating = Profile.objects.all()[:1].get().rating
+    rating = dict(Profile.RATING).get(rating)
+    review = Profile.objects.all()[:1].get().review
+
+    return render(
         request,
         'profile.html',
+        context={'name':name, 'email': email,'rating': rating, 'review':review
+        },
     )
 
 
