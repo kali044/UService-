@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.views import generic
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+import datetime
 
 # Create your views here.
 
 from .models import User, Profile, Textbook_Trading, Carpool, Activity, Tutor
-
-
 
 def index(request):
     """

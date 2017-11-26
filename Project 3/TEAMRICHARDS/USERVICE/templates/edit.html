@@ -17,7 +17,7 @@
       <button type="button" class="buttons" id="focusme">Carpool</button>
       <button type="button" class="buttons">Activities</button>
     </div>
-    <forms>
+   <!--  <forms>
 
         <br><p>Change your Request Title:</p>
         <input type="text" name="title" value="Carpool to Boston" class="mytext"><br>
@@ -31,8 +31,14 @@
         <p>Click this to finalize your changes.</p>
         <input type="submit" class= "submitbutton" value="Save your Changes!">
         
-      <forms>
-
+      <forms> -->
+    <form action="" method="post">
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table>
+      <input type="submit" value="Submit" />
+    </form>
   </div>
 
 
