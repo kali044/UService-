@@ -90,6 +90,7 @@ def edit(request):
         context={'date': date}
     )
 
+
 class carpoolDetailView(generic.DetailView):
     model=Carpool
     context_object_name="carpool"
@@ -228,3 +229,5 @@ class Textbook_TradingUpdate(UpdateView):
 class Textbook_TradingDelete(DeleteView):
     model = Textbook_Trading
     success_url = reverse_lazy('/home')
+
+
