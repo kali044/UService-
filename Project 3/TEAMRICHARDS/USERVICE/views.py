@@ -184,7 +184,9 @@ class ActivityCreate(CreateView):
 
 class ActivityUpdate(UpdateView):
     model = Activity
-    fields = ['title','creator','description','date','activity','request','offer']
+    context_object_name='activity'
+    fields = ['title','description','date','activity']
+    template_name='edit.html'
 
 class ActivityDelete(DeleteView):
     model = Activity
