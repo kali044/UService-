@@ -3,6 +3,7 @@ from django.views import generic
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import permission_required
 import datetime
 
 # Create your views here.
@@ -171,3 +172,59 @@ class mypublishListView(generic.ListView):
         # context['activitys'] = Activity.objects.filter(creator=self.request.user)
         # And so on for more models
         return context
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from .models import Activity, Tutor, Carpool, Textbook_Trading
+
+class ActivityCreate(CreateView):
+    model = Activity
+    fields = '__all__'
+    initial={'title':'A fun Activity',}
+
+class ActivityUpdate(UpdateView):
+    model = Activity
+    fields = ['title','creator','description','date','activity','request','offer']
+
+class ActivityDelete(DeleteView):
+    model = Activity
+    success_url = reverse_lazy('/home') #{% static 'templates/profile' %}??
+
+class CarpoolCreate(CreateView):
+    model = Carpool
+    fields = '__all__'
+    initial={'title':'Riding is better not alone!',}
+
+class CarpoolUpdate(UpdateView):
+    model = Carpool
+    fields = ['title','creator','description','destination','date','cost','request','offer']
+
+class CarpoolDelete(DeleteView):
+    model = Carpool
+    success_url = reverse_lazy('/home')
+
+class TutorCreate(CreateView):
+    model = Tutor
+    fields = '__all__'
+    initial={'title':'Teaching is fun!',}
+
+class TutorUpdate(UpdateView):
+    model = Tutor
+    fields = ['title','creator','description','date','cost','subject','request','offer']
+
+class TutorDelete(DeleteView):
+    model = Tutor
+    success_url = reverse_lazy('/home')
+
+class Textbook_TradingCreate(CreateView):
+    model = Textbook_Trading
+    fields = '__all__'
+    initial={'title':'I want or need a book!',}
+
+class Textbook_TradingUpdate(UpdateView):
+    model = Textbook_Trading
+    fields = ['title','author','description','creator','date','cost','request','offer']
+
+class Textbook_TradingDelete(DeleteView):
+    model = Textbook_Trading
+    success_url = reverse_lazy('/home')
