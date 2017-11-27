@@ -29,7 +29,6 @@ class EditCostForm(forms.Form):
 
 	def clean_new_cost(self):
 		data = self.cleaned_data['new_cost']
-
 		# Check cost isn't negative.
 		if data < 0:
 			raise ValidationError(_('Invalid cost - No negative costs'))
