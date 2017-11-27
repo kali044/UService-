@@ -18,6 +18,6 @@ urlpatterns = [
     url(r'^profile/', views.profile, name='profile'),
     url(r'^searchoffer/$', views.offerListView.as_view(), name='searchoffer'),
     url(r'^searchrequest/$', views.requestListView.as_view(), name='searchrequest'),
-
+    url(r'^mypublish/$', views.mypublishListView.as_view(), name='mypublish'),
 
 ]

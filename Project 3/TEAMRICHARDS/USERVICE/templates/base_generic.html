@@ -40,6 +40,13 @@
                   Modify
     </a>
   </li>
+  {% if user.is_authenticated %}
+  <li class="nav-item active">
+    <a href="{% url 'mypublish' %}" class="nav-link">
+                  My Publish
+    </a>
+  </li>
+  {% endif %}
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
