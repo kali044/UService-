@@ -152,3 +152,22 @@ class requestListView(generic.ListView):
         context['activitys'] = Activity.objects.filter(request=True)
         # And so on for more models
         return context
+
+
+class mypublishListView(generic.ListView):
+    context_object_name = "mypublishlist"
+    template_name = 'mypublish.html'
+    queryset = Textbook_Trading.objects.all()
+    def get_context_data(self, **kwargs):
+        context = super(mypublishListView, self).get_context_data(**kwargs)
+        context['books'] = Textbook_Trading.objects.all()
+        context['carpools'] = Carpool.objects.all()
+        context['tutors'] = Tutor.objects.all()
+        context['activitys'] = Activity.objects.all()
+        
+        # context['books'] = Textbook_Trading.objects.filter(creator=self.request.user)
+        # context['carpools'] = Carpool.objects.filter(creator=self.request.user)
+        # context['tutors'] = Tutor.objects.filter(creator=self.request.user)
+        # context['activitys'] = Activity.objects.filter(creator=self.request.user)
+        # And so on for more models
+        return context

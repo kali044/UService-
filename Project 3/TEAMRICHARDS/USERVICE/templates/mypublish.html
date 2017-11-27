@@ -1,0 +1,34 @@
+{% extends "base_generic.html" %}
+{% block title %}My Publish{% endblock %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/mypublish.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <p>This is request/offer you publish</p>
+  <ul>
+  {% for book in books %}
+  <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></li>
+  {% endfor %}
+   </ul>
+   <ul>
+   {% for carpool in carpools %}
+   <li><a href="{{ carpool.get_absolute_url }}">{{ carpool.title }}</a></li>
+   {% endfor %}
+    </ul>
+    <ul>
+    {% for tutor in tutors %}
+    <li><a href="{{ tutor.get_absolute_url }}">{{ tutor.title }}</a></li>
+    {% endfor %}
+     </ul>
+     <ul>
+     {% for activity in activitys %}
+     <li><a href="{{ activity.get_absolute_url }}">{{ activity.title }}</a></li>
+     {% endfor %}
+      </ul>
+</div>
+
+{% endblock %}
