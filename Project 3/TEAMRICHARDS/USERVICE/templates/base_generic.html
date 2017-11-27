@@ -35,11 +35,7 @@
                   About
     </a>
           </li>
-  <li class="nav-item active">
-    <a href="{% url 'edit' %}" class="nav-link">
-                  Modify
-    </a>
-  </li>
+
   {% if user.is_authenticated %}
   <li class="nav-item active">
     <a href="{% url 'mypublish' %}" class="nav-link">

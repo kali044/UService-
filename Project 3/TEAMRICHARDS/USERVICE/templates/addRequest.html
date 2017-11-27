@@ -16,13 +16,7 @@
                 </div>
 
                 <div class='row'>
-                     <div id=name class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
-                        <h4>Request Name</h4>
-                        <form action="" method="post">
-                            <label for="name"></label>
-                            <input type="name" class="form-control" placeholder='Enter request name' id='name'>
-                        </form>
-                    </div>
+                     
 
                     <div id=type class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
                         <h4>Type (Select a type to continue)</h4>
@@ -32,6 +26,13 @@
                         <button id=actBtn type='button' class='btn btn-default' > Activities & Sports</button>
                     </div>
 
+                <!--  <div id=name class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
+                        <h4>Request Name</h4>
+                        <form action="" method="post">
+                            <label for="name"></label>
+                            <input type="name" class="form-control" placeholder='Enter request name' id='name'>
+                        </form>
+                    </div>
 
 
                     <div id=tutorDetails class='collapse col-lg-8 col-md-8 col-sm-10 col-xs-12' >
@@ -106,14 +107,21 @@
                                 <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
                         </form>
 
-                    </div>
+                    </div> -->
                 </div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <table>
+                      {{ form.as_table }}
+                    </table>
+                    <input type="submit" value="Submit" />
+                  </form>
 
-            <div class=wrapper>
+           <!-- <div class=wrapper>
                     <button id='button' type='button' class='btn btn-lg btn-primary'> Create</button>
-                </div>
+                </div> -->
 
-
+                
         </div>
       </div>
     <!-- </body> -->
