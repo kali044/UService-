@@ -1,0 +1,138 @@
+{% extends "base_generic.html" %}
+{% block title %}Add Request{% endblock %}
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/add.css' %}">
+{% endblock %}
+{% block js %}
+{% load static %}
+<script src="{% static 'js/add.js' %}"></script>
+{% endblock %}
+{% block content %}
+      <div class='container'>
+        <div class='addOfferRequest'>
+                <div class='page-header'>
+                        <h1>Create a Request</h1>
+                </div>
+
+                <div class='row'>
+                     <div id=name class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
+                        <h4>Request Name</h4>
+                        <form>
+                            <label for="name"></label>
+                            <input type="name" class="form-control" placeholder='Enter request name' id='name'>
+                        </form>
+                    </div>
+
+                    <div id=type class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
+                        <h4>Type</h4>
+                        <button id=tutorBtn type='button' class='btn btn-default' >Tutor</button>
+                        <button id=bookBtn type='button' class='btn btn-default' > Book Buying</button>
+                        <button id=carpoolBtn type='button' class='btn btn-default' > Carpool</button>
+                        <button id=actBtn type='button' class='btn btn-default' > Activities & Sports</button>
+                    </div>
+
+
+
+                    <div id=tutorDetails class='collapse col-lg-8 col-md-8 col-sm-10 col-xs-12' >
+                        <h4>Details</h4>
+                        <form>
+                                <label for="Date"></label>
+                                <input type="date" class="form-control" placeholder='Enter request name' id='date'>
+                        </form>
+                        <form>
+                                <label for="Subject"></label>
+                                <input type="subject" class="form-control" placeholder='Enter subject or course name' id='subject'>
+                        </form>
+                        <form>
+                                <label for="Cost"></label>
+                                <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
+                        </form>
+
+                        <form>
+                                <label for="Describe"></label>
+                                <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
+                        </form>
+
+                    </div>
+
+                    <div id=bookDetails class='collapse col-lg-8 col-md-8 col-sm-10 col-xs-12' >
+                        <h4>Details</h4>
+                        <form>
+                                <label for="Date"></label>
+                                <input type="date" class="form-control" placeholder='Enter request name' id='date'>
+                        </form>
+                        <form>
+                                <label for="Book Title"></label>
+                                <input type="title" class="form-control" placeholder='Enter book title' id='title'>
+                        </form>
+                        <form>
+                                <label for="Book Author"></label>
+                                <input type="author" class="form-control" placeholder="Enter book author" id='author'>
+                        </form>
+                        <form>
+                                <label for="Cost"></label>
+                                <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
+                        </form>
+
+                        <form>
+                                <label for="Description"></label>
+                                <input type="describe" class="form-control" placeholder='Enter book' id='descripition'>
+                        </form>
+
+                    </div>
+
+                    <div id=carpoolDetails class='collapse col-lg-8 col-md-8 col-sm-10 col-xs-12' >
+                        <h4>Details</h4>
+                        <form>
+                                <label for="Date"></label>
+                                <input type="date" class="form-control" placeholder='Enter request name' id='date'>
+                        </form>
+                        <form>
+                                <label for="Destination"></label>
+                                <input type="destination" class="form-control" placeholder='Enter destination' id='destination'>
+                        </form>
+                        <form>
+                                <label for="Cost"></label>
+                                <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
+                        </form>
+
+                        <form>
+                                <label for="Books"></label>
+                                <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
+                        </form>
+
+                    </div>
+                    <div id=activityDetails class='collapse col-lg-8 col-md-8 col-sm-10 col-xs-12' >
+                        <h4>Details</h4>
+                        <form>
+                                <label for="Date"></label>
+                                <input type="date" class="form-control" placeholder='Enter request name' id='date'>
+                        </form>
+                    
+                        <form>
+                                <label for="Activity"></label>
+                                <input type="activity" class="form-control" placeholder='Enter activity' id='activity'>
+                        </form>
+                        <form>
+                                <label for="Cost"></label>
+                                <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
+                        </form>
+
+                        <form>
+                                <label for="Books"></label>
+                                <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
+                        </form>
+
+                    </div>
+                </div>
+
+            <div class=wrapper>
+                    <button id='button' type='button' class='btn btn-lg btn-primary'> Create</button>
+                </div>
+
+
+        </div>
+      </div>
+    <!-- </body> -->
+{% endblock %}

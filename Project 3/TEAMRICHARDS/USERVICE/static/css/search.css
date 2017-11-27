@@ -1,0 +1,29 @@
+
+
+.container{
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+.nav-tabs >a{
+  color: black;
+  font-weight: bold;
+}
+
+
+.table-hover{
+  color: black;
+  overflow-x: auto;
+}
+
+.input-group{
+  margin-top: 0.5rem;
+}
+
+.table-hover{
+  margin-top: 0.5rem;
+}
+
+#clickable{
+  color: black;
+}

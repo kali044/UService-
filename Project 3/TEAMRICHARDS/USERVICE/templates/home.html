@@ -1,0 +1,62 @@
+{% extends "base_generic.html" %}
+{% block title %}Home{% endblock %}
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+{% block content %}
+  <!-- <body> -->
+  	<h1>Summary</h1>
+  	<div class="wrapper">
+  		<button type="button" class="btn btn-info btn-lg" id="myBtn"><a id="offerBtn" href="{% url 'searchrequest' %}">I want to offer</a></button>
+  		<button type="button" class="btn btn-info btn-lg" id="myBtn"><a id="requestBtn" href="{% url 'searchoffer' %}">I want to request</a></button>
+  	</div>
+  	<h1 class="table-heading">Ending Soon</h1>
+    <table class='table table-borderless'>
+
+      <thead>
+        <tr>
+          <th colspan="2" scope="col">Offer</th>
+          <th colspan="2" scope="col">Request</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>
+          Creator: {{tName}}<br />
+          Type: {{tType}}<br />
+          Book Title: {{tTitle}}<br />
+          Author: {{tAuthor}}<br/>
+          Cost: {{tCost}}<br />
+          Offer Ends: {{tDate}}<br />
+          </td></a>
+
+          <td>
+          Creator: {{cName}}<br />
+          Type: {{cType}}<br />
+          Destination: {{cDestin}}<br />
+          Cost: {{cCost}}<br />
+          Date: {{cDate}}<br />
+          </td>
+
+          <td>
+          Creator: {{tuName}}<br />
+          Type: {{tuType}}<br />
+          Subject: {{tuSubject}}<br />
+          Cost: {{tuCost}}<br />
+          Date: {{tuDate}}<br />
+          </td>
+
+          <td>
+          Creator: {{aName}}<br />
+          Type: {{aType}}<br />
+          Activity: {{aAct}}<br />
+          Date: {{aDate}}<br />
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  <!-- </body> -->
+{% endblock %}
