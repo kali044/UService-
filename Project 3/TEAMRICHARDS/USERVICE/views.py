@@ -200,7 +200,9 @@ class CarpoolCreate(CreateView):
 
 class CarpoolUpdate(UpdateView):
     model = Carpool
-    fields = ['title','creator','description','destination','date','cost','request','offer']
+    context_object_name='carpool'
+    fields = ['title','description','destination','date','cost']
+    template_name='edit.html'
 
 class CarpoolDelete(DeleteView):
     model = Carpool
@@ -213,7 +215,9 @@ class TutorCreate(CreateView):
 
 class TutorUpdate(UpdateView):
     model = Tutor
-    fields = ['title','creator','description','date','cost','subject','request','offer']
+    context_object_name='Tutor'
+    fields = ['title','description','date','cost','subject']
+    template_name='edit.html'
 
 class TutorDelete(DeleteView):
     model = Tutor
@@ -226,7 +230,9 @@ class Textbook_TradingCreate(CreateView):
 
 class Textbook_TradingUpdate(UpdateView):
     model = Textbook_Trading
-    fields = ['title','author','description','creator','date','cost','request','offer']
+    context_object_name='textbook_trading'
+    fields = ['title','author','description','date','cost']
+    template_name='edit.html'
 
 class Textbook_TradingDelete(DeleteView):
     model = Textbook_Trading
