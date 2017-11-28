@@ -58,7 +58,7 @@
                           <td><a>{{ book.cost }}</a></td>
                           <td><a>{{ book.date}}</a></td>
                           <td><a class="badge badge-primary"  href="{{ book.get_absolute_url }}">click</a>
-                            <a class="badge badge-primary"  href="{% url 'edit' %}">edit</a></td>
+                            <a class="badge badge-primary"  href="{{ book.edit_url }}">edit</a></td>
 
                         </tr>
                       {% endfor %}
@@ -90,7 +90,7 @@
                         <td><a>{{ carpool.cost }}</a> </td>
                         <td><a>{{ carpool.date }}</a> </td>
                         <td><a class="badge badge-primary"  href="{{ carpool.get_absolute_url }}">click</a>
-                          <a class="badge badge-primary"  href="{% url 'edit' %}">edit</a></td>
+                          <a class="badge badge-primary"  href="{{ carpool.edit_url }}">edit</a></td>
                         </tr>
 
 
@@ -124,7 +124,7 @@
                         <td><a>{{ tutor.cost }}</a></td>
                         <td><a>{{ tutor.date }}</a></td>
                         <td><a class="badge badge-primary"  href="{{ tutor.get_absolute_url }}">click</a>
-                          <a class="badge badge-primary"  href="{% url 'edit' %}">edit</a></td>
+                          <a class="badge badge-primary"  href="{{ tutor.edit_url }}">edit</a></td>
                       </tr>
                   {% endfor %}
                   </tbody>
@@ -153,7 +153,7 @@
                         <td><a>{{ activity.activity }}</a></td>
                         <td><a>{{ activity.date }}</a></td>
                         <td><a class="badge badge-primary"  href="{{ activity.get_absolute_url }}">click</a>
-                          <a class="badge badge-primary"  href="{% url 'edit' %}">edit</a></td>
+                          <a class="badge badge-primary"  href="{{ activity edit_url }}">edit</a></td>
 
                       </tr>
                   {% endfor %}
