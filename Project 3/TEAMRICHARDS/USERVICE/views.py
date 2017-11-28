@@ -183,15 +183,25 @@ class ActivityCreateRequest(CreateView):
     model = Activity
     context_object_name='activity'
     fields = ['title','description','date','activity']
-    initial={'creator': '','request': True,'offer': False}
     template_name='addRequest2.html'
+
+    def form_valid(self,form):
+        form.instance.creator = self.request.user
+        form.instance.request = True
+        form.instance.offer = False
+        return super().form_valid(form)
 
 class ActivityCreateOffer(CreateView):
     model = Activity
     context_object_name='activity'
     fields = ['title','description','date','activity']
-    initial={'creator': '','request': False,'offer': True}
     template_name='addOffer2.html'
+
+    def form_valid(self,form):
+        form.instance.creator = self.request.user
+        form.instance.request = False
+        form.instance.offer = True
+        return super().form_valid(form)
 
 class ActivityUpdate(UpdateView):
     model = Activity
@@ -208,16 +218,26 @@ class CarpoolCreateRequest(CreateView):
     model = Carpool
     context_object_name='carpool'
     fields = ['title','description','destination','date','cost']
-    initial={'creator': '','request': True,'offer': False}
     template_name='addRequest2.html'
+
+    def form_valid(self,form):
+        form.instance.creator = self.request.user
+        form.instance.request = True
+        form.instance.offer = False
+        return super().form_valid(form)
 
 
 class CarpoolCreateOffer(CreateView):
     model = Carpool
     context_object_name='carpool'
     fields = ['title','description','destination','date','cost']
-    initial={'creator': '','request': False,'offer': True}
     template_name='addOffer2.html'
+
+    def form_valid(self,form):
+        form.instance.creator = self.request.user
+        form.instance.request = False
+        form.instance.offer = True
+        return super().form_valid(form)
 
 class CarpoolUpdate(UpdateView):
     model = Carpool
@@ -233,16 +253,26 @@ class TutorCreateRequest(CreateView):
     model = Tutor
     context_object_name='tutor'
     fields = ['title','description','date','cost','subject']
-    initial={'creator': '','request': True,'offer': False}
     template_name='addRequest2.html'
+
+    def form_valid(self,form):
+        form.instance.creator = self.request.user
+        form.instance.request = True
+        form.instance.offer = False
+        return super().form_valid(form)
 
 
 class TutorCreateOffer(CreateView):
     model = Tutor
     context_object_name='tutor'
     fields = ['title','description','date','cost','subject']
-    initial={'creator': '','request': False,'offer': True}
     template_name='addOffer2.html'
+
+    def form_valid(self,form):
+        form.instance.creator = self.request.user
+        form.instance.request = False
+        form.instance.offer = True
+        return super().form_valid(form)
 
 class TutorUpdate(UpdateView):
     model = Tutor
@@ -259,16 +289,26 @@ class Textbook_TradingCreateRequest(CreateView):
     model = Textbook_Trading
     context_object_name='textbook_trading'
     fields = ['title','author','description','date','cost']
-    initial={'creator': '','request': True,'offer': False}
     template_name='addRequest2.html'
+
+    def form_valid(self,form):
+        form.instance.creator = self.request.user
+        form.instance.request = True
+        form.instance.offer = False
+        return super().form_valid(form)
 
 
 class Textbook_TradingCreateOffer(CreateView):
     model = Textbook_Trading
     context_object_name='textbook_trading'
     fields = ['title','author','description','date','cost']
-    initial={'creator': '','request': False,'offer': True}
     template_name='addOffer2.html'
+
+    def form_valid(self,form):
+        form.instance.creator = self.request.user
+        form.instance.request = False
+        form.instance.offer = True
+        return super().form_valid(form)
 
 class Textbook_TradingUpdate(UpdateView):
     model = Textbook_Trading

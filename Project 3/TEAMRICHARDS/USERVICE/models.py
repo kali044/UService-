@@ -122,7 +122,7 @@ class Carpool(models.Model):
     description = models.TextField(max_length=1000, help_text="Enter a brief desciption of the service")
     destination = models.CharField(max_length=200)
     date = models.DateField(null=True, blank=True)
-    cost = models.DecimalField(max_digits=4, decimal_places=2, default=Decimal('0.00'))
+    cost = models.DecimalField(max_digits=6, decimal_places=2, default=Decimal('0.00'))
     request = models.BooleanField(default=False)
     offer = models.BooleanField(default=False)
 
@@ -229,7 +229,7 @@ class Textbook_Trading(models.Model):
     description = models.TextField(max_length=1000, help_text="Enter a brief description of the book")
     creator=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     date=models.DateField(null=True,blank=True)
-    cost=models.DecimalField(max_digits=4,decimal_places=2,default=Decimal('0.00'))
+    cost=models.DecimalField(max_digits=6,decimal_places=2,default=Decimal('0.00'))
     request=models.BooleanField(default=False)
     offer=models.BooleanField(default=False)
     # Metadata
