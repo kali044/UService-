@@ -20,10 +20,10 @@
 
                     <div id=type class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
                         <h4>Type (Select a type to continue)</h4>
-                        <button id=tutorBtn type='button' class='btn btn-default' >Tutor</button>
-                        <button id=bookBtn type='button' class='btn btn-default' > Book Buying</button>
-                        <button id=carpoolBtn type='button' class='btn btn-default' > Carpool</button>
-                        <button id=actBtn type='button' class='btn btn-default' > Activities & Sports</button>
+                        <button id=tutorBtn type='button' class='btn btn-default'> <a href="">Tutor</a></button>
+                        <button id=bookBtn type='button' class='btn btn-default' > <a href="">Book Buying</a></button>
+                        <button id=carpoolBtn type='button' class='btn btn-default' > <a href="">Carpool</a></button>
+                        <button id=actBtn type='button' class='btn btn-default' > <a href="">Activities & Sports</a></button>
                     </div>
 
                 <!--  <div id=name class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
@@ -108,14 +108,7 @@
                         </form>
 
                     </div> -->
-                </div>
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <table>
-                      {{ form.as_table }}
-                    </table>
-                    <input type="submit" value="Submit" />
-                  </form>
+               
 
            <!-- <div class=wrapper>
                     <button id='button' type='button' class='btn btn-lg btn-primary'> Create</button>
