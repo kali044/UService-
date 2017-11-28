@@ -45,10 +45,13 @@
   {% endif %}
       </ul>
 
+      {% if user.is_authenticated %}
+      {% else %}
       <ul class="nav navbar-nav navbar-right">
           <button type="button" class="btn btn-info btn-lg" id="myBtn">Sign Up</button>
       </ul>
-
+      {% endif %}
+      
       <ul class="nav navbar-nav navbar-right">
         <button type="button" class="btn btn-info btn-lg" id="myBtn2">
         {% if user.is_authenticated %}
@@ -95,42 +98,6 @@
                       </form>
                     </p>
                     <button type="button" class="btn btn-info btn-lg" id="myBtn">Create Profile</button>
-              </div>
-              <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                 </div>
-             </div>
-      </div>
-    </div>
-
-    <!-- For button2 -->
-    <div class="modal fade" id="myModal2" role="dialog">
-      <div class="modal-dialog">
-
-             <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                     <h4 class="modal-title">Log In</h4>
-                  </div>
-              <div class="modal-body">
-                    <p>
-                        <form>
-                          <label for="email"></label>
-                          <input type="email" class="form-control" placeholder='Email Address' id='email'>
-                      </form>
-                      <form>
-                          <label for="password"></label>
-                          <input type="password" class="form-control" placeholder='Password' id='password'>
-                      </form>
-                    </p>
-                    <button type="button" class="btn btn-info btn-lg" id="myBtn" value="login">
-                      {% if user.is_authenticated %}
-                        <a href="{% url 'home'%}?next={{request.path}}">Logout</a>
-                      {% else %}
-                        <a href="{% url 'home'%}?next={{request.path}}">Login</a>
-                      {% endif %}
-                    </button>
               </div>
               <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

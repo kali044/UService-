@@ -11,22 +11,22 @@
   <p>This is request/offer you publish</p>
   <ul>
   {% for book in books %}
-  <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></li>
+  <li><a href="{{ book.get_absolute_url }}" style="color:black;">{{ book.title }}</a></li>
   {% endfor %}
    </ul>
    <ul>
    {% for carpool in carpools %}
-   <li><a href="{{ carpool.get_absolute_url }}">{{ carpool.title }}</a></li>
+   <li><a href="{{ carpool.get_absolute_url }}" style="color:black;">{{ carpool.title }}</a></li>
    {% endfor %}
     </ul>
     <ul>
     {% for tutor in tutors %}
-    <li><a href="{{ tutor.get_absolute_url }}">{{ tutor.title }}</a></li>
+    <li><a href="{{ tutor.get_absolute_url }}" style="color:black;">{{ tutor.title }}</a></li>
     {% endfor %}
      </ul>
      <ul>
      {% for activity in activitys %}
-     <li><a href="{{ activity.get_absolute_url }}">{{ activity.title }}</a></li>
+     <li><a href="{{ activity.get_absolute_url }}" style="color:black;">{{ activity.title }}</a></li>
      {% endfor %}
       </ul>
 </div>
