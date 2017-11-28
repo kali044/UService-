@@ -22,10 +22,10 @@ from django.contrib.auth.models import User
 #         String for representing the Model object.
 #         """
 #         return '%s, %s' % (self.name, self.email)
-
-
-    def edit_url(self):
-        return reverse('user-Edit', args=[str(self.id)])
+    # 
+    # 
+    # def edit_url(self):
+    #     return reverse('user-Edit', args=[str(self.id)])
 
 
 class Profile(models.Model):
