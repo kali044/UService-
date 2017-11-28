@@ -1,28 +1,29 @@
 from django.db import models
 from decimal import Decimal
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
+from django.contrib.auth.models import User
 
 # Create your models here.
 
-class User(models.Model):
-    name = models.CharField(max_length=100, help_text="Name")
-    email = models.CharField(max_length=100, help_text="Email")
-    password = models.CharField(max_length=10, help_text="Password")
+# class User(models.Model):
+#     name = models.CharField(max_length=100, help_text="Name")
+#     email = models.CharField(max_length=100, help_text="Email")
+#     password = models.CharField(max_length=10, help_text="Password")
+#
+#     def get_absolute_url(self):
+#         """
+#         Returns the url to access a particular author instance.
+#         """
+#         return reverse('user-detail', args=[str(self.id)])
+#
+#
+#     def __str__(self):
+#         """
+#         String for representing the Model object.
+#         """
+#         return '%s, %s' % (self.name, self.email)
 
-    def get_absolute_url(self):
-        """
-        Returns the url to access a particular author instance.
-        """
-        return reverse('user-detail', args=[str(self.id)])
 
-
-    def __str__(self):
-        """
-        String for representing the Model object.
-        """
-        return '%s, %s' % (self.name, self.email)
-
-    
 
 class Profile(models.Model):
     """
@@ -31,7 +32,7 @@ class Profile(models.Model):
     #first_name = models.CharField(max_length=100, help_text="First Name")
     #last_name = models.CharField(max_length=100, help_text="Last Name")
     #email = models.CharField(max_length=100, help_text="johnorjane_doe@email.com")
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     review = models.CharField(max_length=500, help_text="Review")
     RATING = (
         ('vb', 'Very Bad'),
@@ -68,7 +69,7 @@ class Activity(models.Model):
     Model representing a book (but not a specific copy of a book).
     """
     title = models.CharField(max_length=200, help_text="Enter a Title")
-    creator = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
+    creator = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     description = models.TextField(max_length=1000, help_text="Enter a brief description of the book")
     date = models.DateField(null=True, blank=True)
     activity = models.CharField(max_length=200, help_text="Enter an activity")
@@ -94,7 +95,7 @@ class Activity(models.Model):
         Returns the url to access a particular author instance.
         """
         return reverse('activity-Detail', args=[str(self.id)])
-    
+
     def edit_url(self):
         return reverse('activity-Edit', args=[str(self.id)])
 
@@ -108,7 +109,7 @@ class Carpool(models.Model):
     Model representing a carpool.
     """
     title = models.CharField(max_length=200)
-    creator = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
+    creator = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     description = models.TextField(max_length=1000, help_text="Enter a brief desciption of the service")
     destination = models.CharField(max_length=200)
     date = models.DateField(null=True, blank=True)
@@ -163,7 +164,7 @@ class Tutor(models.Model):
     Model representing a tutor service
     """
     title = models.CharField(max_length=200, help_text="Enter a tutor service title" )
-    creator = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
+    creator = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     description = models.TextField(max_length=1000, help_text = "Enter a brief description of the tutor")
     date = models.DateField(null=True, blank=True)
     cost = models.DecimalField(max_digits=6, decimal_places=2, help_text="Enter the of each tutor session")
@@ -203,7 +204,7 @@ class Textbook_Trading(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
     description = models.TextField(max_length=1000, help_text="Enter a brief description of the book")
-    creator=models.ForeignKey(Profile,on_delete=models.SET_NULL,null=True)
+    creator=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     date=models.DateField(null=True,blank=True)
     cost=models.DecimalField(max_digits=4,decimal_places=2,default=Decimal('0.00'))
     request=models.BooleanField(default=False)

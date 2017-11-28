@@ -4,30 +4,31 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.models import User
 import datetime
 
 # Create your views here.
 
-from .models import User, Profile, Textbook_Trading, Carpool, Activity, Tutor
+from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor
 
-def index(request):
-    """
-    View function for home page of site.
-    """
-    # Generate counts of some of the main objects
-    num_users=User.objects.all().count()
-    num_profile=Profile.objects.all().count()
-    num_activities=Activity.objects.all().count()
-    num_tutor=Tutor.objects.all().count()
-    num_textbook_trade=Textbook_Trading.objects.all().count()
-
-    # Render the HTML template index.html with the data in the context variable
-    return render(
-        request,
-        'index.html',
-        context={'num_users':num_users,'num_profile':num_profile,
-        'num_activities':num_activities,'num_tutor':num_tutor, 'num_textbook_trade':num_textbook_trade},
-    )
+# def index(request):
+#     """
+#     View function for home page of site.
+#     """
+#     # Generate counts of some of the main objects
+#     num_users=User.objects.all().count()
+#     num_profile=Profile.objects.all().count()
+#     num_activities=Activity.objects.all().count()
+#     num_tutor=Tutor.objects.all().count()
+#     num_textbook_trade=Textbook_Trading.objects.all().count()
+#
+#     # Render the HTML template index.html with the data in the context variable
+#     return render(
+#         request,
+#         'index.html',
+#         context={'num_users':num_users,'num_profile':num_profile,
+#         'num_activities':num_activities,'num_tutor':num_tutor, 'num_textbook_trade':num_textbook_trade},
+#     )
 
 def home(request):
 
@@ -114,7 +115,7 @@ class activityDetailView(generic.DetailView):
 
 def profile(request):
 
-    name = User.objects.all()[:1].get().name
+    name = User.objects.all()[:1].get().username
     email = User.objects.all()[:1].get().email
     rating = Profile.objects.all()[:1].get().rating
     rating = dict(Profile.RATING).get(rating)
@@ -166,7 +167,7 @@ class mypublishListView(generic.ListView):
         context['carpools'] = Carpool.objects.all()
         context['tutors'] = Tutor.objects.all()
         context['activitys'] = Activity.objects.all()
-        
+
         # context['books'] = Textbook_Trading.objects.filter(creator=self.request.user)
         # context['carpools'] = Carpool.objects.filter(creator=self.request.user)
         # context['tutors'] = Tutor.objects.filter(creator=self.request.user)
@@ -237,5 +238,3 @@ class Textbook_TradingUpdate(UpdateView):
 class Textbook_TradingDelete(DeleteView):
     model = Textbook_Trading
     success_url = reverse_lazy('/home')
-
-

@@ -1,16 +1,17 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 #Register your models here.
 
-from .models import User, Profile, Textbook_Trading, Carpool, Activity, Tutor
+from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor
 
 # admin.site.register(Profile)
 
-class UserAdmin(admin.ModelAdmin):
-	list_display = ('name', 'email', 'password')
-	fields = ['name', 'email', 'password']
+# class UserAdmin(admin.ModelAdmin):
+# 	list_display = ('name', 'email', 'password')
+# 	fields = ['name', 'email', 'password']
 
 # Register the admin class with the associated model
-admin.site.register(User, UserAdmin)
+# admin.site.register(User, UserAdmin)
 
 # Define the admin class
 class ProfileAdmin(admin.ModelAdmin):
