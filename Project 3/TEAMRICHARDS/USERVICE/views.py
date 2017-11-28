@@ -66,19 +66,19 @@ def home(request):
     )
 
 def about(request):
-	return render(
+    return render(
         request,
         'about.html',
     )
 
 def addoffer(request):
-	return render(
+    return render(
         request,
         'addOffer.html',
     )
 
 def addrequest(request):
-	return render(
+    return render(
         request,
         'addRequest.html',
     )
@@ -167,7 +167,7 @@ class mypublishListView(generic.ListView):
         context['carpools'] = Carpool.objects.all()
         context['tutors'] = Tutor.objects.all()
         context['activitys'] = Activity.objects.all()
-
+        
         # context['books'] = Textbook_Trading.objects.filter(creator=self.request.user)
         # context['carpools'] = Carpool.objects.filter(creator=self.request.user)
         # context['tutors'] = Tutor.objects.filter(creator=self.request.user)
@@ -179,10 +179,20 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Activity, Tutor, Carpool, Textbook_Trading
 
-class ActivityCreate(CreateView):
+
+class ActivityCreateRequest(CreateView):
     model = Activity
-    fields = '__all__'
-    initial={'title':'A fun Activity',}
+    context_object_name='activity'
+    fields = ['title','description','date','activity']
+    initial={'creator': '','request': True,'offer': False}
+    template_name='addRequest2.html'
+
+class ActivityCreateOffer(CreateView):
+    model = Activity
+    context_object_name='activity'
+    fields = ['title','description','date','activity']
+    initial={'creator': '','request': False,'offer': True}
+    template_name='addOffer2.html'
 
 class ActivityUpdate(UpdateView):
     model = Activity
@@ -190,48 +200,85 @@ class ActivityUpdate(UpdateView):
     fields = ['title','description','date','activity']
     template_name='edit.html'
 
-    
-
 class ActivityDelete(DeleteView):
     model = Activity
     success_url = reverse_lazy('/home') #{% static 'templates/profile' %}??
-    
 
-class CarpoolCreate(CreateView):
+
+class CarpoolCreateRequest(CreateView):
     model = Carpool
-    fields = '__all__'
-    initial={'title':'Riding is better not alone!',}
+    context_object_name='carpool'
+    fields = ['title','description','destination','date','cost']
+    initial={'creator': '','request': True,'offer': False}
+    template_name='addRequest2.html'
+
+
+class CarpoolCreateOffer(CreateView):
+    model = Carpool
+    context_object_name='carpool'
+    fields = ['title','description','destination','date','cost']
+    initial={'creator': '','request': False,'offer': True}
+    template_name='addOffer2.html'
 
 class CarpoolUpdate(UpdateView):
     model = Carpool
-    fields = ['title','creator','description','destination','date','cost','request','offer']
+    context_object_name='carpool'
+    fields = ['title','description','destination','date','cost']
+    template_name='edit.html'
 
 class CarpoolDelete(DeleteView):
     model = Carpool
     success_url = reverse_lazy('/home')
 
-class TutorCreate(CreateView):
+class TutorCreateRequest(CreateView):
     model = Tutor
-    fields = '__all__'
-    initial={'title':'Teaching is fun!',}
+    context_object_name='tutor'
+    fields = ['title','description','date','cost','subject']
+    initial={'creator': '','request': True,'offer': False}
+    template_name='addRequest2.html'
+
+
+class TutorCreateOffer(CreateView):
+    model = Tutor
+    context_object_name='tutor'
+    fields = ['title','description','date','cost','subject']
+    initial={'creator': '','request': False,'offer': True}
+    template_name='addOffer2.html'
 
 class TutorUpdate(UpdateView):
     model = Tutor
-    fields = ['title','creator','description','date','cost','subject','request','offer']
+    context_object_name='tutor'
+    fields = ['title','description','date','cost','subject']
+    template_name='edit.html'
 
 class TutorDelete(DeleteView):
     model = Tutor
     success_url = reverse_lazy('/home')
 
-class Textbook_TradingCreate(CreateView):
+
+class Textbook_TradingCreateRequest(CreateView):
     model = Textbook_Trading
-    fields = '__all__'
-    initial={'title':'I want or need a book!',}
+    context_object_name='textbook_trading'
+    fields = ['title','author','description','date','cost']
+    initial={'creator': '','request': True,'offer': False}
+    template_name='addRequest2.html'
+
+
+class Textbook_TradingCreateOffer(CreateView):
+    model = Textbook_Trading
+    context_object_name='textbook_trading'
+    fields = ['title','author','description','date','cost']
+    initial={'creator': '','request': False,'offer': True}
+    template_name='addOffer2.html'
 
 class Textbook_TradingUpdate(UpdateView):
     model = Textbook_Trading
-    fields = ['title','author','description','creator','date','cost','request','offer']
+    context_object_name='textbook_trading'
+    fields = ['title','author','description','date','cost']
+    template_name='edit.html'
 
 class Textbook_TradingDelete(DeleteView):
     model = Textbook_Trading
     success_url = reverse_lazy('/home')
+
+

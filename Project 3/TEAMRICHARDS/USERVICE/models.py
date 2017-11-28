@@ -35,7 +35,7 @@ class Profile(models.Model):
     #first_name = models.CharField(max_length=100, help_text="First Name")
     #last_name = models.CharField(max_length=100, help_text="Last Name")
     #email = models.CharField(max_length=100, help_text="johnorjane_doe@email.com")
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     review = models.CharField(max_length=500, help_text="Review")
     RATING = (
         ('vb', 'Very Bad'),
@@ -101,9 +101,12 @@ class Activity(models.Model):
         Returns the url to access a particular author instance.
         """
         return reverse('activity-Detail', args=[str(self.id)])
-
+    
     def edit_url(self):
         return reverse('activity-Edit', args=[str(self.id)])
+
+    def create_url(self):
+        return reverse('activity-Create', args=[str(self.id)])
 
     def __str__(self):
         """
@@ -162,6 +165,10 @@ class Carpool(models.Model):
     def edit_url(self):
         return reverse('carpool-Edit', args=[str(self.id)])
 
+    def create_url(self):
+        return reverse('carpool-Create', args=[str(self.id)])
+
+
     def __str__(self):
         """
         String for representing the Model object.
@@ -210,6 +217,10 @@ class Tutor(models.Model):
     def edit_url(self):
         return reverse('tutor-Edit', args=[str(self.id)])
 
+    def create_url(self):
+        return reverse('tutor-Create', args=[str(self.id)])
+
+
 
 class Textbook_Trading(models.Model):
     # Fields
@@ -244,6 +255,9 @@ class Textbook_Trading(models.Model):
 
     def edit_url(self):
         return reverse('textbook-Edit', args=[str(self.id)])
+
+    def create_url(self):
+        return reverse('textbook-Create', args=[str(self.id)])
 
     def __str__(self):
         """
