@@ -151,7 +151,7 @@
                           <td><a>{{ activity.activity }}</a></td>
                           <td><a>{{ activity.date }}</a></td>
                           <td><a class="badge badge-primary"  href="{{ activity.get_absolute_url }}">click</a>
-                            <a class="badge badge-primary"  href="{% url 'edit' %}">edit</a></td>
+                            <a class="badge badge-primary"  href="{{ activity.edit_url }}">edit</a></td>
 
                         </tr>
                     {% endfor %}

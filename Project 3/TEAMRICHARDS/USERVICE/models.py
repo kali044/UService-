@@ -94,6 +94,9 @@ class Activity(models.Model):
         Returns the url to access a particular author instance.
         """
         return reverse('activity-Detail', args=[str(self.id)])
+    
+    def edit_url(self):
+        return reverse('activity-Edit', args=[str(self.id)])
 
     def __str__(self):
         """
