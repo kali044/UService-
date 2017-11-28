@@ -190,9 +190,12 @@ class ActivityUpdate(UpdateView):
     fields = ['title','description','date','activity']
     template_name='edit.html'
 
+    
+
 class ActivityDelete(DeleteView):
     model = Activity
     success_url = reverse_lazy('/home') #{% static 'templates/profile' %}??
+    
 
 class CarpoolCreate(CreateView):
     model = Carpool
@@ -201,9 +204,7 @@ class CarpoolCreate(CreateView):
 
 class CarpoolUpdate(UpdateView):
     model = Carpool
-    context_object_name='carpool'
-    fields = ['title','description','destination','date','cost']
-    template_name='edit.html'
+    fields = ['title','creator','description','destination','date','cost','request','offer']
 
 class CarpoolDelete(DeleteView):
     model = Carpool
@@ -216,9 +217,7 @@ class TutorCreate(CreateView):
 
 class TutorUpdate(UpdateView):
     model = Tutor
-    context_object_name='Tutor'
-    fields = ['title','description','date','cost','subject']
-    template_name='edit.html'
+    fields = ['title','creator','description','date','cost','subject','request','offer']
 
 class TutorDelete(DeleteView):
     model = Tutor
@@ -231,9 +230,7 @@ class Textbook_TradingCreate(CreateView):
 
 class Textbook_TradingUpdate(UpdateView):
     model = Textbook_Trading
-    context_object_name='textbook_trading'
-    fields = ['title','author','description','date','cost']
-    template_name='edit.html'
+    fields = ['title','author','description','creator','date','cost','request','offer']
 
 class Textbook_TradingDelete(DeleteView):
     model = Textbook_Trading
