@@ -10,35 +10,14 @@
         <img class="img" src="{% static 'image/logo.png' %}">
         <h1>&nbsp; &nbsp;Modify your Request!</h1>
         <p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Use this page to edit your offer or request! </p>
-    </div>
-    <div>
-      <button type="button" class="buttons">Tutor</button>
-      <button type="button" class="buttons">Book Selling</button>
-      <button type="button" class="buttons" id="focusme">Carpool</button>
-      <button type="button" class="buttons">Activities</button>
-    </div>
-   <!--  <forms>
-
-        <br><p>Change your Request Title:</p>
-        <input type="text" name="title" value="Carpool to Boston" class="mytext"><br>
-        <p>Change your Date:</p>
-        <input type="text" name="date" value={{date}} class="mytext"><br>
-        <p>Change your Cost:</p>
-        <input type="text" name="cost" value="$50" class="mytext"><br>
-        <p>Change your Description:</p>
-        <textarea name="message" name="description" rows="20" class="mytext">2 extra slots in my Toyota Rav4, room for 2 small suitcases</textarea>
-        <br>
-        <p>Click this to finalize your changes.</p>
-        <input type="submit" class= "submitbutton" value="Save your Changes!">
-        
-      <forms> -->
-    <form action="" method="post">
+         <form action="" method="post">
       {% csrf_token %}
       <table>
         {{ form.as_table }}
       </table>
       <input type="submit" value="Submit" />
     </form>
+    </div>
   </div>
 
 
