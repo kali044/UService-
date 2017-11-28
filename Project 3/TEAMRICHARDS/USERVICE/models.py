@@ -15,6 +15,9 @@ class User(models.Model):
         """
         return reverse('user-detail', args=[str(self.id)])
 
+    def edit_url(self):
+        return reverse('user-Edit', args=[str(self.id)])
+
 
     def __str__(self):
         """
@@ -47,6 +50,9 @@ class Profile(models.Model):
         Returns the url to access a particular author instance.
         """
         return reverse('profile-detail', args=[str(self.id)])
+
+    def edit_url(self):
+        return reverse('profile-Edit', args=[str(self.id)])
 
     def __str__(self):
         """
@@ -152,6 +158,9 @@ class Carpool(models.Model):
         """
         return reverse('carpool-Detail', args=[str(self.id)])
 
+    def edit_url(self):
+        return reverse('carpool-Edit', args=[str(self.id)])
+
     def __str__(self):
         """
         String for representing the Model object.
@@ -197,6 +206,9 @@ class Tutor(models.Model):
     def get_absolute_url(self):
         return reverse('tutor-Detail', args=[str(self.id)])
 
+    def edit_url(self):
+        return reverse('tutor-Edit', args=[str(self.id)])
+
 
 class Textbook_Trading(models.Model):
     # Fields
@@ -228,6 +240,9 @@ class Textbook_Trading(models.Model):
          Returns the url to access a particular instance of MyModelName.
          """
          return reverse('textbook-Detail', args=[str(self.id)])
+
+    def edit_url(self):
+        return reverse('textbook-Edit', args=[str(self.id)])
 
     def __str__(self):
         """
