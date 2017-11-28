@@ -15,6 +15,7 @@ Activity Request Details
     <div class="row">
       <div class="jumbotron">
         <div class="container">
+
           {% if activity.offer %}
           <h1 class="text-left">Activity Offered:</h1>
           {%else%}
@@ -41,6 +42,13 @@ Activity Request Details
         <button type="button" class="btn btn-lg">Contact</button>
         </div>
 
+        {%ifequal user activity.creator%}
+        <p></p>
+        <div class="text-center">
+        <h1><a class="badge badge-danger"  href="{{ activity.edit_url }}">edit</a></td></h1>
+          </div>
+          <p></p>
+        {%endifequal%}
 
         <p></p>
         {% if activity.offer %}
