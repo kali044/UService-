@@ -1,0 +1,108 @@
+{% extends "base_generic.html" %}
+{% block title %}Profile{% endblock %}
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+{% block content %}
+    <!-- <body> -->
+      <div class='container'>
+        {% if user.is_authenticated %}
+        <div class='jumbotron'>
+          <div class="row">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-md-3 col-lg-3 " align="center">
+                        <img alt="User Pic"
+                        src="{% static 'image/blankprofile.png' %}" class="img-circle img-responsive">
+                      </div>
+                      <div class=" col-md-12 col-lg-12" align="center">
+                        <table class="table table-user-information">
+                          <tbody>
+                            <tr>
+                              <td>Username</td>
+                              <td>{{ user.get_username }}</td>
+                              <td></td>
+                            </tr>
+
+                            <tr>
+                              <td>Name</td>
+                              <td>{{ user.first_name }}, {{ user.last_name }}</td>
+                            </tr>
+
+                            <tr>
+                              <td>Email</td>
+                              <td>{{ user.email }}</td>
+                            </tr>
+
+                            <tr>
+                              <td>Rating</td>
+                              <td>{{rating}}</td>
+                            </tr>
+                            <tr>
+                              <td>Review</td>
+                              <td>{{review}}</td>
+                            </tr>
+
+                          </tbody>
+                        </table>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="float-right">
+                <button type="button" class="btn btn-lg">Edit</button>
+              </div>
+              </div>
+          {% else %}
+          <div class='jumbotron'>
+            <div class="row">
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center">
+                          <img alt="User Pic"
+                          src="{% static 'image/blankprofile.png' %}" class="img-circle img-responsive">
+                        </div>
+                        <div class=" col-md-12 col-lg-12" align="center">
+                          <table class="table table-user-information">
+                            <tbody>
+                              <tr>
+                                <td>Username</td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+
+                              <tr>
+                                <td>Name</td>
+                                <td></td>
+                              </tr>
+
+                              <tr>
+                                <td>Email</td>
+                                <td></td>
+                              </tr>
+
+                              <tr>
+                                <td>Rating</td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Review</td>
+                                <td></td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          {% endif %}
+            </div>
+
+        </div>
+    <!-- </body> -->
+{% endblock %}

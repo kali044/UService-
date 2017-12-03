@@ -1,0 +1,70 @@
+{% extends "base_generic.html" %}
+{% block title %}
+{% if carpool.offer %}
+Carpool Offer Details
+{%else%}
+Carpool Request Details
+{%endif%}
+{% endblock %}
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/details.css' %}">
+{% endblock %}
+{% block content %}
+
+    <div class="row">
+      <div class="jumbotron">
+        <div class="container">
+          {% if carpool.offer %}
+          <h1 class="text-left">Carpool Offered:</h1>
+          {%else%}
+          <h1 class="text-left">Carpool Requested:</h1>
+          {%endif%}
+          <p></p>
+          <p></p>
+        <dl class="dl-horizontal">
+          <dt>Title</dt>
+          <dd>{{carpool.title}}</dd>
+          <dt>Creator:</dt>
+          <dd>{{carpool.creator}}</dd>
+          <dt>Description:</dt>
+          <dd>{{carpool.description}}</dd>
+          <dt>Date:</dt>
+          <dd>{{carpool.date}}</dd>
+          <dt>Cost:</dt>
+          <dd>{{carpool.cost}}</dd>
+          <dt>Destination:</dt>
+          <dd>{{carpool.destination}}</dd>
+        </dl>
+        </div>
+
+        <div class="text-center">
+        <button type="button" class="btn btn-lg">Contact</button>
+        </div>
+        {%ifequal user carpool.creator%}
+        <p></p>
+        <div class="text-center">
+        <h1><a class="badge badge-danger  "  href="{{ carpool.edit_url }}">edit</a></td></h1>
+          </div>
+          <p></p>
+        {%endifequal%}
+
+
+        <p></p>
+        {% if carpool.offer %}
+        <div class="text-center">
+        <button type="button" class="btn btn-lg">Review</button>
+      </div>
+        {%endif%}
+      </div>
+    </div>
+    <div class="jumbotron">
+      <input id="input" type="text">
+      <div class="text-right">
+      <button type="submit" class="btn btn-lg">Submit Comment</button>
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}

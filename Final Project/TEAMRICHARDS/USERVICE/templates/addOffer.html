@@ -1,0 +1,127 @@
+{% extends "base_generic.html" %}
+{% block title %}Add Offer{% endblock %}
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/add.css' %}">
+{% endblock %}
+{% block js %}
+{% load static %}
+<script src="{% static 'js/add.js' %}"></script>
+{% endblock %}
+{% block content %}
+  <!-- <body> -->
+      <div class='container'>
+        <div class='addOfferRequest'>
+                <div class='page-header'>
+                        <h1>Create an Offer</h1>
+                </div>
+
+                <div class='row'>
+                     
+
+                    <div id=type class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
+                        <h4>Type (Select a type to continue)</h4>
+                        <button id=tutorBtn type='button' class='btn btn-default' ><a href="{% url 'tutor-Create-o' %}">Tutor</a></button>
+                        <button id=bookBtn type='button' class='btn btn-default' ><a href="{% url 'textbook-Create-o' %}">Book Selling</a> </button>
+                        <button id=carpoolBtn type='button' class='btn btn-default' ><a href="{% url 'carpool-Create-o' %}">Carpool</a> </button>
+                        <button id=actBtn type='button' class='btn btn-default' > <a href="{% url 'activity-Create-o' %}">Activities & Sports</a></button>
+                    </div>
+
+                <!--
+                    <div id=name class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
+                        <h4>Request Name</h4>
+                        <form action="" method="post">
+                            <label for="name"></label>
+                            <input type="name" class="form-control" placeholder='Enter request name' id='name'>
+                        </form>
+                    </div>
+
+
+
+                    <div id=tutorDetails class='collapse col-lg-8 col-md-8 col-sm-10 col-xs-12' >
+                        <h4>Details</h4>
+                        <form action="" method="post">
+                                <label for="Date"></label>
+                                <input type="date" class="form-control" placeholder='Enter request name' id='date'>
+                                <label for="Subject"></label>
+                                <input type="subject" class="form-control" placeholder='Enter subject or course name' id='subject'>
+                                <label for="Cost"></label>
+                                <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
+                                <label for="Describe"></label>
+                                <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
+                        </form>
+                
+
+                    </div>
+
+                    <div id=bookDetails class='collapse col-lg-8 col-md-8 col-sm-10 col-xs-12' >
+                        <h4>Details</h4>
+                        <form action="" method="post">
+                                <label for="Date"></label>
+                                <input type="date" class="form-control" placeholder='Enter request name' id='date'>
+
+                                <label for="Book Title"></label>
+                                <input type="title" class="form-control" placeholder='Enter book title' id='title'>
+
+                                <label for="Book Author"></label>
+                                <input type="author" class="form-control" placeholder="Enter book author" id='author'>
+
+                                <label for="Cost"></label>
+                                <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
+
+                                <label for="Description"></label>
+                                <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
+                        </form>
+
+                    </div>
+
+                    <div id=carpoolDetails class='collapse col-lg-8 col-md-8 col-sm-10 col-xs-12' >
+                        <h4>Details</h4>
+                        <form action="" method="post">
+                                <label for="Date"></label>
+                                <input type="date" class="form-control" placeholder='Enter request name' id='date'>
+
+                                <label for="Destination"></label>
+                                <input type="destination" class="form-control" placeholder='Enter destination' id='destination'>
+
+                                <label for="Cost"></label>
+                                <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
+
+                                <label for="Books"></label>
+                                <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
+                        </form>
+
+                    </div>
+                    <div id=activityDetails class='collapse col-lg-8 col-md-8 col-sm-10 col-xs-12' >
+                        <h4>Details</h4>
+                        <form action="" method="post">
+                                <label for="Date"></label>
+                                <input type="date" class="form-control" placeholder='Enter request name' id='date'>
+
+                                <label for="Activity"></label>
+                                <input type="activity" class="form-control" placeholder='Enter activity' id='activity'>
+
+                                <label for="Cost"></label>
+                                <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
+
+                                <label for="Books"></label>
+                                <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
+
+                        </form>
+
+                    </div> -->
+                </div>
+    
+                
+
+       <!--     <div class=wrapper>
+
+                    <button id='button' type='submit' class='btn btn-lg btn-primary'> Create</button>
+              
+                </div> -->
+
+
+        </div>
+      </div>
+    <!-- </body> -->
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base_generic.html" %}
+{% block title %}My Publish{% endblock %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/mypublish.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Requests/Offers you published</h2>
+
+  <h3>book</h3>
+  {% if books %}
+  <ul>
+  {% for book in books %}
+  <li><a href="{{ book.get_absolute_url }}" style="color:black;">{{ book.title }}</a></li>
+  {% endfor %}
+   </ul>
+  {% else %}
+   <p>no book</p>
+  {% endif %}
+
+
+  <h3>carpool</h3>
+    {% if carpools %}
+   <ul>
+   {% for carpool in carpools %}
+   <li><a href="{{ carpool.get_absolute_url }}" style="color:black;">{{ carpool.title }}</a></li>
+   {% endfor %}
+    </ul>
+    {% else %}
+   <p>no carpool</p>
+  {% endif %}
+
+   <h3>tutor</h3>
+    {% if tutors %}
+    <ul>
+    {% for tutor in tutors %}
+    <li><a href="{{ tutor.get_absolute_url }}" style="color:black;">{{ tutor.title }}</a></li>
+    {% endfor %}
+   </ul>
+
+    {% else %}
+   <p>no tutor</p>
+   {% endif %}
+
+
+  <h3>activity</h3>
+  {% if activitys %}
+    <ul>
+     {% for activity in activitys %}
+     <li><a href="{{ activity.get_absolute_url }}" style="color:black;">{{ activity.title }}</a></li>
+     {% endfor %}
+      </ul>
+    {% else %}
+   <p>no activity</p>
+  {% endif %}
+</div>
+
+{% endblock %}

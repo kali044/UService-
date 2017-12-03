@@ -1,0 +1,26 @@
+.jumbotron {
+  background-color: white !important;
+}
+
+.about p {
+  text-align: center;
+  padding: 20px;
+}
+
+img {
+  margin: auto;
+  height: 75%;
+  width: 60%;
+}
+
+.bg-dark {
+  background-color: #607D8B !important;
+}
+
+.row {
+  margin-left: 10px;
+}
+
+h2 {
+  margin: 20px;
+}

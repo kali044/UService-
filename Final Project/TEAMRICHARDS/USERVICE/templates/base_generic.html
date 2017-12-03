@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    {% block extra_head %}{% endblock %}
+  </head>
+
+  <div id='navbar' class='navbar nav-bar-expand-md navbar-dark fixed-top bg-dark'>
+      <a href="{% url 'home' %}" class='navbar-brand'>UService</a>
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+    <a href="{% url 'searchrequest' %}" class="nav-link">
+                  Requests
+    </a>
+          </li>
+
+  <li class="nav-item active">
+    <a href="{% url 'searchoffer' %}" class="nav-link">
+                  Offers
+    </a>
+  </li>
+          <li class="nav-item active">
+              <a href="{% url 'about' %}" class="nav-link">
+                  About
+    </a>
+          </li>
+
+  {% if user.is_authenticated %}
+  <li class="nav-item active">
+    <a href="{% url 'mypublish' %}" class="nav-link">
+                  My Request/Offer
+    </a>
+  </li>
+  {% endif %}
+      </ul>
+
+      {% if user.is_authenticated %}
+      {% else %}
+      <ul class="nav navbar-nav navbar-right">
+          <button type="button" class="btn btn-info btn-lg" id="myBtn">Sign Up</button>
+      </ul>
+      {% endif %}
+      
+      <ul class="nav navbar-nav navbar-right">
+        <button type="button" class="btn btn-info btn-lg" id="myBtn2">
+        {% if user.is_authenticated %}
+          <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+        {% else %}
+          <a href="{% url 'login'%}?next={{request.path}}">Login</a>
+        {% endif %}
+        </button>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item active">
+              <a href="{% url 'profile' %}" class="navbar-right"><img src="{% static 'image/blankprofile.png' %}" style="width:40px;height:40px;"></a>
+          </li>
+      </ul>
+  </div>
+  <!-- For button1 -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+             <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">Sign Up</h4>
+                  </div>
+              <div class="modal-body">
+                    <p>
+                        <form>
+                          <label for="email"></label>
+                          <input type="email" class="form-control" placeholder='Name' id='email'>
+                      </form>
+                        <form>
+                          <label for="email"></label>
+                          <input type="email" class="form-control" placeholder='Email Address' id='email'>
+                      </form>
+                      <form>
+                          <label for="password"></label>
+                          <input type="password" class="form-control" placeholder='Password' id='password'>
+                      </form>
+                      <form>
+                          <label for="email"></label>
+                          <input type="email" class="form-control" placeholder='Confirm Password' id='email'>
+                      </form>
+                    </p>
+                    <button type="button" class="btn btn-info btn-lg" id="myBtn">Create Profile</button>
+              </div>
+              <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                 </div>
+             </div>
+      </div>
+    </div>
+    
+
+    
+
+  {% block js %}
+      {% load static %}
+      <script src="{% static 'js/home.js' %}"></script>
+  {% endblock %}
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>
