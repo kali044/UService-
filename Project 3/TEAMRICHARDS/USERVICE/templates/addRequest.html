@@ -16,7 +16,7 @@
                 </div>
 
                 <div class='row'>
-                     
+                    {%if user.is_authenticated%}
 
                     <div id=type class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
                         <h4>Type (Select a type to continue)</h4>
@@ -25,7 +25,13 @@
                         <button id=carpoolBtn type='button' class='btn btn-default' > <a href="{% url 'carpool-Create-r' %}">Carpool</a></button>
                         <button id=actBtn type='button' class='btn btn-default' > <a href="{% url 'activity-Create-r' %}">Activities & Sports</a></button>
                     </div>
-
+                    {%else%}
+                    <div>
+                    <h1>Please log in before creating a service</h1>
+                    <p></p>
+                    <h2>click <a href="{% url 'login'%}?next={{request.path}}" style="color:blue">here </a>to log in</h2>
+                  </div>
+                    {%endif%}
                 <!--  <div id=name class='col-lg-8 col-md-8 col-sm-10 col-xs-12'>
                         <h4>Request Name</h4>
                         <form action="" method="post">
@@ -40,13 +46,13 @@
                         <form action="" method="post">
                                 <label for="Date"></label>
                                 <input type="date" class="form-control" placeholder='Enter request name' id='date'>
-                        
+
                                 <label for="Subject"></label>
                                 <input type="subject" class="form-control" placeholder='Enter subject or course name' id='subject'>
-                       
+
                                 <label for="Cost"></label>
                                 <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
-            
+
                                 <label for="Describe"></label>
                                 <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
                         </form>
@@ -58,16 +64,16 @@
                         <form action="" method="post">
                                 <label for="Date"></label>
                                 <input type="date" class="form-control" placeholder='Enter request name' id='date'>
-                   
+
                                 <label for="Book Title"></label>
                                 <input type="title" class="form-control" placeholder='Enter book title' id='title'>
-                  
+
                                 <label for="Book Author"></label>
                                 <input type="author" class="form-control" placeholder="Enter book author" id='author'>
-                     
+
                                 <label for="Cost"></label>
                                 <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
-                  
+
                                 <label for="Description"></label>
                                 <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
                         </form>
@@ -79,13 +85,13 @@
                         <form action="" method="post">
                                 <label for="Date"></label>
                                 <input type="date" class="form-control" placeholder='Enter request name' id='date'>
-                      
+
                                 <label for="Destination"></label>
                                 <input type="destination" class="form-control" placeholder='Enter destination' id='destination'>
-                      
+
                                 <label for="Cost"></label>
                                 <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
-                      
+
                                 <label for="Books"></label>
                                 <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
                         </form>
@@ -96,25 +102,25 @@
                         <form>
                                 <label for="Date"></label>
                                 <input type="date" class="form-control" placeholder='Enter request name' id='date'>
-                     
+
                                 <label for="Activity"></label>
                                 <input type="activity" class="form-control" placeholder='Enter activity' id='activity'>
-                     
+
                                 <label for="Cost"></label>
                                 <input type="cost" class="form-control" placeholder='Enter cost' id='cost'>
-                      
+
                                 <label for="Books"></label>
                                 <input type="describe" class="form-control" placeholder='Enter description' id='descripition'>
                         </form>
 
                     </div> -->
-               
+
 
            <!-- <div class=wrapper>
                     <button id='button' type='button' class='btn btn-lg btn-primary'> Create</button>
                 </div> -->
 
-                
+
         </div>
       </div>
     <!-- </body> -->
