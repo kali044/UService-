@@ -9,8 +9,9 @@ import datetime
 from django.apps import apps
 # Create your views here.
 
-from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor
-
+from .forms import TextbookCommentForm, TutorCommentForm, ActivityCommentForm, CarpoolCommentForm
+from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor,  TutorComment, TextbookComment, CarpoolComment, ActivityComment
+from django.shortcuts import redirect
 # def index(request):
 #     """
 #     View function for home page of site.
