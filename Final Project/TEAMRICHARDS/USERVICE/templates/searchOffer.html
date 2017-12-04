@@ -32,10 +32,11 @@
 
             <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-book" role="tabpanel" aria-labelledby="nav-book-tab">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Enter the name of book" aria-describedby="book">
-                  <span class="input-group-addon" id="book">Search</span>
-                </div>
+                <form class="input-group" type='get' action=''>
+                  <input type="text" class="form-control" aria-describedby="book" name="q" value="Textbook_Trading"readonly>
+                  <input type="text" class="form-control" placeholder="Enter the name of book" aria-describedby="book" name="q">
+                  <button type="submit" class="input-group-addon" id="book">Search</button>
+                </form>
                   <table class="table table-hover">
                     <thead>
                       <tr>
@@ -49,7 +50,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {% for book in books %}
+                      {% for book in offerlist %}
                         <tr>
 
                           <td><a>{{ book.title }}</a></td>
@@ -67,10 +68,11 @@
                 </table>
               </div>
               <div class="tab-pane fade" id="nav-carpool" role="tabpanel" aria-labelledby="nav-carpool-tab">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Enter the departure/destination" aria-describedby="carpool">
-                  <span class="input-group-addon" id="carpool">Search</span>
-                </div>
+                <form class="input-group">
+                  <input type="text" class="form-control" aria-describedby="book" name="q" value="Carpool"readonly>
+                    <input type="text" class="form-control" placeholder="Enter the departure/destination" aria-describedby="carpool">
+                  <button type="submit" class="input-group-addon" id="carpool">Search</button>
+                </form>
                   <table class="table table-hover">
                     <thead>
                       <tr>
@@ -103,10 +105,11 @@
                 </table>
               </div>
               <div class="tab-pane fade" id="nav-tutorial" role="tabpanel" aria-labelledby="nav-tutorial-tab">
-                <div class="input-group">
+                <form class="input-group">
+                  <input type="text" class="form-control" aria-describedby="book" name="q" value="Tutor"readonly>
                   <input type="text" class="form-control" placeholder="Enter the name of subject" aria-describedby="tutorial">
-                  <span class="input-group-addon" id="tutorial">Search</span>
-                </div>
+                  <button type="submit" class="input-group-addon" id="tutorial">Search</button>
+                </form>
                 <table class="table table-hover">
                   <thead>
                     <tr>
@@ -136,10 +139,11 @@
               </table>
             </div>
               <div class="tab-pane fade" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
-                <div class="input-group">
+                <form class="input-group">
+                  <input type="text" class="form-control" aria-describedby="book" name="q" value="Activity"readonly>
                   <input type="text" class="form-control" placeholder="Enter the name of activity" aria-describedby="activity">
-                  <span class="input-group-addon" id="activity">Search</span>
-                </div>
+                  <button type="submit" class="input-group-addon" id="activity">Search</button>
+                </form>
                 <table class="table table-hover">
                   <thead>
                     <tr>

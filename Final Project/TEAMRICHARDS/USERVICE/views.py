@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.models import User
 import datetime
-
+from django.apps import apps
 # Create your views here.
 
 from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor
@@ -118,7 +118,7 @@ def profile(request):
 
     name = User.objects.all()[:1].get().username
     email = User.objects.all()[:1].get().email
-    
+
     rating = Profile.objects.filter(user=request.user).get().rating
     rating = dict(Profile.RATING).get(rating)
     review = Profile.objects.filter(user=request.user).get().review
@@ -135,7 +135,7 @@ def profile(request):
 class offerListView(generic.ListView):
     context_object_name = "offerlist"
     template_name = 'searchOffer.html'
-    queryset = Textbook_Trading.objects.all()
+    model = Textbook_Trading
     def get_context_data(self, **kwargs):
         context = super(offerListView, self).get_context_data(**kwargs)
         context['books'] = Textbook_Trading.objects.filter(offer=True)
@@ -144,11 +144,25 @@ class offerListView(generic.ListView):
         context['activitys'] = Activity.objects.filter(offer=True)
         # And so on for more models
         return context
+    def get_queryset(self):
+        getrequestlist = self.request.GET.getlist('q',None)
+        if len(getrequestlist) > 1:
+            model = apps.get_model('USERVICE',getrequestlist[0])
+            search_query = getrequestlist[1]
+        else:
+            model = apps.get_model('USERVICE','Textbook_Trading')
+            search_query = None
+        print(self.request.GET.getlist('q'))
+        if search_query:
+            return model.objects.filter(offer=True).filter(title__icontains = search_query)
+        else:
+            return model.objects.filter(offer=True)
+
 
 class requestListView(generic.ListView):
     context_object_name = "requestlist"
     template_name = 'searchRequest.html'
-    queryset = Textbook_Trading.objects.all()
+    model = Textbook_Trading
     def get_context_data(self, **kwargs):
         context = super(requestListView, self).get_context_data(**kwargs)
         context['books'] = Textbook_Trading.objects.filter(request=True)
@@ -157,6 +171,19 @@ class requestListView(generic.ListView):
         context['activitys'] = Activity.objects.filter(request=True)
         # And so on for more models
         return context
+    def get_queryset(self):
+        getrequestlist = self.request.GET.getlist('q',None)
+        if len(getrequestlist) > 1:
+            model = apps.get_model('USERVICE',getrequestlist[0])
+            search_query = getrequestlist[1]
+        else:
+            model = apps.get_model('USERVICE','Textbook_Trading')
+            search_query = None
+        print(self.request.GET.getlist('q'))
+        if search_query:
+            return model.objects.filter(request=True).filter(title__icontains = search_query)
+        else:
+            return model.objects.filter(request=True)
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 class mypublishListView(LoginRequiredMixin,generic.ListView):
@@ -319,5 +346,3 @@ class Textbook_TradingUpdate(UpdateView):
 class Textbook_TradingDelete(DeleteView):
     model = Textbook_Trading
     success_url = reverse_lazy('/home')
-
-
