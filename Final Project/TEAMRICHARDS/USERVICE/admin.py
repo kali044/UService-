@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 #Register your models here.
 
-from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor, TutorComment, TextbookComment, CarpoolComment, ActivityComment
+from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor
 
 # admin.site.register(Profile)
 
@@ -42,7 +42,3 @@ class ActivityAdmin(admin.ModelAdmin):
 class TutorAdmin (admin.ModelAdmin):
     list_display = ('title', 'creator', 'date', 'cost', 'subject','request','offer')
     fields = ['title', 'creator', 'date', 'cost', 'subject', 'description','request','offer']
-admin.site.register(TutorComment)
-admin.site.register(TextbookComment)
-admin.site.register(CarpoolComment)
-admin.site.register(ActivityComment)

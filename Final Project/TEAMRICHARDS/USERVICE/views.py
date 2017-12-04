@@ -8,9 +8,8 @@ from django.contrib.auth.models import User
 import datetime
 from django.apps import apps
 # Create your views here.
-from .forms import TextbookCommentForm, TutorCommentForm, ActivityCommentForm, CarpoolCommentForm
-from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor,  TutorComment, TextbookComment, CarpoolComment, ActivityComment
-from django.shortcuts import redirect
+
+from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor
 
 # def index(request):
 #     """
@@ -347,66 +346,3 @@ class Textbook_TradingUpdate(UpdateView):
 class Textbook_TradingDelete(DeleteView):
     model = Textbook_Trading
     success_url = reverse_lazy('/home')
-
-class CreateProfile(CreateView):
-    model = Profile
-    context_object_name='profile'
-    fields = ['user']
-
-    def form_valid(self,form):
-        form.instance.review = 'Not bad'
-        form.instance.RATING = 'Good'
-        return super().form_valid(form)
-
-def add_comment_to_book(request, pk):
-    post = get_object_or_404(Textbook_Trading, pk=pk)
-    if request.method == "POST":
-        form = TextbookCommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-            return redirect('textbook-Detail', pk=post.pk)
-    else:
-        form =TextbookCommentForm()
-    return render(request, 'USERVICE/addComment.html', {'form': form})
-
-def add_comment_to_carpool(request, pk):
-    post = get_object_or_404(Carpool, pk=pk)
-    if request.method == "POST":
-        form = CarpoolCommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-            return redirect('carpool-Detail', pk=post.pk)
-    else:
-        form =CarpoolCommentForm()
-    return render(request, 'USERVICE/addComment.html', {'form': form})
-
-def add_comment_to_tutor(request, pk):
-    post = get_object_or_404(Tutor, pk=pk)
-    if request.method == "POST":
-        form = TutorCommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-            return redirect('tutor-Detail', pk=post.pk)
-    else:
-        form =TutorCommentForm()
-    return render(request, 'USERVICE/addComment.html', {'form': form})
-
-def add_comment_to_activity(request, pk):
-    post = get_object_or_404(Activity, pk=pk)
-    if request.method == "POST":
-        form = ActivityCommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-            return redirect('activity-Detail', pk=post.pk)
-    else:
-        form =ActivityCommentForm()
-    return render(request, 'USERVICE/addComment.html', {'form': form})
-

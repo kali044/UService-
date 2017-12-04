@@ -52,20 +52,18 @@ Textbook Request Details
 
 
         <p></p>
-
-    <hr>
-{% for comment in book.comments.all %}
-    <div class="comment">
-        <div class="date">{{ comment.created_date }}</div>
-        <strong>{{ comment.author }}</strong>
-        <p>{{ comment.text|linebreaks }}</p>
+        {% if book.offer %}
+        <div class="text-center">
+        <button type="button" class="btn btn-lg">Review</button>
+      </div>
+        {%endif%}
+      </div>
     </div>
-{% empty %}
-    <p>No comments here yet :(</p>
-{% endfor %}
-  <div class="text-center">
-    <button type="button" class="btn btn-lg"><a href="{% url 'add_comment_to_book' pk=book.pk %}">Add Comments</button>
-  </div>
+    <div class="jumbotron">
+      <input id="input" type="text">
+      <div class="text-right">
+      <button type="submit" class="btn btn-lg">Submit Comment</button>
+    </div>
   </div>
   </div>
 </div>

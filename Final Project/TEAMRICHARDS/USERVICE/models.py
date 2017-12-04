@@ -2,7 +2,6 @@ from django.db import models
 from decimal import Decimal
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
 from django.contrib.auth.models import User
-from django.utils import timezone
 
 # Create your models here.
 
@@ -23,8 +22,8 @@ from django.utils import timezone
 #         String for representing the Model object.
 #         """
 #         return '%s, %s' % (self.name, self.email)
-    #
-    #
+    # 
+    # 
     # def edit_url(self):
     #     return reverse('user-Edit', args=[str(self.id)])
 
@@ -102,7 +101,7 @@ class Activity(models.Model):
         Returns the url to access a particular author instance.
         """
         return reverse('activity-Detail', args=[str(self.id)])
-
+    
     def edit_url(self):
         return reverse('activity-Edit', args=[str(self.id)])
 
@@ -266,59 +265,3 @@ class Textbook_Trading(models.Model):
         """
 
         return self.title
-
-class TutorComment(models.Model):
-    post = models.ForeignKey(Tutor, related_name='comments')
-    text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
-    approved_comment = models.BooleanField(default=False)
-
-    def approve(self):
-        self.approved_comment = True
-        self.save()
-
-    def __str__(self):
-        return self.text
-
-
-class TextbookComment(models.Model):
-    post = models.ForeignKey(Textbook_Trading, related_name='comments')
-    text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
-    approved_comment = models.BooleanField(default=False)
-
-    def approve(self):
-        self.approved_comment = True
-        self.save()
-
-    def __str__(self):
-        return self.text
-
-
-
-
-class CarpoolComment(models.Model):
-    post = models.ForeignKey(Carpool, related_name='comments')
-    text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
-    approved_comment = models.BooleanField(default=False)
-
-    def approve(self):
-        self.approved_comment = True
-        self.save()
-
-    def __str__(self):
-        return self.text
-
-class ActivityComment(models.Model):
-    post = models.ForeignKey(Activity, related_name='comments')
-    text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
-    approved_comment = models.BooleanField(default=False)
-
-    def approve(self):
-        self.approved_comment = True
-        self.save()
-
-    def __str__(self):
-        return self.text

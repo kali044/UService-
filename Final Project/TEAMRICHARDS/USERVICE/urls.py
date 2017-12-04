@@ -35,8 +35,4 @@ urlpatterns = [
     url(r'^textbook_trading/create_offer/$', views.Textbook_TradingCreateOffer.as_view(), name='textbook-Create-o'),
     url(r'^textbook_trading/(?P<pk>\d+)/update/$', views.Textbook_TradingUpdate.as_view(), name='textbook-Edit'),
     url(r'^textbook_trading/(?P<pk>\d+)/delete/$', views.Textbook_TradingDelete.as_view(), name='textbook_trading_delete'),
-    url(r'^textbook/(?P<pk>\d+)/comment/$', views.add_comment_to_book, name='add_comment_to_book'),
-    url(r'^carpool/(?P<pk>\d+)/comment/$', views.add_comment_to_carpool, name='add_comment_to_carpool'),
-    url(r'^tutor/(?P<pk>\d+)/comment/$', views.add_comment_to_tutor, name='add_comment_to_tutor'),
-    url(r'^activity/(?P<pk>\d+)/comment/$', views.add_comment_to_activity, name='add_comment_to_activity'),
 ]
