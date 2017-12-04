@@ -346,3 +346,13 @@ class Textbook_TradingUpdate(UpdateView):
 class Textbook_TradingDelete(DeleteView):
     model = Textbook_Trading
     success_url = reverse_lazy('/home')
+
+class CreateProfile(CreateView):
+    model = Profile
+    context_object_name='profile'
+    fields = ['user']
+
+    def form_valid(self,form):
+        form.instance.review = 'Not bad'
+        form.instance.RATING = 'Good'
+        return super().form_valid(form)

@@ -90,3 +90,7 @@ a, a:active, a:hover {
 .fixed-top{
 	height: 70px;
 }
+
+.form.label[for=submit]{
+	color: white;
+}

@@ -59,21 +59,24 @@
       {% endif %}
       
       <ul class="nav navbar-nav navbar-right">
-        <button type="button" class="btn btn-info btn-lg" id="myBtn2">
         {% if user.is_authenticated %}
+          <button type="button" class="btn btn-info btn-lg" id="myBtn3">
           <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
         {% else %}
-          <a href="{% url 'login'%}?next={{request.path}}">Login</a>
+          <button type="button" class="btn btn-info btn-lg" id="myBtn2">Log In</button>
         {% endif %}
         </button>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        {% if user.is_authenticated %}
           <li class="nav-item active">
               <a href="{% url 'profile' %}" class="navbar-right"><img src="{% static 'image/blankprofile.png' %}" style="width:40px;height:40px;"></a>
           </li>
+        {% endif %}
       </ul>
   </div>
+
   <!-- For button1 -->
     <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog">
@@ -111,9 +114,65 @@
              </div>
       </div>
     </div>
-    
 
-    
+
+    <!-- For button2 -->
+      <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Log In</h4>
+                </div>
+                <div class="modal-body">
+                  <div class='center'>
+                    {% if form.errors %}
+                      <p>Your username and password didn't match. Please try again.</p>
+                    {% endif %}
+
+                    {% if next %}
+                        {% if user.is_authenticated %}
+                          <p>Your account doesn't have access to this page. To proceed,
+                          please login with an account that has access.</p>
+                        {% else %}
+                          <p>Please login to see this page.</p>
+                          {% endif %}
+                        {% endif %}
+                    </div>
+
+                    <form method="post" action="/accounts/login/">
+                      {% csrf_token %}
+
+                      <div class="center">
+                        <label for="id_username">Username</label>
+                        <input type="text" class="form-control" name="username" autofocus="" maxlength="254" required="" id="id_username">
+                      </div>
+                      <div class="center">
+                        <label for="id_password">Password</label>
+                        <input type="password" class="form-control"name="password" required="" id="id_password">
+                      </div>
+                      <label for="submit"></label>
+                      <div class="center">
+                        <input type="submit" class="btn btn-default" value="login" />
+                        <input type="hidden" name="next" value="{{ next }}" />
+                      </div>
+                    </form>
+
+                    {# Assumes you setup the password_reset view in your URLconf #}
+                    <div class="center">
+                      <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+                    </div>
+                </p>
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+          </div>
+        </div>
+      </div>
 
   {% block js %}
       {% load static %}
