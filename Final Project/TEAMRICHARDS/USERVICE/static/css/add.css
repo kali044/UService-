@@ -1,3 +1,4 @@
+
 .bg-dark{
     background-color: #607D8B!important;
 }
@@ -24,7 +25,15 @@
 
 
 .page-header{
-    padding: 20px
+    padding: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.page-header > h1{
+    font-size: 35px;
+    margin-bottom: 0px;
+    color: #212121;
 }
 
 .addOfferRequest {
@@ -63,6 +72,15 @@
     justify-content: center;
 }
 a, a:active, a:hover {
-    color: black;
+    color: #212121;
     text-decoration: none;
+}
+
+#myBtn2 > a {
+    color:white;
+}
+
+
+#type{
+    padding-top:0px;
 }
