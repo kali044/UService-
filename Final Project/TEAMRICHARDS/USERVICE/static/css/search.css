@@ -27,3 +27,22 @@
 #clickable{
   color: black;
 }
+
+.btn-outline-danger{
+  color:#212121;
+  border-color: #212121;
+}
+
+.btn-outline-danger:hover {
+  background-color: #212121;
+  border-color: #212121;
+}
+
+.btn-outline-danger:focus {
+  box-shadow: 0 0 0 3px rgba(77, 77, 77, 0.5);
+}
+
+.btn-secondary{
+  background-color: #9E9E9E;
+  border-color: #9E9E9E;
+}
