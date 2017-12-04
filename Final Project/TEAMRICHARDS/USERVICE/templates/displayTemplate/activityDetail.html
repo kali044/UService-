@@ -51,18 +51,18 @@ Activity Request Details
         {%endifequal%}
 
         <p></p>
-        {% if activity.offer %}
-        <div class="text-center">
-        <button type="button" class="btn btn-lg">Review</button>
-      </div>
-        {%endif%}
-
-      </div>
-    </div>
-    <div class="jumbotron">
-      <input id="input" type="text">
-      <div class="text-right">
-      <button type="submit" class="btn btn-lg">Submit Comment</button>
+        <hr>
+    {% for comment in activity.comments.all %}
+        <div class="comment">
+            <div class="date">{{ comment.created_date }}</div>
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+        </div>
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
+      <div class="text-center">
+        <button type="button" class="btn btn-lg"><a href="{%url 'add_comment_to_activity' pk=activity.pk%}">Add Comments</button>
     </div>
   </div>
   </div>

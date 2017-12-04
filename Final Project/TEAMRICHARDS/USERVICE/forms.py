@@ -1,10 +1,12 @@
 from django import forms
 from django.core.exceptions import ValidationError
 import datetime
-    
+from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor,  TutorComment, TextbookComment, CarpoolComment, ActivityComment
+
+
 class EditTitleForm(forms.Form):
 	new_title = forms.CharField(help_text = "Enter new title.")
-	
+
 	def clean_new_date(self):
 		data = self.cleaned_data['new_title']
 		return data
@@ -42,3 +44,23 @@ class EditDescriptionForm(forms.Form):
 		data = self.cleaned_data['new_description']
 		return data
 
+class TextbookCommentForm(forms.ModelForm):
+
+    class Meta:
+        model = TextbookComment
+        fields = ('text',)
+class CarpoolCommentForm(forms.ModelForm):
+
+    class Meta:
+        model = CarpoolComment
+        fields = ('text',)
+class TutorCommentForm(forms.ModelForm):
+
+    class Meta:
+        model = TutorComment
+        fields = ('text',)
+class ActivityCommentForm(forms.ModelForm):
+
+    class Meta:
+        model = ActivityComment
+        fields = ('text',)
