@@ -1,3 +1,7 @@
+.container{
+  margin-top: 20px;
+}
+
 .jumbotron {
   background-color: white !important;
 }
@@ -9,8 +13,12 @@
 
 img {
   margin: auto;
-  height: 75%;
-  width: 60%;
+  
+}
+
+.profileimg{
+  height: auto;
+  max-width: 60%;
 }
 
 .bg-dark {
@@ -23,4 +31,25 @@ img {
 
 h2 {
   margin: 20px;
+  margin-top:30px;
+  font-size: 50px;
+  text-align: center;
+  color: #607D8B;
+}
+
+p{
+  font-size: 20px;
+}
+
+span{
+  font-family: 'Pacifico', cursive;
+}
+
+p{
+  color:#757575
+}
+
+h3{
+  font-size: 30px;
+  color:#757575
 }

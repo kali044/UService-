@@ -12,9 +12,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'image/favicon.ico' %}"/>
+    
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <title>{% block title %}{% endblock %}</title>
-    {% load static %}
+    
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     {% block extra_head %}{% endblock %}
   </head>
