@@ -18,7 +18,7 @@
 
 
                 <form class="input-group" type='GET' action=''>
-                  <select id="modelfields" name="modelfields">
+                  <select id="modelfields" name="modelfields" onChange="form.submit();">
                    <option value="Textbook_Trading"  {%ifequal request.GET.modelfields "Textbook_Trading" %}selected="selected"{%endifequal%}>Textbook_Trading</option>
                    <option value="Carpool"{%ifequal request.GET.modelfields "Carpool" %}selected="selected"{%endifequal%}>Carpool</option>
                    <option value="Tutor"{%ifequal request.GET.modelfields "Tutor" %}selected="selected"{%endifequal%}>Tutor</option>
