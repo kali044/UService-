@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.views import generic
-
+from django.views.generic.base import TemplateView
 from . import views
 
 
@@ -40,5 +40,7 @@ urlpatterns = [
     url(r'^tutor/(?P<pk>\d+)/comment/$', views.add_comment_to_tutor, name='add_comment_to_tutor'),
     url(r'^activity/(?P<pk>\d+)/comment/$', views.add_comment_to_activity, name='add_comment_to_activity'),
     url(r'^password_reset_form/', views.password_reset_form, name='password_reset_form'),
-
+    url(r'^password_reset_confirm/', views.password_reset_confirm, name='password_reset_confirm'),
+    url(r'^password_reset_done_done/', views.password_reset_done, name='password_reset_done_done'),
+    url(r'^password_reset_email/', views.password_reset_email, name='password_reset_email'),
 ]

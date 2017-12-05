@@ -135,7 +135,7 @@ def profile(request):
 class offerListView(generic.ListView):
     context_object_name = "offerlist"
     template_name = 'searchOffer.html'
-   
+
     def get_queryset(self):
         if self.request.method == 'GET':
             model = Textbook_Trading
@@ -147,12 +147,12 @@ class offerListView(generic.ListView):
                 return model.objects.filter(offer=True).filter(title__icontains = search_query)
             else:
                 return model.objects.filter(offer=True)
-    
+
 
 class requestListView(generic.ListView):
     context_object_name = "requestlist"
     template_name = 'searchRequest.html'
-   
+
     def get_queryset(self):
         if self.request.method == 'GET':
             model = Textbook_Trading
@@ -418,20 +418,29 @@ def password_reset_form(request):
                         mail_subject, message, to=[query]
             )
             email.send()
-            return HttpResponse('Please confirm your email address to complete the registration')
+            return HttpResponseRedirect(reverse('password_reset_done_done'))
+    else:
+        form = PasswordResetForm() # An unbound form
     return render(
         request,
-        'registration/password.html'
+        'registration/password.html', {
+        'form': form,
+    })
+
+def password_reset_email(request):
+    return render(
+        request,
+        'registration/password_reset_email.html'
     )
 
-# def password_reset_email(request):
-#     return render(
-#         request,
-#         'registration/password_reset_email.html'
-#     )
-# 
-# def password_reset_confirm(request):
-#     return render(
-#         request,
-#         'registration/password_reset_confirm.html'
-#     )
+def password_reset_confirm(request):
+    return render(
+        request,
+        'registration/password_reset_confirm.html'
+    )
+
+def password_reset_done(request):
+    return render(
+        request,
+        'registration/password_reset_done_done.html'
+    )

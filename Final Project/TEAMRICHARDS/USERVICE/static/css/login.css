@@ -3,6 +3,12 @@
     padding-left: 40%;
 }
 
+
 .center p {
   margin-top: 30%;
+}
+
+.done p {
+    margin-top: 10%;
+    padding-left: 2%;
 }
