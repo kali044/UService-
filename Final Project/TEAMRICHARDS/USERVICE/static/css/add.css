@@ -84,3 +84,9 @@ a, a:active, a:hover {
 #type{
     padding-top:0px;
 }
+
+#new{
+    background-color: #455A64;
+	border-color: #455A64;
+	color: white;
+}
