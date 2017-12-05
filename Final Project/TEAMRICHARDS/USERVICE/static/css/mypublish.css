@@ -1,6 +1,8 @@
 .container{
   padding-top: 80px;
   padding-bottom: 40px;
+  position: relative;
+  text-align:center;
 }
 
 
@@ -8,6 +10,7 @@ h2 {
   font-size: 30px;
   text-align: left;
   color: #607D8B;
+  text-align:center;
 }
 
 h3{
@@ -20,4 +23,40 @@ h3{
 p{
  
   color:#212121;
+}
+
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 320px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-flex;
+  
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+
+  
+}
+
+#book{
+  background:
+  url('/static/image/book.png')bottom right 15% no-repeat rgb(29, 60, 88);
+}
+
+#tutor{
+  background:
+  url('/static/image/cap.png')bottom right 15% no-repeat rgb(29, 60, 88);
+}
+
+#carpool{
+  background:
+  url('/static/image/car.png')bottom right 15% no-repeat rgb(29, 60, 88);
+}
+
+#activity{
+  background:
+  url('/static/image/soccer.png')bottom right 15% no-repeat rgb(29, 60, 88);
 }

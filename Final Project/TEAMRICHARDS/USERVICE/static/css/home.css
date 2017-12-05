@@ -108,6 +108,17 @@ table {
 	font-size: 20px;
 }
 
+.container{
+	position: relative;
+	display: inline-flex;
+	text-align:center;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left:0px;
+	padding-right:0px;
+	left:5% 	
+}
+
 .demo-card-square.mdl-card {
 	width: 280px;
 	height: 250px;
@@ -120,3 +131,4 @@ table {
 	background:
 	#CFD8DC;
   }
+

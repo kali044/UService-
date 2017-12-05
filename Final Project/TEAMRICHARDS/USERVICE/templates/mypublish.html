@@ -10,52 +10,89 @@
 <div class="container">
   <h2>Requests/Offers you published</h2>
 
-  <h3>Book</h3>
-  {% if books %}
-  <ul>
-  {% for book in books %}
-  <li><a href="{{ book.get_absolute_url }}" style="color:black;">{{ book.title }}</a></li>
-  {% endfor %}
-   </ul>
-  {% else %}
-   <p>no book</p>
-  {% endif %}
-
-
-  <h3>Carpool</h3>
-    {% if carpools %}
-   <ul>
-   {% for carpool in carpools %}
-   <li><a href="{{ carpool.get_absolute_url }}" style="color:black;">{{ carpool.title }}</a></li>
-   {% endfor %}
+  <div class="demo-card-square mdl-card mdl-shadow--2dp">
+    <div id="book" class="mdl-card__title mdl-card--expand">
+      <h2 class="mdl-card__title-text">Book</h2>
+    </div>
+    {% if books %}
+    <ul></ul>
+    {% for book in books %}
+    <div class="mdl-card__supporting-text">
+      <li><a href="{{ book.get_absolute_url }}" style="color:black;">{{ book.title }}</a></li>
+    </div>
+    {% endfor %}
     </ul>
     {% else %}
-   <p>no carpool</p>
-  {% endif %}
+    <div class="mdl-card__supporting-text">
+      <p>no book</p>
+    </div>
+    {% endif %}
+  </div>
 
-   <h3>Tutor</h3>
-    {% if tutors %}
-    <ul>
-    {% for tutor in tutors %}
-    <li><a href="{{ tutor.get_absolute_url }}" style="color:black;">{{ tutor.title }}</a></li>
+
+  <div class="demo-card-square mdl-card mdl-shadow--2dp">
+    <div id="carpool" class="mdl-card__title mdl-card--expand">
+      <h2 class="mdl-card__title-text">Carpool</h2>
+    </div>
+    {% if carpools %}
+    <ul></ul>
+    {% for carpool in carpools %}
+    <div class="mdl-card__supporting-text">
+      <li><a href="{{ carpool.get_absolute_url }}" style="color:black;">{{ carpool.title }}</a></li>
+    </div>
     {% endfor %}
-   </ul>
-
+    </ul>
     {% else %}
-   <p>no tutor</p>
-   {% endif %}
+    <div class="mdl-card__supporting-text">
+      <p>no carpool</p>
+    </div>
+    {% endif %}
+  </div>
 
-
-  <h3>Activity</h3>
-  {% if activitys %}
-    <ul>
-     {% for activity in activitys %}
-     <li><a href="{{ activity.get_absolute_url }}" style="color:black;">{{ activity.title }}</a></li>
-     {% endfor %}
-      </ul>
+  <div class="demo-card-square mdl-card mdl-shadow--2dp">
+    <div id="tutor" class="mdl-card__title mdl-card--expand">
+      <h2 class="mdl-card__title-text">Tutor</h2>
+    </div>
+    {% if tutors %}
+    <ul></ul>
+    {% for tutor in tutors %}
+    <div class="mdl-card__supporting-text">
+      <li><a href="{{ tutor.get_absolute_url }}" style="color:black;">{{ tutor.title }}</a></li>
+    </div>
+    {% endfor %}
+    </ul>
     {% else %}
-   <p>no activity</p>
-  {% endif %}
-</div>
+    <div class="mdl-card__supporting-text">
+      <p>no tutor</p>
+    </div>
+    {% endif %}
+  </div>
+
+
+
+  <div class="demo-card-square mdl-card mdl-shadow--2dp">
+    <div id="activity" class="mdl-card__title mdl-card--expand">
+      <h2 class="mdl-card__title-text">Activity</h2>
+    </div>
+    {% if activitys %}
+    <ul></ul>
+    {% for activity in activitys %}
+    <div class="mdl-card__supporting-text">
+      <li><a href="{{ activity.get_absolute_url }}" style="color:black;">{{ activity.title }}</a></li>
+    </div>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <div class="mdl-card__supporting-text">
+      <p>no activity</p>
+    </div>
+    {% endif %}
+  </div>
+
+
+
 
 {% endblock %}
+
+</div> 
+  

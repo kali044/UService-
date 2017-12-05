@@ -80,6 +80,10 @@ a, a:active, a:hover {
     color:white;
 }
 
+#myBtn3 > a {
+    color:white;
+}
+
 
 #type{
     padding-top:0px;
