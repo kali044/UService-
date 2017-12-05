@@ -132,59 +132,38 @@ def profile(request):
     )
 
 
-
 class offerListView(generic.ListView):
     context_object_name = "offerlist"
     template_name = 'searchOffer.html'
-    model = Textbook_Trading
-    def get_context_data(self, **kwargs):
-        context = super(offerListView, self).get_context_data(**kwargs)
-        context['books'] = Textbook_Trading.objects.filter(offer=True)
-        context['carpools'] = Carpool.objects.filter(offer=True)
-        context['tutors'] = Tutor.objects.filter(offer=True)
-        context['activitys'] = Activity.objects.filter(offer=True)
-        # And so on for more models
-        return context
+   
     def get_queryset(self):
-        getrequestlist = self.request.GET.getlist('q',None)
-        if len(getrequestlist) > 1:
-            model = apps.get_model('USERVICE',getrequestlist[0])
-            search_query = getrequestlist[1]
-        else:
-            model = apps.get_model('USERVICE','Textbook_Trading')
-            search_query = None
-        print(self.request.GET.getlist('q'))
-        if search_query:
-            return model.objects.filter(offer=True).filter(title__icontains = search_query)
-        else:
-            return model.objects.filter(offer=True)
-
+        if self.request.method == 'GET':
+            model = Textbook_Trading
+            modelfields = self.request.GET.get('modelfields',None)
+            search_query = self.request.GET.get('q',None)
+            if modelfields:
+                model = apps.get_model('USERVICE',modelfields)
+            if search_query and modelfields:
+                return model.objects.filter(offer=True).filter(title__icontains = search_query)
+            else:
+                return model.objects.filter(offer=True)
+    
 
 class requestListView(generic.ListView):
     context_object_name = "requestlist"
     template_name = 'searchRequest.html'
-    model = Textbook_Trading
-    def get_context_data(self, **kwargs):
-        context = super(requestListView, self).get_context_data(**kwargs)
-        context['books'] = Textbook_Trading.objects.filter(request=True)
-        context['carpools'] = Carpool.objects.filter(request=True)
-        context['tutors'] = Tutor.objects.filter(request=True)
-        context['activitys'] = Activity.objects.filter(request=True)
-        # And so on for more models
-        return context
+   
     def get_queryset(self):
-        getrequestlist = self.request.GET.getlist('q',None)
-        if len(getrequestlist) > 1:
-            model = apps.get_model('USERVICE',getrequestlist[0])
-            search_query = getrequestlist[1]
-        else:
-            model = apps.get_model('USERVICE','Textbook_Trading')
-            search_query = None
-        print(self.request.GET.getlist('q'))
-        if search_query:
-            return model.objects.filter(request=True).filter(title__icontains = search_query)
-        else:
-            return model.objects.filter(request=True)
+        if self.request.method == 'GET':
+            model = Textbook_Trading
+            modelfields = self.request.GET.get('modelfields',None)
+            search_query = self.request.GET.get('q',None)
+            if modelfields:
+                model = apps.get_model('USERVICE',modelfields)
+            if search_query and modelfields:
+                return model.objects.filter(request=True).filter(title__icontains = search_query)
+            else:
+                return model.objects.filter(request=True)
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 class mypublishListView(LoginRequiredMixin,generic.ListView):

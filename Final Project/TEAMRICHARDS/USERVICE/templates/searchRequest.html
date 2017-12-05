@@ -21,22 +21,23 @@
 
             </div>
             <div class="col-lg-8 col-md-6">
-              <nav class="nav nav-tabs" id="myTab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-book-tab" data-toggle="tab" href="#nav-book" role="tab" aria-controls="nav-home" aria-expanded="true">Book</a>
-                <a class="nav-item nav-link" id="nav-carpool-tab" data-toggle="tab" href="#nav-carpool" role="tab" aria-controls="nav-carpool">Carpool</a>
-                <a class="nav-item nav-link" id="nav-tutorial-tab" data-toggle="tab" href="#nav-tutorial" role="tab" aria-controls="nav-tutorial">Tutorial</a>
-                <a class="nav-item nav-link" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity">Activity</a>
+            
 
 
-
-              <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-book" role="tabpanel" aria-labelledby="nav-book-tab">
-                  <form class="input-group" type='get' action=''>
-                    <input type="text" class="form-control" aria-describedby="book" name="q" value="Textbook_Trading"readonly>
-                    <input type="text" class="form-control" placeholder="Enter the name of book" aria-describedby="book" name="q">
-                    <button type="submit" class="input-group-addon" id="book">Search</button>
-                  </form>
-                    <table class="table table-hover">
+          
+                <form class="input-group" type='GET' action=''>
+                  <select id="modelfields" name="modelfields">
+                   <option value="Textbook_Trading"  {%ifequal request.GET.modelfields "Textbook_Trading" %}selected="selected"{%endifequal%}>Textbook_Trading</option>
+                   <option value="Carpool"{%ifequal request.GET.modelfields "Carpool" %}selected="selected"{%endifequal%}>Carpool</option>
+                   <option value="Tutor"{%ifequal request.GET.modelfields "Tutor" %}selected="selected"{%endifequal%}>Tutor</option>
+                   <option value="Activity"{%ifequal request.GET.modelfields "Activity" %}selected="selected"{%endifequal%}>Activity</option>
+                  
+                  </select>                 
+                   <input type="text" class="form-control" placeholder="Enter the name of title" aria-describedby="book" name="q">
+                  <button type="submit" class="input-group-addon" id="book">Search</button>
+                </form>
+                {%ifequal request.GET.modelfields "Textbook_Trading" %}
+                   <table class="table table-hover">
                       <thead>
                         <tr>
 
@@ -65,14 +66,9 @@
                         {% endfor %}
                       </tbody>
                   </table>
-                </div>
-                <div class="tab-pane fade" id="nav-carpool" role="tabpanel" aria-labelledby="nav-carpool-tab">
-                  <form class="input-group">
-                    <input type="text" class="form-control" aria-describedby="book" name="q" value="Carpool"readonly>
-                      <input type="text" class="form-control" placeholder="Enter the departure/destination" aria-describedby="carpool">
-                    <button type="submit" class="input-group-addon" id="carpool">Search</button>
-                  </form>
-                    <table class="table table-hover">
+                {%endifequal%}
+                {%ifequal request.GET.modelfields "Carpool" %}
+                  <table class="table table-hover">
                       <thead>
                         <tr>
                           <th>Title</th>
@@ -84,7 +80,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        {% for carpool in carpools %}
+                        {% for carpool in requestlist %}
                           <tr>
                             <td><a>{{ carpool.title }}</a> </td>
                           <td><a>{{ carpool.creator }}</a> </td>
@@ -102,13 +98,8 @@
 
                       </tbody>
                   </table>
-                </div>
-                <div class="tab-pane fade" id="nav-tutorial" role="tabpanel" aria-labelledby="nav-tutorial-tab">
-                  <form class="input-group">
-                    <input type="text" class="form-control" aria-describedby="book" name="q" value="Tutor"readonly>
-                    <input type="text" class="form-control" placeholder="Enter the name of subject" aria-describedby="tutorial">
-                    <button type="submit" class="input-group-addon" id="tutorial">Search</button>
-                  </form>
+                {%endifequal%}
+                {%ifequal request.GET.modelfields "Tutor" %}
                   <table class="table table-hover">
                     <thead>
                       <tr>
@@ -121,7 +112,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {% for tutor in tutors %}
+                      {% for tutor in requestlist %}
                         <tr>
                           <td><a>{{ tutor.title }}</a></td>
                           <td><a>{{ tutor.subject }}</a></td>
@@ -136,43 +127,38 @@
                     {% endfor %}
                     </tbody>
                 </table>
-              </div>
-                <div class="tab-pane fade" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
-                  <form class="input-group">
-                    <input type="text" class="form-control" aria-describedby="book" name="q" value="Activity"readonly>
-                    <input type="text" class="form-control" placeholder="Enter the name of activity" aria-describedby="activity">
-                    <button type="submit" class="input-group-addon" id="activity">Search</button>
-                  </form>
+                {%endifequal%}
+                {%ifequal request.GET.modelfields "Activity" %}
                   <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>Title</th>
-                        <th>Creator</th>
-                        <th>Activity</th>
-                        <th>Date</th>
-                        <th>Detail</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {% for activity in activitys %}
+                      <thead>
                         <tr>
-                          <td><a>{{ activity.title }}</a></td>
-                          <td><a>{{ activity.creator}}</a></td>
-                          <td><a>{{ activity.activity }}</a></td>
-                          <td><a>{{ activity.date }}</a></td>
-                          <td><a class="badge badge-primary"  href="{{ activity.get_absolute_url }}">click</a>
-                            {%ifequal user activity.creator%}
-                            <a class="badge badge-primary"  href="{{ activity.edit_url }}">edit</a></td>
-                            {%endifequal%}
-
+                          <th>Title</th>
+                          <th>Creator</th>
+                          <th>Activity</th>
+                          <th>Date</th>
+                          <th>Detail</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-                </div>
+                      </thead>
+                      <tbody>
+                        {% for activity in requestlist %}
+                          <tr>
+                            <td><a>{{ activity.title }}</a></td>
+                            <td><a>{{ activity.creator}}</a></td>
+                            <td><a>{{ activity.activity }}</a></td>
+                            <td><a>{{ activity.date }}</a></td>
+                            <td><a class="badge badge-primary"  href="{{ activity.get_absolute_url }}">click</a>
+                              {%ifequal user activity.creator%}
+                              <a class="badge badge-primary"  href="{{ activity.edit_url }}">edit</a></td>
+                              {%endifequal%}
 
+                          </tr>
+                      {% endfor %}
+                      </tbody>
+                  </table>
+                {%endifequal%}
+
+                  
               </div>
-            </div>
           <div class="col-lg-2 col-md-3">
             <div class="alert alert-secondary" role="alert">
               Can't find what you want?

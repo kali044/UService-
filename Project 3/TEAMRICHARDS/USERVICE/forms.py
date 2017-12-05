@@ -41,4 +41,3 @@ class EditDescriptionForm(forms.Form):
 	def clean_new_description(self):
 		data = self.cleaned_data['new_description']
 		return data
-
