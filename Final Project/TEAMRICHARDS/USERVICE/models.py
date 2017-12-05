@@ -296,9 +296,6 @@ class TextbookComment(models.Model):
     def __str__(self):
         return self.text
 
-
-
-
 class CarpoolComment(models.Model):
     post = models.ForeignKey(Carpool, related_name='comments')
     text = models.TextField()
@@ -326,3 +323,6 @@ class ActivityComment(models.Model):
 
     def __str__(self):
         return self.text
+    
+class PasswordReset(models.Model):
+    email = models.CharField(max_length=100)

@@ -39,4 +39,6 @@ urlpatterns = [
     url(r'^carpool/(?P<pk>\d+)/comment/$', views.add_comment_to_carpool, name='add_comment_to_carpool'),
     url(r'^tutor/(?P<pk>\d+)/comment/$', views.add_comment_to_tutor, name='add_comment_to_tutor'),
     url(r'^activity/(?P<pk>\d+)/comment/$', views.add_comment_to_activity, name='add_comment_to_activity'),
+    url(r'^password_reset_form/', views.password_reset_form, name='password_reset_form'),
+
 ]
