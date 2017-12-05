@@ -347,6 +347,7 @@ class Textbook_TradingUpdate(UpdateView):
 class Textbook_TradingDelete(DeleteView):
     model = Textbook_Trading
     success_url = reverse_lazy('/home')
+@login_required
 def add_comment_to_book(request, pk):
     post = get_object_or_404(Textbook_Trading, pk=pk)
     if request.method == "POST":
@@ -360,7 +361,7 @@ def add_comment_to_book(request, pk):
     else:
         form =TextbookCommentForm()
     return render(request, 'USERVICE/addComment.html', {'form': form})
-
+@login_required
 def add_comment_to_carpool(request, pk):
     post = get_object_or_404(Carpool, pk=pk)
     if request.method == "POST":
@@ -374,7 +375,7 @@ def add_comment_to_carpool(request, pk):
     else:
         form =CarpoolCommentForm()
     return render(request, 'USERVICE/addComment.html', {'form': form})
-
+@login_required
 def add_comment_to_tutor(request, pk):
     post = get_object_or_404(Tutor, pk=pk)
     if request.method == "POST":
@@ -388,7 +389,7 @@ def add_comment_to_tutor(request, pk):
     else:
         form =TutorCommentForm()
     return render(request, 'USERVICE/addComment.html', {'form': form})
-
+@login_required
 def add_comment_to_activity(request, pk):
     post = get_object_or_404(Activity, pk=pk)
     if request.method == "POST":
