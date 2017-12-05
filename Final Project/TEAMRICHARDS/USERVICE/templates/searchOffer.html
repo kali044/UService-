@@ -22,22 +22,22 @@
 
           </div>
           <div class="col-lg-8 col-md-6">
-            
 
 
-          
+
+
                 <form class="input-group" type='GET' action=''>
                   <select id="modelfields" name="modelfields">
                    <option value="Textbook_Trading"  {%ifequal request.GET.modelfields "Textbook_Trading" %}selected="selected"{%endifequal%}>Textbook_Trading</option>
                    <option value="Carpool"{%ifequal request.GET.modelfields "Carpool" %}selected="selected"{%endifequal%}>Carpool</option>
                    <option value="Tutor"{%ifequal request.GET.modelfields "Tutor" %}selected="selected"{%endifequal%}>Tutor</option>
                    <option value="Activity"{%ifequal request.GET.modelfields "Activity" %}selected="selected"{%endifequal%}>Activity</option>
-                  
-                  </select>                 
+
+                  </select>
                    <input type="text" class="form-control" placeholder="Enter the name of title" aria-describedby="book" name="q">
                   <button type="submit" class="input-group-addon" id="book">Search</button>
                 </form>
-                {%ifequal request.GET.modelfields "Textbook_Trading" %}
+                {%if request.GET.modelfields == "Textbook_Trading" %}
                    <table class="table table-hover">
                       <thead>
                         <tr>
@@ -67,8 +67,8 @@
                         {% endfor %}
                       </tbody>
                   </table>
-                {%endifequal%}
-                {%ifequal request.GET.modelfields "Carpool" %}
+
+                {%elif request.GET.modelfields == "Carpool" %}
                   <table class="table table-hover">
                       <thead>
                         <tr>
@@ -99,8 +99,8 @@
 
                       </tbody>
                   </table>
-                {%endifequal%}
-                {%ifequal request.GET.modelfields "Tutor" %}
+
+                {%elif request.GET.modelfields == "Tutor" %}
                   <table class="table table-hover">
                     <thead>
                       <tr>
@@ -128,8 +128,8 @@
                     {% endfor %}
                     </tbody>
                 </table>
-                {%endifequal%}
-                {%ifequal request.GET.modelfields "Activity" %}
+
+                {%elif request.GET.modelfields == "Activity" %}
                   <table class="table table-hover">
                       <thead>
                         <tr>
@@ -156,13 +156,41 @@
                       {% endfor %}
                       </tbody>
                   </table>
-                {%endifequal%}
+                {%else%}
+                <table class="table table-hover">
+                   <thead>
+                     <tr>
 
-                  
+                       <th>Title</th>
+                       <th>Author</th>
+                       <th>Creator</th>
+                       <th>Cost</th>
+                       <th>Date</th>
+                       <th>Detail</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     {% for book in offerlist %}
+                       <tr>
+
+                         <td><a>{{ book.title }}</a></td>
+                         <td><a>{{ book.author }}</a></td>
+                         <td><a>{{ book.creator}}</a></td>
+                         <td><a>{{ book.cost }}</a></td>
+                         <td><a>{{ book.date}}</a></td>
+                         <td><a class="badge badge-primary"  href="{{ book.get_absolute_url }}">click</a>
+                           {%ifequal user book.creator%}
+                           <a class="badge badge-primary"  href="{{ book.edit_url }}">edit</a></td>
+                           {%endifequal%}
+                       </tr>
+                     {% endfor %}
+                   </tbody>
+               </table>
+              {%endif%}
               </div>
-             
 
-           
+
+
           <div class="col-lg-2 col-md-3">
             <div class="alert alert-secondary" role="alert">
               Can't find what you want?
