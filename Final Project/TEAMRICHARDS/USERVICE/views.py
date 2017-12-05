@@ -354,6 +354,7 @@ def add_comment_to_book(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment.author=request.user.username
             comment.save()
             return redirect('textbook-Detail', pk=post.pk)
     else:
@@ -367,6 +368,7 @@ def add_comment_to_carpool(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment.author=request.user.username
             comment.save()
             return redirect('carpool-Detail', pk=post.pk)
     else:
@@ -380,6 +382,7 @@ def add_comment_to_tutor(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment.author=request.user.username
             comment.save()
             return redirect('tutor-Detail', pk=post.pk)
     else:
@@ -393,6 +396,7 @@ def add_comment_to_activity(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment.author=request.user.username
             comment.save()
             return redirect('activity-Detail', pk=post.pk)
     else:

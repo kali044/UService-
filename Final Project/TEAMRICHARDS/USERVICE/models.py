@@ -270,6 +270,7 @@ class Textbook_Trading(models.Model):
 class TutorComment(models.Model):
     post = models.ForeignKey(Tutor, related_name='comments')
     text = models.TextField()
+    author = models.CharField(max_length=200,blank=True,default='')
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 
@@ -284,6 +285,7 @@ class TutorComment(models.Model):
 class TextbookComment(models.Model):
     post = models.ForeignKey(Textbook_Trading, related_name='comments')
     text = models.TextField()
+    author = models.CharField(max_length=200,blank=True,default='')
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 
@@ -300,6 +302,7 @@ class TextbookComment(models.Model):
 class CarpoolComment(models.Model):
     post = models.ForeignKey(Carpool, related_name='comments')
     text = models.TextField()
+    author = models.CharField(max_length=200,blank=True,default='')
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 
@@ -313,6 +316,7 @@ class CarpoolComment(models.Model):
 class ActivityComment(models.Model):
     post = models.ForeignKey(Activity, related_name='comments')
     text = models.TextField()
+    author = models.CharField(max_length=200,blank=True,default='')
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 
