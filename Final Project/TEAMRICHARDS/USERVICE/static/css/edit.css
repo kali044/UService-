@@ -8,56 +8,30 @@
   color:#bcbcbc;
   width:80%
 }
-.mytext:focus, .mytext:hover,.mytext:active{
-	color:#000000;
-	border-color:#FF5A5F;
-	outline: none;
-}
-.mytext .textarea{
- width:800px;
-}
-.buttons{
-	color: #FFFFFF;
-	width: 200px;
-	height:60px;
-	background-color: #ADD8E6;
-    border: none;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: .3rem;
-    box-shadow: 0 6px #27496d;
 
+	
+
+.edit {
+    background-color: rgba(173, 173, 173, 0.466)!important;
+    margin-top: 6rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	padding: 20px;
 }
-.buttons:active,.buttons:focus{
-	background-color:#0d98ba;
-	outline:none;
-	box-shadow: 0 3px #27496d;
+
+.edit h1{
+    clear:both;
+	text-align: center;
+	font-size: 40px;
+	padding-top:10px;
+	color:#607D8B;
 }
-.jumbotron h1{
-	color: #000000;
-	font-weight: bold;
-	font-size:300%;
+
+.btn, btn-lg{
+	background-color: #455A64;
+	border-color: #455A64;
+	color: white;
 }
-.submitbutton{
-	background-color: #FF5A5F;
-    border-color: #FFFFFF;
-    color:#FFFFFF;
-    width: 200px;
-	height:50px;
-	border-radius: .3rem;
-	outline: none;
-}
+
 p{
 	font-size: 130%;
-}
-.img{
-	float:left;
-	height: 100px;
-	width: 100px;
-	clear: both;
-	display: inline;
-	position: relative;
 }
