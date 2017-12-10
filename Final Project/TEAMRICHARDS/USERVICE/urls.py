@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.views import generic
 from django.views.generic.base import TemplateView
 from . import views
-
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
@@ -39,8 +39,9 @@ urlpatterns = [
     url(r'^carpool/(?P<pk>\d+)/comment/$', views.add_comment_to_carpool, name='add_comment_to_carpool'),
     url(r'^tutor/(?P<pk>\d+)/comment/$', views.add_comment_to_tutor, name='add_comment_to_tutor'),
     url(r'^activity/(?P<pk>\d+)/comment/$', views.add_comment_to_activity, name='add_comment_to_activity'),
-    url(r'^password_reset_form/', views.password_reset_form, name='password_reset_form'),
-    url(r'^password_reset_confirm/', views.password_reset_confirm, name='password_reset_confirm'),
-    url(r'^password_reset_done_done/', views.password_reset_done, name='password_reset_done_done'),
-    url(r'^password_reset_email/', views.password_reset_email, name='password_reset_email'),
+    url(r'^password_reset/$', auth_views.password_reset, name='password_reset'),
+    url(r'^password_reset/done/$', auth_views.password_reset_done, name='password_reset_done'),
+    url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        auth_views.password_reset_confirm, name='password_reset_confirm'),
+    url(r'^reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
 ]

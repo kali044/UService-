@@ -4,11 +4,11 @@ import datetime
 from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor,  TutorComment, TextbookComment, CarpoolComment, ActivityComment
 from .models import PasswordReset
 
-class PasswordResetForm(forms.ModelForm):
-#fields
-	class Meta:
-		model = PasswordReset
-		fields = '__all__'
+# class PasswordResetForm(forms.ModelForm):
+# #fields
+# 	class Meta:
+# 		model = PasswordReset
+# 		fields = '__all__'
 		
 class EditTitleForm(forms.Form):
 	new_title = forms.CharField(help_text = "Enter new title.")

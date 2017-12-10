@@ -31,13 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'USERVICE.apps.UserviceConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'USERVICE.apps.UserviceConfig',
+    
 ]
 
 MIDDLEWARE = [
@@ -122,11 +124,11 @@ STATIC_URL = '/static/'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
-
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'teamrichards326@gmail.com'
+EMAIL_HOST_USER = 'teamrichards326'
 EMAIL_HOST_PASSWORD = 'compsci326'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'TestSite Team <noreply@example.com>'
+SERVER_EMAIL = 'teamrichards326@gmail.com'
