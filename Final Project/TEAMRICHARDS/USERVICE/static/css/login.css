@@ -1,15 +1,28 @@
-.passwordcomplete h1 {
-	margin-top: 10px;
+.confirmcontainter{
+    margin-top: 20px; 
+    padding-top: 50px;
+    margin-left: 20px;
+}
+
+.btn, btn-info, btn-lg{
+    background-color: #9E9E9E;
+    border-color: #9E9E9E;
+}
+
+.passwordcomplete {
+    margin-top: 20px;
+    padding-top: 50px;
+    padding-left: 20px;
 }
 
 .center {
     margin-top: 5%;
-    padding-left: 40%;
+    padding-left: 2%;
 }
-
 
 .center p {
   margin-top: 30%;
+  padding-left: 2%;
 }
 
 .done p {
