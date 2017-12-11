@@ -15,8 +15,8 @@ from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor, TutorCo
 
 # Define the admin class
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'rating', 'review')
-    fields = ['user', 'rating', 'review']
+    list_display = ('user','bio','phone_number')
+    fields = ['user', 'bio','phone_number']
 
 # Register the admin class with the associated model
 admin.site.register(Profile, ProfileAdmin)

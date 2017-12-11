@@ -39,7 +39,7 @@ Tutor Request Details
         </div>
 
         <div class="text-center">
-        <button type="button" class="btn btn-lg">Contact</button>
+        <button type="button" class="btn btn-lg"><a href='{%url 'profile' pk=tutor.creator.pk%}'>Contact</a></button>
         </div>
         {%ifequal user tutor.creator%}
         <p></p>

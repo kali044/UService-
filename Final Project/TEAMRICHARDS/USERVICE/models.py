@@ -3,31 +3,7 @@ from decimal import Decimal
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
 from django.contrib.auth.models import User
 from django.utils import timezone
-
-# Create your models here.
-
-# class User(models.Model):
-#     name = models.CharField(max_length=100, help_text="Name")
-#     email = models.CharField(max_length=100, help_text="Email")
-#     password = models.CharField(max_length=10, help_text="Password")
-#
-#     def get_absolute_url(self):
-#         """
-#         Returns the url to access a particular author instance.
-#         """
-#         return reverse('user-detail', args=[str(self.id)])
-#
-#
-#     def __str__(self):
-#         """
-#         String for representing the Model object.
-#         """
-#         return '%s, %s' % (self.name, self.email)
-    #
-    #
-    # def edit_url(self):
-    #     return reverse('user-Edit', args=[str(self.id)])
-
+from django.core.validators import RegexValidator
 
 class Profile(models.Model):
     """
@@ -37,21 +13,14 @@ class Profile(models.Model):
     #last_name = models.CharField(max_length=100, help_text="Last Name")
     #email = models.CharField(max_length=100, help_text="johnorjane_doe@email.com")
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    review = models.CharField(max_length=500, help_text="Review")
-    RATING = (
-        ('vb', 'Very Bad'),
-        ('b', 'Bad'),
-        ('g', 'Good'),
-        ('vg', 'Very Good'),
-    )
-
-    rating = models.CharField(max_length=1, choices=RATING, blank=True, default='vb', help_text='Rate Me')
-
+    bio=models.TextField(max_length=500,blank=True)
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list                            error_message = ("Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."))
     def get_absolute_url(self):
         """
         Returns the url to access a particular author instance.
         """
-        return reverse('profile-detail', args=[str(self.id)])
+        return reverse('profile', args=[str(self.id)])
 
     def edit_url(self):
         return reverse('profile-Edit', args=[str(self.id)])
@@ -62,13 +31,7 @@ class Profile(models.Model):
         """
         return '%s' % (self.user)
 
-    #not sure if this works
-    def edit_profile(self, new_user):
-        # Create a new record using the model's constructor.
-        self.user = new_user
-        # Save the object into the database.
-        self.user.save()
-        return
+
 
 
 class Activity(models.Model):
@@ -83,19 +46,6 @@ class Activity(models.Model):
     request = models.BooleanField(default=False)
     offer = models.BooleanField(default=False)
 
-    def modifyTitle(self, title2):
-        self.title = title2
-
-    def modifyDescription(self,desc2):
-        self.description = desc2
-
-
-    def modifyDate(self,date2):
-        self.date = date2
-
-
-    def modifyActivity(self,act2):
-        self.activity = act2
 
     def get_absolute_url(self):
         """
@@ -127,35 +77,6 @@ class Carpool(models.Model):
     request = models.BooleanField(default=False)
     offer = models.BooleanField(default=False)
 
-    def edit_title(self, new_title):
-        """
-        Edit title for the Carpool.
-        """
-        self.title = new_title
-
-    def edit_description(self, new_desciption):
-        """
-        Edit desciption for the Carpool.
-        """
-        self.desciption = new_desciption
-
-    def edit_destination(self, new_destination):
-        """
-        Edit destination for the Carpool.
-        """
-        self.destination = new_destination
-
-    def edit_date(self, new_date):
-        """
-        Edit date for the Carpool.
-        """
-        self.date = new_date
-
-    def edit_cost(self, new_cost):
-        """
-        Edit cost for the Carpool.
-        """
-        self.cost = new_cost
 
     def get_absolute_url(self):
         """
@@ -189,25 +110,6 @@ class Tutor(models.Model):
     request = models.BooleanField(default=False)
     offer = models.BooleanField(default=False)
 
-    def editTitle(newTitle, self):
-        if (newTitle!=None):
-            self.title = newTitle
-
-    def editDescription(newDesc, self):
-        if (newDesc != None):
-            self.description = newDesc
-
-    def editDate(newDate, self):
-        if (newDate != None):
-            self.date = newDate
-
-    def editCost(newCost, self):
-        if (newCost != None):
-            self.cost = newCost
-
-    def editSubject(newSubject, self):
-        if (newSubject != None):
-            self.subject = newSubject
 
     def __str__(self):
         return self.title
@@ -234,18 +136,6 @@ class Textbook_Trading(models.Model):
     request=models.BooleanField(default=False)
     offer=models.BooleanField(default=False)
     # Metadata
-    def edit_title(self,newTitle):
-        self.title=newTitle
-    def edit_author(self,new_Author):
-        self.author=new_Author
-    def edit_description(self,new_description):
-        self.description=new_description
-    def edit_creator(self,new_creator):
-        self.creator=new_creator
-    def edit_data(self,newDate):
-        self.date=newDate
-    def edit_cost(self,newCost):
-        self.cost=newCost
 
     # Methods
     def get_absolute_url(self):
@@ -272,11 +162,7 @@ class TutorComment(models.Model):
     text = models.TextField()
     author = models.CharField(max_length=200,blank=True,default='')
     created_date = models.DateTimeField(default=timezone.now)
-    approved_comment = models.BooleanField(default=False)
 
-    def approve(self):
-        self.approved_comment = True
-        self.save()
 
     def __str__(self):
         return self.text
@@ -287,11 +173,7 @@ class TextbookComment(models.Model):
     text = models.TextField()
     author = models.CharField(max_length=200,blank=True,default='')
     created_date = models.DateTimeField(default=timezone.now)
-    approved_comment = models.BooleanField(default=False)
 
-    def approve(self):
-        self.approved_comment = True
-        self.save()
 
     def __str__(self):
         return self.text
@@ -301,11 +183,7 @@ class CarpoolComment(models.Model):
     text = models.TextField()
     author = models.CharField(max_length=200,blank=True,default='')
     created_date = models.DateTimeField(default=timezone.now)
-    approved_comment = models.BooleanField(default=False)
 
-    def approve(self):
-        self.approved_comment = True
-        self.save()
 
     def __str__(self):
         return self.text
@@ -315,14 +193,10 @@ class ActivityComment(models.Model):
     text = models.TextField()
     author = models.CharField(max_length=200,blank=True,default='')
     created_date = models.DateTimeField(default=timezone.now)
-    approved_comment = models.BooleanField(default=False)
 
-    def approve(self):
-        self.approved_comment = True
-        self.save()
 
     def __str__(self):
         return self.text
-    
+
 class PasswordReset(models.Model):
     email = models.CharField(max_length=100)

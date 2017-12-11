@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+{% block title %}edit profile{% endblock %}
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/add.css' %}">
+{% endblock %}
+{% block js %}
+{% load static %}
+{% endblock %}
+{% block content %}
+  <!-- <body> -->
+      <div class='container'>
+        <div class='addOfferRequest'>
+                <div class='page-header'>
+
+                </div>
+
+
+                <div class='row'>
+                        <form action="" method="post">
+                                {% csrf_token %}
+                                <table>
+                                  {{ form.as_table }}
+                                </table>
+                                <input type="submit" value="Submit" />
+                              </form>
+                                            </div>
+{% endblock %}

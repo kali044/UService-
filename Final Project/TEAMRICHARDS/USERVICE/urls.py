@@ -15,7 +15,8 @@ urlpatterns = [
     url(r'^tutorDetail/(?P<pk>\d+)$', views.tutorDetailView.as_view(), name='tutor-Detail'),
     url(r'^textbookDetail/(?P<pk>\d+)$', views.textbookDetailView.as_view(), name='textbook-Detail'),
     url(r'^activityDetail/(?P<pk>\d+)$', views.activityDetailView.as_view(), name='activity-Detail'),
-    url(r'^profile/', views.profile, name='profile'),
+    url(r'^profile/(?P<pk>\d+)$', views.profileDetailView.as_view(), name='profile'),
+    url(r'^profile/(?P<pk>\d+)/edit/$', views.ProfileUpdate.as_view(), name='profile_Edit'),
     url(r'^searchoffer/$', views.offerListView.as_view(), name='searchoffer'),
     url(r'^searchrequest/$', views.requestListView.as_view(), name='searchrequest'),
     url(r'^mypublish/$', views.mypublishListView.as_view(), name='mypublish'),
@@ -44,4 +45,6 @@ urlpatterns = [
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         auth_views.password_reset_confirm, name='password_reset_confirm'),
     url(r'^reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
+
+
 ]

@@ -12,24 +12,9 @@ from django.apps import apps
 from .forms import TextbookCommentForm, TutorCommentForm, ActivityCommentForm, CarpoolCommentForm
 from .models import Profile, Textbook_Trading, Carpool, Activity, Tutor,  TutorComment, TextbookComment, CarpoolComment, ActivityComment
 from django.shortcuts import redirect
-# def index(request):
-#     """
-#     View function for home page of site.
-#     """
-#     # Generate counts of some of the main objects
-#     num_users=User.objects.all().count()
-#     num_profile=Profile.objects.all().count()
-#     num_activities=Activity.objects.all().count()
-#     num_tutor=Tutor.objects.all().count()
-#     num_textbook_trade=Textbook_Trading.objects.all().count()
-#
-#     # Render the HTML template index.html with the data in the context variable
-#     return render(
-#         request,
-#         'index.html',
-#         context={'num_users':num_users,'num_profile':num_profile,
-#         'num_activities':num_activities,'num_tutor':num_tutor, 'num_textbook_trade':num_textbook_trade},
-#     )
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from .models import Activity, Tutor, Carpool, Textbook_Trading
 
 def home(request):
 
@@ -114,22 +99,29 @@ class activityDetailView(generic.DetailView):
     template_name='displayTemplate/activityDetail.html'
 
 from django.contrib.auth.decorators import login_required
-@login_required
-def profile(request):
+from django.utils.decorators import method_decorator
 
-    name = User.objects.all()[:1].get().username
-    email = User.objects.all()[:1].get().email
+@method_decorator(login_required, name='dispatch')
+class profileDetailView(generic.DetailView):
+    model=Profile
+    context_object_name='profile'
+    template_name='profile.html'
+    def get_context_data(self, **kwargs):
+        context = super(profileDetailView, self).get_context_data(**kwargs)
 
-    rating = Profile.objects.filter(user=request.user).get().rating
-    rating = dict(Profile.RATING).get(rating)
-    review = Profile.objects.filter(user=request.user).get().review
+        user = User.objects.get(id=self.request.user.pk)
+        context['email']=user.email
+        context['first_name']=user.first_name
+        context['last_name']=user.last_name
+        context['username']=user.get_username
+        return context
 
-    return render(
-        request,
-        'profile.html',
-        context={'name':name, 'email': email,'rating': rating, 'review':review
-        },
-    )
+class ProfileUpdate(UpdateView):
+    model = Profile
+    fields = ['phone_number','bio']
+    template_name='editProfile.html'
+    def get_absolute_url(self):
+        return reverse('profile', kwargs={'pk': self.pk})
 
 
 class offerListView(generic.ListView):
@@ -181,9 +173,6 @@ class mypublishListView(LoginRequiredMixin,generic.ListView):
         # And so on for more models
         return context
 
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
-from .models import Activity, Tutor, Carpool, Textbook_Trading
 
 
 class ActivityCreateRequest(CreateView):
